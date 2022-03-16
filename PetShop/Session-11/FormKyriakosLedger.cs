@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PetShopLibrary;
 
 namespace Session_11
 {
@@ -15,6 +16,11 @@ namespace Session_11
         public FormKyriakosLedger()
         {
             InitializeComponent();
+        }
+
+        private void FormKyriakosLedger_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

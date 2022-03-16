@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
-    interface IMonthlyLedger
+    public interface IMonthlyLedger
     {
         public int Year { get; set; }
         public int Month { get; set; }
