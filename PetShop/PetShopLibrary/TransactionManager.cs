@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
-    internal class ClassKyriakos
+    internal class TransactionManager
     {
     }
 }
