@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
+    public enum AnimalType { dog, cat, parrot}
     public interface IPetReport
     {
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public enum AnimalType { dog, cat, parrot }
+        int Year { get; set; }
+        int Month { get; set; }
+        AnimalType Type { get; set; }
 
-        public int TotalSold { get; set; }
+        int TotalSold { get; set; }
     }
 
 
@@ -21,13 +22,14 @@ namespace PetShopLibrary
     {
         public int Year { get; set; }
         public int Month { get; set; }
-        public enum AnimalType { dog, cat, parrot }
-
+        public AnimalType Type { get; set; }
         public int TotalSold { get; set; }
+        
 
-        public PetReport()
+        public PetReport(int year, int month, List<Transaction> transactions)
         {
-
+            Year = year;
+            Month = month;
         }
     }
 }
