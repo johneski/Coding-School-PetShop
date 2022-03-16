@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
-    interface IPetReport
+    public interface IPetReport
     {
         public int Year { get; set; }
         public int Month { get; set; }
@@ -17,7 +17,7 @@ namespace PetShopLibrary
 
 
 
-    internal class PetReport:IPetReport
+    public class PetReport:IPetReport
     {
         public int Year { get; set; }
         public int Month { get; set; }
