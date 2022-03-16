@@ -14,24 +14,23 @@ namespace PetShopLibrary
         public decimal Expences { get; set; }
 
         public decimal Total { get; set; }
-    }
-    public class MonthlyLedger : IMonthlyLedger
+
+        public class MonthlyLedger : IMonthlyLedger
         {
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public decimal Income { get; set; }
-        public decimal Expences { get; set; }
+            public int Year { get; set; }
+            public int Month { get; set; }
+            public decimal Income { get; set; }
+            public decimal Expences { get; set; }
 
-        public decimal Total { get; set; }
-
-
+            public decimal Total { get; set; }
 
 
-        public MonthlyLedger(int year, int month, List<Transaction> transactions)
-        {
-            Year = year;
-            Month = month;
+
+
+            public MonthlyLedger()
+            {
+
+            }
         }
     }
 }
-
