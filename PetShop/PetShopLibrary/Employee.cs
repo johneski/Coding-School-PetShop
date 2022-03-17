@@ -1,8 +1,16 @@
 ﻿using System;
 
-public class Class1
+public class Employee : Person
 {
-	public Class1()
+	public decimal Salary { get; set; }
+	public enum Type
+    {
+		CEO,
+		Manager,
+		Employee,
+    }
+	public Employee(string name, string surname,decimal salary):base(name, surname)
 	{
+		Salary = salary;
 	}
 }
