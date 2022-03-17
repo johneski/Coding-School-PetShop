@@ -27,7 +27,7 @@ public enum PetStatus
 
 internal interface IPet
 {
-    PetFoodType Type { get; set; }
+    PetFoodType FoodType { get; set; }
     PetStatus Status { get; set; }
     AnimalType AnimalType { get; set; }
     string Breed { get; set; }
@@ -36,7 +36,7 @@ internal interface IPet
 
 public class Pet : IPet 
 {
-    public PetFoodType Type { get; set; }
+    public PetFoodType FoodType { get; set; }
     public PetStatus Status { get; set; }
     public AnimalType AnimalType { get; set; }
     public string Breed { get; set; }
@@ -44,5 +44,6 @@ public class Pet : IPet
 
     public Pet()
 	{
-	}
+    }
 }
+
