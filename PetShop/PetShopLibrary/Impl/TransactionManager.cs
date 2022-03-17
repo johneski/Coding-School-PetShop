@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
-    public class TransactionManager : IManager
+    public class TransactionManager
     {
-        public List<Transaction> Transactions { get; set; } = new List<Transaction>(); 
+        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
         public TransactionManager()
         {
 
@@ -26,32 +26,18 @@ namespace PetShopLibrary
             throw new NotImplementedException();
         }
 
-        
+
         //TODO: implementation
         public void LoadTransactions()
         {
             throw new NotImplementedException();
         }
+
+
         
-        
-        //TODO: implementation
-        public void Create()
-        {
-            throw new NotImplementedException();
-        }
-        
-        
-        //TODO: implementation
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
-        
-        
-        //TODO: implementation
-        public void Delete()
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }
+
+
+

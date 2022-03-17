@@ -28,6 +28,11 @@
         public decimal PetFoodPrice { get; set; }
         public decimal TotalPrice { get => (PetFoodQty - 1) * PetFoodPrice + PetPrice; }
 
+        public Transaction()
+        {
+            ID = Guid.NewGuid();
+        }
+
         public Transaction(Guid customerID, Guid employeeID, Guid petID, decimal petPrice, Guid petFoodID, int petFoodQty, decimal petFoodPrice)
         {
             ID = Guid.NewGuid();
