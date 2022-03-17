@@ -9,6 +9,11 @@ public class Employee : Person
 		Manager,
 		Employee,
     }
+
+    public Employee()
+    {
+
+    }
 	public Employee(string name, string surname,decimal salary):base(name, surname)
 	{
 		Salary = salary;
