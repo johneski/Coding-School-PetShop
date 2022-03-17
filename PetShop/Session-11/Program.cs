@@ -18,7 +18,8 @@ namespace Session_11
 
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormCustom());
+            //Application.Run(new FormCustom());
+            Application.Run(new FormCustomer());
         }
     }
 }
