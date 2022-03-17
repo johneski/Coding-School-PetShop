@@ -8,6 +8,29 @@ namespace PetShopLibrary
 {
     public class PetShopManager
     {
-        private PetShop
+        private const string FILE_NAME = "petShop.json";
+        private PetShop _petShop;
+
+        public PetShopManager()
+        {
+
+        }
+
+        public PetShopManager(PetShop petShop)
+        {
+            _petShop = petShop;
+        }
+
+        public void Save()
+        {
+
+        }
+
+        public void Delete()
+        {
+
+        }
+
+
     }
 }
