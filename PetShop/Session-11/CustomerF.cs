@@ -11,9 +11,9 @@ using PetShopLibrary;
 
 namespace Session_11
 {
-    public partial class FormKyriakosLedger : Form
+    public partial class CustomerF : Form
     {
-        public FormKyriakosLedger()
+        public CustomerF()
         {
             InitializeComponent();
         }

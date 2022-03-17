@@ -1,6 +1,6 @@
 ﻿namespace Session_11
 {
-    partial class FormKyriakosLedger
+    partial class CustomerF
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // FormKyriakosLedger
+            // CustomerF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormKyriakosLedger";
-            this.Text = "FormKyriakosLedger";
+            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "CustomerF";
+            this.Text = "Customers";
             this.Load += new System.EventHandler(this.FormKyriakosLedger_Load);
             this.ResumeLayout(false);
 

@@ -25,7 +25,10 @@ namespace PetShopLibrary
         public decimal Total { get; set; }
 
 
+        public MonthlyLedger()
+        {
 
+        }
 
         public MonthlyLedger(int year, int month, List<Transaction> transactions)
         {

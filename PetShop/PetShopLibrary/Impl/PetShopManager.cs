@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
-    public interface IManager
+    public class PetShopManager
     {
-        void Create();
-        void Save();
-        void Delete();
-        
+        private PetShop
     }
-
-    
-   
 }
