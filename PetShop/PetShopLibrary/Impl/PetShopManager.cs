@@ -41,9 +41,9 @@ namespace PetShopLibrary
             File.WriteAllText(FILE_NAME, json);
         }
 
-        public void Delete<T>() where T : class, new()
+        public void Delete<T>()
         {
-            if(T == _petShop.Pets.GetType())
+            
         }
 
         public List<Customer> GetCustomers()
