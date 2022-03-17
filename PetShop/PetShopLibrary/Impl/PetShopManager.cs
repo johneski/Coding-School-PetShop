@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PetShopLibrary.Impl
+namespace PetShopLibrary
 {
-    public class PetReportManager
+    public class PetShopManager
     {
+        private PetShop
     }
 }
