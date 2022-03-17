@@ -13,27 +13,6 @@ namespace PetShopLibrary
         {
 
         }
-
-        //TODO: implementation
-        public MonthlyLedger GetLedger(int year, int month)
-        {
-            throw new NotImplementedException();
-        }
-
-        //TODO: implementation
-        public PetReport GetPetReport(int year, int month)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        //TODO: implementation
-        public void LoadTransactions()
-        {
-            throw new NotImplementedException();
-        }
-
-
         
     }
 
