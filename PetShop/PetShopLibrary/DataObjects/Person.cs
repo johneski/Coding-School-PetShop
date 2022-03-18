@@ -15,7 +15,7 @@ public class Person : IPerson
     public Guid ID { get; } =  Guid.NewGuid();
     public string Name { get; set; }
     public string Surname { get; set; }
-    public string Fullname { get => $"{Name} {Surname}"; }
+    public string Fullname { get => $"{Name} {Surname}"; }//oxi mesa edo
 
     public Person()
     {
