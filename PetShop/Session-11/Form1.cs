@@ -76,5 +76,16 @@ namespace Session_11
             TransactionsF form = new TransactionsF();
             form.ShowDialog();
         }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeesForm form = new EmployeesForm();
+            form.ShowDialog();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

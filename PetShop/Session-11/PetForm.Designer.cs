@@ -113,6 +113,7 @@
             this.grdPets.TabIndex = 0;
             this.grdPets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPets});
+            this.grdPets.Click += new System.EventHandler(this.grdPets_Click);
             // 
             // grvPets
             // 

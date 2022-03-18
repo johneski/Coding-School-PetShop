@@ -1,16 +1,23 @@
 ﻿using System;
 
-public class Employee : Person
+public enum EmployeeType
+{
+	CEO,
+	Manager,
+	Employee,
+}
+
+public interface IEmployee
+{
+	EmployeeType Type { get; set; }
+
+}
+public class Employee : Person, IEmployee
 {
 	public decimal Salary { get; set; }
-	public enum Type
-    {
-		CEO,
-		Manager,
-		Employee,
-    }
+	public EmployeeType Type { get; set; }
 
-    public Employee()
+	public Employee()
     {
 
     }

@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PetShopLibrary;
 
 namespace Session_11
 {
-    public partial class EmployeesF : Form1
+    public partial class EmployeesForm : Form
     {
         private List<Employee> _employees;
-        private Employee _employee;
-        public EmployeesF()
+        private PetShopManager _petShopManager;
+        //private Employee _employee;
+        public EmployeesForm()
         {
             InitializeComponent();
         }
@@ -22,21 +24,64 @@ namespace Session_11
 
         private void EmployeesF_Load(object sender, EventArgs e)
         {
-            //menuStrip.Enabled = false;
-            PopulateControls();
-            _employee = new Employee();
+            _petShopManager = new PetShopManager();
+            //_employee = new Employee();
             _employees = new List<Employee>();
+            PopulateControls();
 
-
-
+            BindingSource bsEmployees = new BindingSource();
+            bsEmployees.DataSource = _petShopManager.GetEmployees();
+            grdEmployees.DataSource = bsEmployees;
+            
         }
 
         private void PopulateControls()
         {
-            //EmployeeTypePopulate
-            //Dictionary<TypeEnum, string> Types = new Dictionary<TypeEnum, string>;
+            var employee3 = new Employee()
+            {
+                Name = "Dimitris",
+                Surname = "Mantikidis",
+                Type = EmployeeType.Employee,
+                Salary = 1000
+            };
+
+            var manager = new Employee()
+            {
+                Name = "Giannis",
+                Surname = "Eskioglou",
+                Type = EmployeeType.Manager,
+                Salary = 1000
+            };
+            var employee1 = new Employee()
+            {
+                Name = "Achileas",
+                Surname = "M",
+                Type = EmployeeType.Employee,
+                Salary = 1000
+            };
+            var employee2 = new Employee()
+            {
+                Name = "Kyriakos",
+                Surname = "M",
+                Type = EmployeeType.Employee,
+                Salary = 1000
+            };
+            _petShopManager.Add(employee1);
+            _petShopManager.Add(employee2);
+            _petShopManager.Add(employee3);
+            _petShopManager.Add(manager);
 
         }
 
+        private void EmployeesF_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            NewEmployeeForm form = new NewEmployeeForm();
+            form.ShowDialog();
+        }
     }
 }
