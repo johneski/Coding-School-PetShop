@@ -62,13 +62,14 @@
             // 
             // layoutControl1
             // 
-            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Controls.Add(this.btnNew);
             this.layoutControl1.Controls.Add(this.btnDelete);
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.grdPets);
             this.layoutControl1.Controls.Add(this.btnCancel);
+            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1253, 120, 650, 400);
             this.layoutControl1.Root = this.Root;
             // 
             // btnNew
@@ -95,18 +96,6 @@
             // grdPets
             // 
             resources.ApplyResources(this.grdPets, "grdPets");
-            this.grdPets.EmbeddedNavigator.AccessibleDescription = resources.GetString("grdPets.EmbeddedNavigator.AccessibleDescription");
-            this.grdPets.EmbeddedNavigator.AccessibleName = resources.GetString("grdPets.EmbeddedNavigator.AccessibleName");
-            this.grdPets.EmbeddedNavigator.AllowHtmlTextInToolTip = ((DevExpress.Utils.DefaultBoolean)(resources.GetObject("grdPets.EmbeddedNavigator.AllowHtmlTextInToolTip")));
-            this.grdPets.EmbeddedNavigator.Anchor = ((System.Windows.Forms.AnchorStyles)(resources.GetObject("grdPets.EmbeddedNavigator.Anchor")));
-            this.grdPets.EmbeddedNavigator.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("grdPets.EmbeddedNavigator.BackgroundImage")));
-            this.grdPets.EmbeddedNavigator.BackgroundImageLayout = ((System.Windows.Forms.ImageLayout)(resources.GetObject("grdPets.EmbeddedNavigator.BackgroundImageLayout")));
-            this.grdPets.EmbeddedNavigator.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("grdPets.EmbeddedNavigator.ImeMode")));
-            this.grdPets.EmbeddedNavigator.MaximumSize = ((System.Drawing.Size)(resources.GetObject("grdPets.EmbeddedNavigator.MaximumSize")));
-            this.grdPets.EmbeddedNavigator.TextLocation = ((DevExpress.XtraEditors.NavigatorButtonsTextLocation)(resources.GetObject("grdPets.EmbeddedNavigator.TextLocation")));
-            this.grdPets.EmbeddedNavigator.ToolTip = resources.GetString("grdPets.EmbeddedNavigator.ToolTip");
-            this.grdPets.EmbeddedNavigator.ToolTipIconType = ((DevExpress.Utils.ToolTipIconType)(resources.GetObject("grdPets.EmbeddedNavigator.ToolTipIconType")));
-            this.grdPets.EmbeddedNavigator.ToolTipTitle = resources.GetString("grdPets.EmbeddedNavigator.ToolTipTitle");
             this.grdPets.MainView = this.grvPets;
             this.grdPets.Name = "grdPets";
             this.grdPets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -114,7 +103,6 @@
             // 
             // grvPets
             // 
-            resources.ApplyResources(this.grvPets, "grvPets");
             this.grvPets.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colAnimalType,
             this.colBreed,
@@ -156,7 +144,6 @@
             // 
             // Root
             // 
-            resources.ApplyResources(this.Root, "Root");
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -172,7 +159,6 @@
             // 
             // layoutControlItem1
             // 
-            resources.ApplyResources(this.layoutControlItem1, "layoutControlItem1");
             this.layoutControlItem1.Control = this.grdPets;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -182,7 +168,6 @@
             // 
             // layoutControlItem3
             // 
-            resources.ApplyResources(this.layoutControlItem3, "layoutControlItem3");
             this.layoutControlItem3.Control = this.btnCancel;
             this.layoutControlItem3.Location = new System.Drawing.Point(713, 335);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -192,7 +177,6 @@
             // 
             // emptySpaceItem2
             // 
-            resources.ApplyResources(this.emptySpaceItem2, "emptySpaceItem2");
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 335);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
@@ -201,7 +185,6 @@
             // 
             // layoutControlItem2
             // 
-            resources.ApplyResources(this.layoutControlItem2, "layoutControlItem2");
             this.layoutControlItem2.Control = this.btnSave;
             this.layoutControlItem2.Location = new System.Drawing.Point(653, 335);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -211,7 +194,6 @@
             // 
             // layoutControlItem4
             // 
-            resources.ApplyResources(this.layoutControlItem4, "layoutControlItem4");
             this.layoutControlItem4.Control = this.btnDelete;
             this.layoutControlItem4.Location = new System.Drawing.Point(586, 335);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -221,7 +203,6 @@
             // 
             // layoutControlItem5
             // 
-            resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
             this.layoutControlItem5.Control = this.btnNew;
             this.layoutControlItem5.Location = new System.Drawing.Point(519, 335);
             this.layoutControlItem5.Name = "layoutControlItem5";
