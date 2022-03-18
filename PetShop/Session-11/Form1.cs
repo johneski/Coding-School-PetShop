@@ -70,5 +70,11 @@ namespace Session_11
             PetForm petForm = new PetForm();
             petForm.ShowDialog();
         }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TransactionsF form = new TransactionsF();
+            form.ShowDialog();
+        }
     }
 }
