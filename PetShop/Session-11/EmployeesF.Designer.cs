@@ -68,45 +68,50 @@
             this.layoutControl1.Controls.Add(this.grdEmployees);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(440, 0, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(914, 600);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(597, 416);
+            this.btnCancel.Location = new System.Drawing.Point(682, 561);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(191, 22);
+            this.btnCancel.Size = new System.Drawing.Size(220, 27);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(207, 416);
+            this.btnSave.Location = new System.Drawing.Point(235, 561);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(191, 22);
+            this.btnSave.Size = new System.Drawing.Size(220, 27);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(402, 416);
+            this.btnDelete.Location = new System.Drawing.Point(459, 561);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(191, 22);
+            this.btnDelete.Size = new System.Drawing.Size(219, 27);
             this.btnDelete.StyleController = this.layoutControl1;
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(12, 416);
+            this.btnNew.Location = new System.Drawing.Point(12, 561);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(191, 22);
+            this.btnNew.Size = new System.Drawing.Size(219, 27);
             this.btnNew.StyleController = this.layoutControl1;
             this.btnNew.TabIndex = 6;
             this.btnNew.Text = "New";
@@ -114,10 +119,12 @@
             // 
             // grdEmployees
             // 
+            this.grdEmployees.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdEmployees.Location = new System.Drawing.Point(12, 12);
             this.grdEmployees.MainView = this.gridView1;
+            this.grdEmployees.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdEmployees.Name = "grdEmployees";
-            this.grdEmployees.Size = new System.Drawing.Size(776, 387);
+            this.grdEmployees.Size = new System.Drawing.Size(890, 523);
             this.grdEmployees.TabIndex = 5;
             this.grdEmployees.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -129,6 +136,7 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4});
+            this.gridView1.DetailHeight = 467;
             this.gridView1.GridControl = this.grdEmployees;
             this.gridView1.Name = "gridView1";
             // 
@@ -136,33 +144,43 @@
             // 
             this.gridColumn1.Caption = "Employee Name";
             this.gridColumn1.FieldName = "Name";
+            this.gridColumn1.MinWidth = 23;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 86;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Employee Surname";
             this.gridColumn2.FieldName = "Surname";
+            this.gridColumn2.MinWidth = 23;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 86;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Employee Type";
             this.gridColumn3.FieldName = "EmployeeType";
+            this.gridColumn3.MinWidth = 23;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 86;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Employee Salary";
+            this.gridColumn4.DisplayFormat.FormatString = "c4";
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "Salary";
+            this.gridColumn4.MinWidth = 23;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 86;
             // 
             // Root
             // 
@@ -176,24 +194,24 @@
             this.layoutControlItem8,
             this.layoutControlItem9});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 450);
+            this.Root.Size = new System.Drawing.Size(914, 600);
             this.Root.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 391);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 527);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 13);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(894, 22);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.grdEmployees;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(104, 24);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(119, 32);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(780, 391);
+            this.layoutControlItem5.Size = new System.Drawing.Size(894, 527);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -201,45 +219,46 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnNew;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 404);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 549);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(195, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(223, 31);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnDelete;
-            this.layoutControlItem7.Location = new System.Drawing.Point(390, 404);
+            this.layoutControlItem7.Location = new System.Drawing.Point(447, 549);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(195, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(223, 31);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnSave;
-            this.layoutControlItem8.Location = new System.Drawing.Point(195, 404);
+            this.layoutControlItem8.Location = new System.Drawing.Point(223, 549);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(195, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(224, 31);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btnCancel;
-            this.layoutControlItem9.Location = new System.Drawing.Point(585, 404);
+            this.layoutControlItem9.Location = new System.Drawing.Point(670, 549);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(195, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(224, 31);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // EmployeesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EmployeesForm";
             this.Text = "Employees";
             this.Load += new System.EventHandler(this.EmployeesF_Load);
