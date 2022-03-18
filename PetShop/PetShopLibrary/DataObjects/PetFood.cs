@@ -2,9 +2,11 @@
 
 public enum FoodType
 {
-    Pedigree,
-    Friskis,
-    Rats
+    Dry,
+    Canned,
+    Home_Cooked,
+    Raw
+    
 }
 
 public interface IFood
