@@ -170,7 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 553);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "EmployeesF";
+            //this.Name = "EmployeesF";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
