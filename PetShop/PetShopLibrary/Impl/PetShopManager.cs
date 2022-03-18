@@ -41,9 +41,24 @@ namespace PetShopLibrary
             File.WriteAllText(FILE_NAME, json);
         }
 
-        public void Delete<T>()
+        public void Delete(Customer customer) 
         {
-            
+            _petShop.Customers.Remove(customer);
+        }
+
+        public void Delete(Employee employee)
+        {
+            _petShop.Employees.Remove(employee);
+        }
+
+        public void Delete(Pet pet)
+        {
+            _petShop.Pets.Remove(pet);
+        }
+
+        public void Delete(PetFood petFood)
+        {
+            _petShop.PetFoods.Remove(petFood);
         }
 
         public List<Customer> GetCustomers()
@@ -61,6 +76,11 @@ namespace PetShopLibrary
             return _petShop.Pets;
         }
 
+        public List<Pet> GetHealthyPets() 
+        {
+            return _petShop.Pets.FindAll(x => x.Status != PetStatus.Unhealthy);
+        }
+
         public List<PetFood> GetPetFoods()
         {
             return _petShop.PetFoods;
@@ -70,5 +90,31 @@ namespace PetShopLibrary
         {
             return _petShop.Employees;
         }
+
+        public void Add(Customer customer)
+        {
+            _petShop.Customers.Add(customer);
+        }
+
+        public void Add(Employee employee)
+        {
+            _petShop.Employees.Add(employee);
+        }
+
+        public void Add(Pet pet)
+        {
+            _petShop.Pets.Add(pet);
+        }
+
+        public void Add(Transaction transaction)
+        {
+            _petShop.Transactions.Add(transaction);
+        }
+
+        public void Add(PetFood petFood)
+        {
+            _petShop.PetFoods.Add(petFood);
+        }
+
     }
 }

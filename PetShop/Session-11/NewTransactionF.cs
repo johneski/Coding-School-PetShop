@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Session_11
 {
-    public partial class Transaction : Form
+    public partial class NewTransactionF : Form
     {
-        public Transaction()
+        public NewTransactionF()
         {
             InitializeComponent();
         }

@@ -1,6 +1,15 @@
-﻿using System;
+﻿using PetShopLibrary;
+using System;
 
 public enum FoodType
+{
+    CatFood,
+    DogFood,
+    FishFood,
+    ReptilianFood
+}
+
+public enum FoodBrand
 {
     Pedigree,
     Friskis,
@@ -9,14 +18,14 @@ public enum FoodType
 
 public interface IFood
 {
-    FoodType Food { get; set; }
+    FoodType Type { get; set; }
 }
 
-    public class PetFood : IFood
+    public class PetFood : Product, IFood
     {
-        public FoodType Food { get; set; }
+        public FoodType Type { get; set; }
 
-
+        public FoodBrand Brand { get; set; }
 
         public PetFood()
         {

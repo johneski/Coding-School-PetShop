@@ -25,8 +25,11 @@ namespace Session_11
             
             _petShop = new PetShopLibrary.PetShop();
             _petShop.Pets = new List<Pet>();
-
-            PopulateControls();
+            if(_petShop.Pets == null)
+            {
+                PopulateControls();
+            }
+            
         }
 
         private void PopulateControls()
@@ -36,7 +39,7 @@ namespace Session_11
                 AnimalType = AnimalType.Reptilian,
                 Breed = "Cobra",
                 Status = PetStatus.OK,
-                FoodType = PetFoodType.ReptilianFood
+                FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = FoodBrand.Rats}
             };
 
             var dog = new Pet()
@@ -44,21 +47,21 @@ namespace Session_11
                 AnimalType = AnimalType.Mammal,
                 Breed = "Labrador",
                 Status = PetStatus.OK,
-                FoodType = PetFoodType.DogFood
+                FoodType = new PetFood() { Type = FoodType.DogFood, Brand = FoodBrand.Pedigree }
             };
             var cat = new Pet()
             {
                 AnimalType = AnimalType.Mammal,
                 Breed = "egyptian",
                 Status = PetStatus.OK,
-                FoodType = PetFoodType.CatFood
+                FoodType = new PetFood() { Type = FoodType.CatFood, Brand = FoodBrand.Friskis }
             };
             var fish = new Pet()
             {
                 AnimalType = AnimalType.Fish,
                 Breed = "goldfish",
                 Status = PetStatus.OK,
-                FoodType = PetFoodType.FishFood
+                FoodType = new PetFood() { Type = FoodType.FishFood, Brand = FoodBrand.Friskis }
             };
             _petShop.Pets.Add(reptil);
             _petShop.Pets.Add(dog);
