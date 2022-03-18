@@ -6,7 +6,8 @@ public enum AnimalType
 {
     Bird,
     Reptilian,
-    Mammal
+    Mammal,
+    Fish
 
 }
 
@@ -15,7 +16,8 @@ public enum PetFoodType
 {
     CatFood,
     DogFood,
-    FishFood
+    FishFood,
+    ReptilianFood
 }
 
 public enum PetStatus
@@ -25,9 +27,9 @@ public enum PetStatus
     Recovering
 }
 
-internal interface IPet
+public interface IPet
 {
-    PetFoodType Type { get; set; }
+    PetFoodType FoodType { get; set; }
     PetStatus Status { get; set; }
     AnimalType AnimalType { get; set; }
     string Breed { get; set; }
@@ -36,7 +38,7 @@ internal interface IPet
 
 public class Pet : IPet 
 {
-    public PetFoodType Type { get; set; }
+    public PetFoodType FoodType { get; set; }
     public PetStatus Status { get; set; }
     public AnimalType AnimalType { get; set; }
     public string Breed { get; set; }
@@ -44,5 +46,6 @@ public class Pet : IPet
 
     public Pet()
 	{
-	}
+    }
 }
+

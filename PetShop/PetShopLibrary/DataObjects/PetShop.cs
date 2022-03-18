@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLibrary
 {
+    [Serializable]
     public class PetShop
     {
         public List<Customer> Customers { get; set; }
@@ -17,7 +18,11 @@ namespace PetShopLibrary
 
         public PetShop()
         {
-
+            Customers = new List<Customer>();
+            Pets = new List<Pet>();
+            Transactions = new List<Transaction>();
+            Employees = new List<Employee>();
+            PetFoods = new List<PetFood>();
         }
     }
 }

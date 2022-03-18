@@ -64,5 +64,11 @@ namespace Session_11
         {
             
         }
+
+        private void petsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PetForm petForm = new PetForm();
+            petForm.ShowDialog();
+        }
     }
 }
