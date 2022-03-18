@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PetShopLibrary;
 
 namespace Session_11
 {
-    public partial class EmployeesF : Form
+    public partial class EmployeesF : Form1
     {
         private List<Employee> _employees;
         private Employee _employee;
@@ -20,8 +19,10 @@ namespace Session_11
             InitializeComponent();
         }
 
+
         private void EmployeesF_Load(object sender, EventArgs e)
         {
+            //menuStrip.Enabled = false;
             PopulateControls();
             _employee = new Employee();
             _employees = new List<Employee>();
@@ -33,7 +34,7 @@ namespace Session_11
         private void PopulateControls()
         {
             //EmployeeTypePopulate
-            Dictionary<TypeEnum, string> Types = new Dictionary<TypeEnum, string>;
+            //Dictionary<TypeEnum, string> Types = new Dictionary<TypeEnum, string>;
 
         }
 

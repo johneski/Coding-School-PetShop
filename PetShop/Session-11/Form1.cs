@@ -70,5 +70,17 @@ namespace Session_11
             PetForm petForm = new PetForm();
             petForm.ShowDialog();
         }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeesF employeeF = new EmployeesF();
+            employeeF.ShowDialog();
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
