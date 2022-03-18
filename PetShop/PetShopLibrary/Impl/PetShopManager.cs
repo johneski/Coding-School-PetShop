@@ -8,6 +8,6 @@ namespace PetShopLibrary
 {
     public class PetShopManager
     {
-        private PetShop
+       
     }
 }
