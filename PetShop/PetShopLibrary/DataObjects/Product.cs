@@ -2,7 +2,7 @@
 {
 
     //interface Product
-    internal interface IProduct
+    public interface IProduct
     {
         decimal ? Price { get; set; }
         decimal ? Cost { get; set; }
