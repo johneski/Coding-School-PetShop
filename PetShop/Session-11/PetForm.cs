@@ -39,7 +39,7 @@ namespace Session_11
                 AnimalType = AnimalType.Reptilian,
                 Breed = "Cobra",
                 Status = PetStatus.OK,
-                FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = FoodBrand.Rats}
+                FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = FoodBrand.Purina}
             };
 
             var dog = new Pet()
