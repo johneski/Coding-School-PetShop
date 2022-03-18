@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PetShopLibrary;
 
 namespace Session_11
 {
     public partial class PetFoodsForm : Form
     {
-        public List<PetFood> _petFoods;
-        private PetFood _petFood;
+       
+        private PetShopManager _petShop;
         public PetFoodsForm()
         {
             InitializeComponent();
@@ -21,8 +22,9 @@ namespace Session_11
 
         private void PetFoodsForm_Load(object sender, EventArgs e)
         {
-            _petFood = new PetFood();
-            _petFoods = new List<PetFood>();
+            _petShop = new PetShopManager();
+            
+            
 
             PopulateControls();
 
@@ -71,15 +73,15 @@ namespace Session_11
                 Type = FoodType.FishFood
             };
 
-            _petFoods.Add(CatFood);
-            _petFoods.Add(DogFood);
-            _petFoods.Add(FishFood);
-            _petFoods.Add(ReptilFood);
-            _petFoods.Add(BirdFood);
+            _petShop.Add(CatFood);
+            _petShop.Add(DogFood);
+            _petShop.Add(FishFood);
+            _petShop.Add(ReptilFood);
+            _petShop.Add(BirdFood);
 
 
             BindingSource bsPetFood = new BindingSource();
-            bsPetFood.DataSource = _petFoods;
+            bsPetFood.DataSource = _petShop.GetPetFoods();
             grdPetFoods.DataSource = bsPetFood;
 
         }
