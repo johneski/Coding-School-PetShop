@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridCustomerList = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridPhone = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,7 +42,7 @@
             this.ctrlTIN = new DevExpress.XtraEditors.TextEdit();
             this.ctrlPhoneNumber = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomerList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).BeginInit();
@@ -53,23 +53,24 @@
             // 
             // gridCustomerList
             // 
-            this.gridCustomerList.Location = new System.Drawing.Point(59, 188);
-            this.gridCustomerList.MainView = this.gridView1;
+            this.gridCustomerList.Location = new System.Drawing.Point(585, 179);
+            this.gridCustomerList.MainView = this.gridViewCustomers;
             this.gridCustomerList.Name = "gridCustomerList";
-            this.gridCustomerList.Size = new System.Drawing.Size(500, 250);
+            this.gridCustomerList.Size = new System.Drawing.Size(528, 259);
             this.gridCustomerList.TabIndex = 0;
             this.gridCustomerList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewCustomers});
             // 
-            // gridView1
+            // gridViewCustomers
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridName,
             this.gridSurname,
             this.gridPhone,
             this.gridTIN});
-            this.gridView1.GridControl = this.gridCustomerList;
-            this.gridView1.Name = "gridView1";
+            this.gridViewCustomers.GridControl = this.gridCustomerList;
+            this.gridViewCustomers.Name = "gridViewCustomers";
+            this.gridViewCustomers.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewCustomers_FocusedRowChanged);
             // 
             // gridName
             // 
@@ -117,55 +118,57 @@
             // 
             // ctrlName
             // 
-            this.ctrlName.Location = new System.Drawing.Point(59, 21);
+            this.ctrlName.Location = new System.Drawing.Point(640, 139);
             this.ctrlName.Name = "ctrlName";
-            this.ctrlName.Size = new System.Drawing.Size(156, 22);
+            this.ctrlName.Size = new System.Drawing.Size(418, 22);
             this.ctrlName.TabIndex = 1;
+            this.ctrlName.EditValueChanged += new System.EventHandler(this.ctrlName_EditValueChanged);
+            this.ctrlName.TextChanged += new System.EventHandler(this.ctrlName_TextChanged);
             // 
             // ctrlSurname
             // 
-            this.ctrlSurname.Location = new System.Drawing.Point(59, 60);
+            this.ctrlSurname.Location = new System.Drawing.Point(640, 111);
             this.ctrlSurname.Name = "ctrlSurname";
-            this.ctrlSurname.Size = new System.Drawing.Size(156, 22);
+            this.ctrlSurname.Size = new System.Drawing.Size(418, 22);
             this.ctrlSurname.TabIndex = 2;
             // 
             // ctrlFullname
             // 
-            this.ctrlFullname.Location = new System.Drawing.Point(59, 97);
+            this.ctrlFullname.Location = new System.Drawing.Point(640, 27);
             this.ctrlFullname.Name = "ctrlFullname";
-            this.ctrlFullname.Size = new System.Drawing.Size(156, 22);
+            this.ctrlFullname.Size = new System.Drawing.Size(418, 22);
             this.ctrlFullname.TabIndex = 3;
             // 
             // ctrlTIN
             // 
-            this.ctrlTIN.Location = new System.Drawing.Point(59, 125);
+            this.ctrlTIN.Location = new System.Drawing.Point(640, 55);
             this.ctrlTIN.Name = "ctrlTIN";
-            this.ctrlTIN.Size = new System.Drawing.Size(156, 22);
+            this.ctrlTIN.Size = new System.Drawing.Size(418, 22);
             this.ctrlTIN.TabIndex = 4;
             // 
             // ctrlPhoneNumber
             // 
-            this.ctrlPhoneNumber.Location = new System.Drawing.Point(59, 162);
+            this.ctrlPhoneNumber.Location = new System.Drawing.Point(640, 83);
             this.ctrlPhoneNumber.Name = "ctrlPhoneNumber";
-            this.ctrlPhoneNumber.Size = new System.Drawing.Size(156, 22);
+            this.ctrlPhoneNumber.Size = new System.Drawing.Size(418, 22);
             this.ctrlPhoneNumber.TabIndex = 5;
             // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1146, 450);
             this.Controls.Add(this.ctrlPhoneNumber);
             this.Controls.Add(this.ctrlTIN);
             this.Controls.Add(this.ctrlFullname);
+            this.Controls.Add(this.gridCustomerList);
             this.Controls.Add(this.ctrlSurname);
             this.Controls.Add(this.ctrlName);
-            this.Controls.Add(this.gridCustomerList);
             this.Name = "FormCustomer";
             this.Text = "FormCustomer";
             this.Load += new System.EventHandler(this.FormCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomerList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
@@ -179,7 +182,7 @@
         #endregion
 
         private DevExpress.XtraGrid.GridControl gridCustomerList;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewCustomers;
         private DevExpress.XtraGrid.Columns.GridColumn gridName;
         private DevExpress.XtraGrid.Columns.GridColumn gridSurname;
         private DevExpress.XtraGrid.Columns.GridColumn gridPhone;
