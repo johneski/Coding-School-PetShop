@@ -6,14 +6,18 @@ public enum FoodType
     CatFood,
     DogFood,
     FishFood,
-    ReptilianFood
+    ReptilianFood,
+    BirdFood
 }
 
 public enum FoodBrand
 {
     Pedigree,
     Friskis,
-    Rats
+    Purina,
+    Royal,
+
+
 }
 
 public interface IFood

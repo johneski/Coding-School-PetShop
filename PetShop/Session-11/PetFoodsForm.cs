@@ -12,8 +12,8 @@ namespace Session_11
 {
     public partial class PetFoodsForm : Form
     {
-       public List<PetFoodType> _petFoodTypes = new List<PetFoodType>();
-        private PetShopLibrary.PetShop _petShop;
+        public List<PetFood> _petFoods;
+        private PetFood _petFood;
         public PetFoodsForm()
         {
             InitializeComponent();
@@ -21,8 +21,8 @@ namespace Session_11
 
         private void PetFoodsForm_Load(object sender, EventArgs e)
         {
-            _petShop= new PetShopLibrary.PetShop();
-            _petShop.PetFoods = new List<PetFood>();
+            _petFood = new PetFood();
+            _petFoods = new List<PetFood>();
 
             PopulateControls();
 
@@ -30,20 +30,57 @@ namespace Session_11
 
         private void PopulateControls()
         {
-            var dry = new PetFoodType();
-            var canned = new PetFoodType();
-            var home_cooked = new PetFoodType();
-            var raw = new PetFoodType();
+            var CatFood = new PetFood()
+            {
+               Price = 40,
+               Brand = FoodBrand.Purina,
+               Cost = 30,
+               ID = Guid.NewGuid(),
+               Type = FoodType.CatFood
+            };
+            var DogFood = new PetFood()
+            {
+                Price = 60,
+                Brand = FoodBrand.Purina,
+                Cost = 50,
+                ID = Guid.NewGuid(),
+                Type = FoodType.DogFood
+            };
+            var BirdFood = new PetFood()
+            {
+                Price = 30,
+                Brand = FoodBrand.Purina,
+                Cost = 20,
+                ID = Guid.NewGuid(),
+                Type = FoodType.BirdFood
+            };
+            var ReptilFood = new PetFood()
+            {
+                Price = 50,
+                Brand = FoodBrand.Purina,
+                Cost = 20,
+                ID = Guid.NewGuid(),
+                Type = FoodType.ReptilianFood
+            };
+            var FishFood = new PetFood()
+            {
+                Price = 20,
+                Brand = FoodBrand.Purina,
+                Cost = 10,
+                ID = Guid.NewGuid(),
+                Type = FoodType.FishFood
+            };
 
-            _petShop.PetFoods.Add(dry);
-            _petShop.PetFoods.Add(dry);
-            _petShop.PetFoods.Add(dry);
-            _petShop.PetFoods.Add(dry);
+            _petFoods.Add(CatFood);
+            _petFoods.Add(DogFood);
+            _petFoods.Add(FishFood);
+            _petFoods.Add(ReptilFood);
+            _petFoods.Add(BirdFood);
 
 
-
-
-
+            BindingSource bsPetFood = new BindingSource();
+            bsPetFood.DataSource = _petFoods;
+            grdPetFoods.DataSource = bsPetFood;
 
         }
 
