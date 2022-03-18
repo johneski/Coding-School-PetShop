@@ -3,10 +3,11 @@
 public enum FoodType
 {
     Pedigree,
-    Friskis
+    Friskis,
+    Rats
 }
 
-internal interface IFood
+public interface IFood
 {
     FoodType Food { get; set; }
 }
