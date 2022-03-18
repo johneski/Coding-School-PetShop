@@ -8,8 +8,8 @@ namespace PetShopLibrary.DataObjects
 {
     public  class CustomerPolicies
     {
-        private int NUMBER_OF_INT_DIGITS=10;
-        private int NUMBER_OF_PHONE_DIGITS = 9;
+        private int NUMBER_OF_INT_DIGITS=9;
+        private int NUMBER_OF_PHONE_DIGITS = 10;
         public CustomerPolicies()
         {
 
@@ -41,6 +41,7 @@ namespace PetShopLibrary.DataObjects
         public bool CheckValidSave(string phoneNumber, string INT)
         {
             return (CheckInt(INT) && ChecKPhoneNumber(phoneNumber));
+            
         }
     }
 }

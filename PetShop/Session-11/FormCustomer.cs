@@ -15,14 +15,15 @@ namespace Session_11
     public partial class FormCustomer : Form
     {
         
-
+        public PetShop petShop { get; set; }
         private Customer _customer = new Customer();
+        private List<Customer> CustomerList = new List<Customer>();
         
         public FormCustomer()
         {
             InitializeComponent();
         }
-        List<Customer> CustomerList { get; set; }
+        
         
 
         private void FormCustomer_Load(object sender, EventArgs e)
@@ -33,7 +34,16 @@ namespace Session_11
 
             //sbisto
             DummyCustomers();
-            //
+            
+            
+
+
+
+
+
+
+            
+            
 
 
 
@@ -90,6 +100,34 @@ namespace Session_11
 
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click the Customer you want to delete");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            CloseCustomerForm();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            NewCustomer();
+        }
+
+        private void gridCustomerList_Click(object sender, EventArgs e)
+        {
+            DeleteCustomer();
+
+
+
+
+
+
+
+
+        }
+
         #endregion
 
         private void FillControlsWithGrid(Customer _customer)
@@ -125,7 +163,7 @@ namespace Session_11
         }
         private void InitialView()
         {
-
+            
             gridViewCustomers.OptionsBehavior.Editable = false;
 
             ctrlFullname.ReadOnly = true;
@@ -134,12 +172,14 @@ namespace Session_11
         private void DummyCustomers()
         {
             //initialization
-            Customer K = new Customer("Kyriakos", "Mousias", "123456789", "0123456789");
-            Customer G = new Customer("Giannis", "Eskioglou", "234567891", "2345678901");
-            Customer A = new Customer("Axilleas", "Mplekos", "345678912", "3456789012");
-            Customer D = new Customer("Dimitris", "Mantikidis", "456789123", "4567890123");
+            var petShop = new PetShop();
+            Customer K = new Customer("Kyriakos", "Mousias", "0123456789", "123456789");
+            Customer G = new Customer("Giannis", "Eskioglou", "2345678901", "234567891");
+            Customer A = new Customer("Axilleas", "Mplekos", "3456789012", "345678912");
+            Customer D = new Customer("Dimitris", "Mantikidis", "4567890123", "456789123");
 
             CustomerList = new List<Customer>();
+            CustomerList = petShop.Customers;
             CustomerList.Add(K);
             CustomerList.Add(G);
             CustomerList.Add(A);
@@ -156,5 +196,74 @@ namespace Session_11
 
 
         }
+
+        private void NewCustomer()
+        {
+            if (CustomerList[^1].Tin != "Insert TIN")
+            {
+                var _newcustomer = new Customer();
+                _newcustomer.Name = "Insert Name";
+                _newcustomer.Surname = "Insert SurName";
+                //ctrlFullname.Text = empty.string
+                _newcustomer.Tin = "Insert TIN";
+                _newcustomer.PhoneNumber = "Insert Phonenumber";
+                CustomerList.Add(_newcustomer);
+                gridViewCustomers.RefreshData();
+                //SOSOSOS bug waiting on the corner if fullname changes 
+            }
+        }
+        private void DeleteCustomer()
+        {
+            
+            var index = gridViewCustomers.FocusedRowHandle;
+            var msg = string.Format("  Are you sure you want to delete{0}", CustomerList[index].Fullname);
+
+
+
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(msg, "Delete Window", buttons);
+            if (result == DialogResult.Yes)
+            {
+                CustomerList.RemoveAt(index);
+                gridViewCustomers.RefreshData();
+
+            }
+            else
+            {
+                var msg2 = string.Format("Delete of {0} was cancelled", CustomerList[index].Fullname);
+                MessageBox.Show(msg2);
+            }
+
+        }
+        private void CloseCustomerForm()
+        {
+            var _petshopManager = new PetShopManager();
+
+            try
+            {
+                if (CustomerList[^1].Tin == "Insert TIN")//can it be 0???
+                {
+                    CustomerList.RemoveAt(CustomerList.Count - 1);
+                    _petshopManager.Save();
+                }
+                else
+                {
+                    _petshopManager.Save();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            Close();
+
+
+        }
+
+       
+
+       
     }
 }

@@ -47,6 +47,9 @@
             this.labelTIN = new System.Windows.Forms.Label();
             this.labelPhone = new System.Windows.Forms.Label();
             this.labelSurname = new System.Windows.Forms.Label();
+            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomerList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
@@ -59,13 +62,14 @@
             // 
             // gridCustomerList
             // 
-            this.gridCustomerList.Location = new System.Drawing.Point(585, 179);
+            this.gridCustomerList.Location = new System.Drawing.Point(15, 179);
             this.gridCustomerList.MainView = this.gridViewCustomers;
             this.gridCustomerList.Name = "gridCustomerList";
-            this.gridCustomerList.Size = new System.Drawing.Size(528, 259);
+            this.gridCustomerList.Size = new System.Drawing.Size(553, 259);
             this.gridCustomerList.TabIndex = 0;
             this.gridCustomerList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCustomers});
+            this.gridCustomerList.Click += new System.EventHandler(this.gridCustomerList_Click);
             // 
             // gridViewCustomers
             // 
@@ -124,48 +128,48 @@
             // 
             // ctrlName
             // 
-            this.ctrlName.Location = new System.Drawing.Point(640, 57);
+            this.ctrlName.Location = new System.Drawing.Point(83, 43);
             this.ctrlName.Name = "ctrlName";
-            this.ctrlName.Size = new System.Drawing.Size(418, 22);
+            this.ctrlName.Size = new System.Drawing.Size(240, 22);
             this.ctrlName.TabIndex = 1;
             this.ctrlName.EditValueChanged += new System.EventHandler(this.ctrlName_EditValueChanged);
             this.ctrlName.TextChanged += new System.EventHandler(this.ctrlName_TextChanged);
             // 
             // ctrlSurname
             // 
-            this.ctrlSurname.Location = new System.Drawing.Point(640, 85);
+            this.ctrlSurname.Location = new System.Drawing.Point(83, 71);
             this.ctrlSurname.Name = "ctrlSurname";
-            this.ctrlSurname.Size = new System.Drawing.Size(418, 22);
+            this.ctrlSurname.Size = new System.Drawing.Size(240, 22);
             this.ctrlSurname.TabIndex = 2;
             // 
             // ctrlFullname
             // 
-            this.ctrlFullname.Location = new System.Drawing.Point(640, 27);
+            this.ctrlFullname.Location = new System.Drawing.Point(83, 15);
             this.ctrlFullname.Name = "ctrlFullname";
-            this.ctrlFullname.Size = new System.Drawing.Size(418, 22);
+            this.ctrlFullname.Size = new System.Drawing.Size(240, 22);
             this.ctrlFullname.TabIndex = 3;
             // 
             // ctrlTIN
             // 
-            this.ctrlTIN.Location = new System.Drawing.Point(640, 141);
+            this.ctrlTIN.Location = new System.Drawing.Point(83, 127);
             this.ctrlTIN.Name = "ctrlTIN";
-            this.ctrlTIN.Size = new System.Drawing.Size(418, 22);
+            this.ctrlTIN.Size = new System.Drawing.Size(240, 22);
             this.ctrlTIN.TabIndex = 4;
             // 
             // ctrlPhoneNumber
             // 
-            this.ctrlPhoneNumber.Location = new System.Drawing.Point(640, 113);
+            this.ctrlPhoneNumber.Location = new System.Drawing.Point(83, 99);
             this.ctrlPhoneNumber.Name = "ctrlPhoneNumber";
-            this.ctrlPhoneNumber.Size = new System.Drawing.Size(418, 22);
+            this.ctrlPhoneNumber.Size = new System.Drawing.Size(240, 22);
             this.ctrlPhoneNumber.TabIndex = 5;
             // 
             // btnSave
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(402, 71);
+            this.btnSave.Location = new System.Drawing.Point(450, 52);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(118, 36);
+            this.btnSave.Size = new System.Drawing.Size(118, 30);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
@@ -174,7 +178,7 @@
             // 
             this.labelFullName.AutoSize = true;
             this.labelFullName.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFullName.Location = new System.Drawing.Point(569, 28);
+            this.labelFullName.Location = new System.Drawing.Point(14, 16);
             this.labelFullName.Name = "labelFullName";
             this.labelFullName.Size = new System.Drawing.Size(66, 19);
             this.labelFullName.TabIndex = 7;
@@ -184,7 +188,8 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelName.Location = new System.Drawing.Point(569, 59);
+            this.labelName.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.labelName.Location = new System.Drawing.Point(14, 45);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(45, 19);
             this.labelName.TabIndex = 8;
@@ -194,7 +199,7 @@
             // 
             this.labelTIN.AutoSize = true;
             this.labelTIN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTIN.Location = new System.Drawing.Point(584, 142);
+            this.labelTIN.Location = new System.Drawing.Point(15, 129);
             this.labelTIN.Name = "labelTIN";
             this.labelTIN.Size = new System.Drawing.Size(30, 19);
             this.labelTIN.TabIndex = 9;
@@ -204,7 +209,7 @@
             // 
             this.labelPhone.AutoSize = true;
             this.labelPhone.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPhone.Location = new System.Drawing.Point(569, 115);
+            this.labelPhone.Location = new System.Drawing.Point(15, 102);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(48, 19);
             this.labelPhone.TabIndex = 10;
@@ -214,17 +219,53 @@
             // 
             this.labelSurname.AutoSize = true;
             this.labelSurname.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelSurname.Location = new System.Drawing.Point(569, 86);
+            this.labelSurname.Location = new System.Drawing.Point(14, 73);
             this.labelSurname.Name = "labelSurname";
             this.labelSurname.Size = new System.Drawing.Size(63, 19);
             this.labelSurname.TabIndex = 11;
             this.labelSurname.Text = "Surname";
             // 
+            // btnNew
+            // 
+            this.btnNew.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNew.Appearance.Options.UseFont = true;
+            this.btnNew.Location = new System.Drawing.Point(450, 16);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(118, 30);
+            this.btnNew.TabIndex = 12;
+            this.btnNew.Text = "New";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.Location = new System.Drawing.Point(450, 121);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(118, 30);
+            this.btnClose.TabIndex = 13;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Location = new System.Drawing.Point(450, 85);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(118, 30);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 450);
+            this.ClientSize = new System.Drawing.Size(640, 450);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.labelSurname);
             this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.labelTIN);
@@ -273,5 +314,8 @@
         private Label labelTIN;
         private Label labelPhone;
         private Label labelSurname;
+        private DevExpress.XtraEditors.SimpleButton btnNew;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
     }
 }
