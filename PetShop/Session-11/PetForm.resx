@@ -161,14 +161,23 @@
   <data name="colStatus.VisibleIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="colPetFoodType.Caption" xml:space="preserve">
-    <value>FoodType</value>
+  <data name="colCost.Caption" xml:space="preserve">
+    <value>Cost</value>
   </data>
-  <data name="colPetFoodType.Visible" type="System.Boolean, mscorlib">
+  <data name="colCost.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="colPetFoodType.VisibleIndex" type="System.Int32, mscorlib">
+  <data name="colCost.VisibleIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="colPrice.Caption" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="colPrice.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPrice.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="grdPets.Size" type="System.Drawing.Size, System.Drawing">
     <value>773, 331</value>
@@ -276,10 +285,16 @@
   <data name="&gt;&gt;colStatus.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;colPetFoodType.Name" xml:space="preserve">
-    <value>colPetFoodType</value>
+  <data name="&gt;&gt;colCost.Name" xml:space="preserve">
+    <value>colCost</value>
   </data>
-  <data name="&gt;&gt;colPetFoodType.Type" xml:space="preserve">
+  <data name="&gt;&gt;colCost.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colPrice.Name" xml:space="preserve">
+    <value>colPrice</value>
+  </data>
+  <data name="&gt;&gt;colPrice.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;Root.Name" xml:space="preserve">

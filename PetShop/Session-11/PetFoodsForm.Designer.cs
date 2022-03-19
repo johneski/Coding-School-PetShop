@@ -31,6 +31,11 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.grdPetFoods = new DevExpress.XtraGrid.GridControl();
             this.grvPetFoods = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBrand = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -42,11 +47,6 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBrand = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPetFoods)).BeginInit();
@@ -71,7 +71,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(903, 525);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -80,7 +80,7 @@
             this.grdPetFoods.Location = new System.Drawing.Point(12, 12);
             this.grdPetFoods.MainView = this.grvPetFoods;
             this.grdPetFoods.Name = "grdPetFoods";
-            this.grdPetFoods.Size = new System.Drawing.Size(776, 400);
+            this.grdPetFoods.Size = new System.Drawing.Size(879, 475);
             this.grdPetFoods.TabIndex = 0;
             this.grdPetFoods.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPetFoods});
@@ -95,114 +95,6 @@
             this.colPrice});
             this.grvPetFoods.GridControl = this.grdPetFoods;
             this.grvPetFoods.Name = "grvPetFoods";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(699, 416);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(89, 22);
-            this.btnCancel.StyleController = this.layoutControl1;
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(603, 416);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(92, 22);
-            this.btnDelete.StyleController = this.layoutControl1;
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(507, 416);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 22);
-            this.btnSave.StyleController = this.layoutControl1;
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(409, 416);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(94, 22);
-            this.btnNew.StyleController = this.layoutControl1;
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "New";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.emptySpaceItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 450);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grdPetFoods;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 404);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.btnCancel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(687, 404);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(93, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.btnDelete;
-            this.layoutControlItem3.Location = new System.Drawing.Point(591, 404);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(96, 26);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(495, 404);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(96, 26);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.btnNew;
-            this.layoutControlItem5.Location = new System.Drawing.Point(397, 404);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(98, 26);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 404);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(397, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // colID
             // 
@@ -244,11 +136,119 @@
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 4;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(790, 491);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(101, 22);
+            this.btnCancel.StyleController = this.layoutControl1;
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(681, 491);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(105, 22);
+            this.btnDelete.StyleController = this.layoutControl1;
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(572, 491);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(105, 22);
+            this.btnSave.StyleController = this.layoutControl1;
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(461, 491);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(107, 22);
+            this.btnNew.StyleController = this.layoutControl1;
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "New";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.emptySpaceItem1});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(903, 525);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grdPetFoods;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(883, 479);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.btnCancel;
+            this.layoutControlItem2.Location = new System.Drawing.Point(778, 479);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.btnDelete;
+            this.layoutControlItem3.Location = new System.Drawing.Point(669, 479);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(109, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnSave;
+            this.layoutControlItem4.Location = new System.Drawing.Point(560, 479);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(109, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btnNew;
+            this.layoutControlItem5.Location = new System.Drawing.Point(449, 479);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(111, 26);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 479);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(449, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // PetFoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(903, 525);
             this.Controls.Add(this.layoutControl1);
             this.Name = "PetFoodsForm";
             this.Text = "PetFoodsForm";

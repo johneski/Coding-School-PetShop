@@ -38,7 +38,8 @@
             this.colAnimalType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBreed = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPetFoodType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -107,7 +108,8 @@
             this.colAnimalType,
             this.colBreed,
             this.colStatus,
-            this.colPetFoodType});
+            this.colCost,
+            this.colPrice});
             this.grvPets.GridControl = this.grdPets;
             this.grvPets.Name = "grvPets";
             // 
@@ -129,11 +131,17 @@
             this.colStatus.FieldName = "Status";
             this.colStatus.Name = "colStatus";
             // 
-            // colPetFoodType
+            // colCost
             // 
-            resources.ApplyResources(this.colPetFoodType, "colPetFoodType");
-            this.colPetFoodType.FieldName = "FoodType";
-            this.colPetFoodType.Name = "colPetFoodType";
+            resources.ApplyResources(this.colCost, "colCost");
+            this.colCost.FieldName = "Cost";
+            this.colCost.Name = "colCost";
+            // 
+            // colPrice
+            // 
+            resources.ApplyResources(this.colPrice, "colPrice");
+            this.colPrice.FieldName = "Price";
+            this.colPrice.Name = "colPrice";
             // 
             // btnCancel
             // 
@@ -249,8 +257,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAnimalType;
         private DevExpress.XtraGrid.Columns.GridColumn colBreed;
         private DevExpress.XtraGrid.Columns.GridColumn colStatus;
-        private DevExpress.XtraGrid.Columns.GridColumn colPetFoodType;
         private DevExpress.XtraEditors.SimpleButton btnNew;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraGrid.Columns.GridColumn colCost;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
     }
 }

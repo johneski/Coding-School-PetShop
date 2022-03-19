@@ -88,7 +88,8 @@ namespace Session_11
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            AddNewPetFoodForm addNeewPetFoodForm = new AddNewPetFoodForm();
+            addNeewPetFoodForm.ShowDialog();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -103,7 +104,7 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
