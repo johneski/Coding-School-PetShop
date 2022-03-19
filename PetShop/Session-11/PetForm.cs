@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PetShopLibrary;
 
 namespace Session_11
 {
     public partial class PetForm : Form
     {
         public List<Pet> _pets;
-        private PetShopLibrary.PetShop _petShop;
+        private PetShopManager _petShop;
        
         public PetForm()
         {
@@ -22,10 +23,8 @@ namespace Session_11
 
         private void PetForm_Load(object sender, EventArgs e)
         {
-            
-            _petShop = new PetShopLibrary.PetShop();
-            _petShop.Pets = new List<Pet>();
-
+           
+            _petShop = new PetShopManager();
             PopulateControls();
         }
 
@@ -33,9 +32,10 @@ namespace Session_11
         {
             var reptil = new Pet()
             {
+                ObjectStatus = PetShopLibrary.DataObjects.Status.Inactive,
                 AnimalType = AnimalType.Reptilian,
                 Breed = "Cobra",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = FoodBrand.Rats}
             };
 
@@ -43,32 +43,34 @@ namespace Session_11
             {
                 AnimalType = AnimalType.Mammal,
                 Breed = "Labrador",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.Recovering,
                 FoodType = new PetFood() { Type = FoodType.DogFood, Brand = FoodBrand.Pedigree }
             };
             var cat = new Pet()
             {
                 AnimalType = AnimalType.Mammal,
                 Breed = "egyptian",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.CatFood, Brand = FoodBrand.Friskis }
             };
             var fish = new Pet()
             {
                 AnimalType = AnimalType.Fish,
                 Breed = "goldfish",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.FishFood, Brand = FoodBrand.Friskis }
             };
-            _petShop.Pets.Add(reptil);
-            _petShop.Pets.Add(dog);
-            _petShop.Pets.Add(cat);
-            _petShop.Pets.Add(fish);
+            _petShop.Add(reptil);
+            _petShop.Add(dog);
+            _petShop.Add(cat);
+            _petShop.Add(fish);
 
             BindingSource bsPets = new BindingSource();
-            bsPets.DataSource = _petShop.Pets;
-            
+            bsPets.DataSource = _petShop.GetPets();
             grdPets.DataSource = bsPets;
+            DevExpress.XtraGrid.Columns.ColumnFilterInfo cinfo = new DevExpress.XtraGrid.Columns.ColumnFilterInfo($"HealthStatus != 'Unhealthy' and ObjectStatus = 'Active'");
+            grvPets.Columns["HealthStatus"].FilterInfo = cinfo;
+            
 
 
         }

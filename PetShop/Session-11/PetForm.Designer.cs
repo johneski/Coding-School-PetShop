@@ -140,7 +140,7 @@
             // colStatus
             // 
             this.colStatus.Caption = "Status";
-            this.colStatus.FieldName = "Status";
+            this.colStatus.FieldName = "HealthStatus";
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 2;

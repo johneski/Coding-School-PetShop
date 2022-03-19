@@ -43,23 +43,25 @@ namespace PetShopLibrary
 
         public void Delete(Customer customer) 
         {
-            _petShop.Customers.Remove(customer);
+            customer.ObjectStatus = DataObjects.Status.Inactive;
         }
 
         public void Delete(Employee employee)
         {
-            _petShop.Employees.Remove(employee);
+            employee.ObjectStatus = DataObjects.Status.Inactive;
         }
 
         public void Delete(Pet pet)
         {
-            _petShop.Pets.Remove(pet);
+            pet.ObjectStatus = DataObjects.Status.Inactive;
         }
+
 
         public void Delete(PetFood petFood)
         {
-            _petShop.PetFoods.Remove(petFood);
+            petFood.ObjectStatus = DataObjects.Status.Inactive;
         }
+
 
         public List<Customer> GetCustomers()
         {
@@ -74,11 +76,6 @@ namespace PetShopLibrary
         public List<Pet> GetPets()
         {
             return _petShop.Pets;
-        }
-
-        public List<Pet> GetHealthyPets() 
-        {
-            return _petShop.Pets.FindAll(x => x.Status != PetStatus.Unhealthy);
         }
 
         public List<PetFood> GetPetFoods()
