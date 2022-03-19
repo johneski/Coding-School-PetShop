@@ -6,11 +6,15 @@ using System;
 public enum AnimalType
 {
     Bird,
-    Reptilian,
-    Mammal,
-    Fish
-
+    Cat,
+    Dog,
+    Snake,
+    Fish,
+    Turtle,
+    Rat
 }
+
+public 
 
 
 
