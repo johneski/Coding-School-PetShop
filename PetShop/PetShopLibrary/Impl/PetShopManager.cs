@@ -11,9 +11,7 @@ namespace PetShopLibrary
     {
         private const string FILE_NAME = "petShop.json";
         private PetShop _petShop;
-
-        public object Pets { get; set; }
-
+        
         public PetShopManager()
         {
             Load();
@@ -118,6 +116,5 @@ namespace PetShopLibrary
             _petShop.PetFoods.Add(petFood);
         }
 
-        
     }
 }
