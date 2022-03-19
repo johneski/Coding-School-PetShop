@@ -52,7 +52,7 @@ namespace Session_11
             }
             else
             {
-                MessageBox.Show("Please mhn afhnete kena");
+                MessageBox.Show("Please fill all the fields");
             }
                 
         }
