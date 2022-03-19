@@ -3,7 +3,7 @@
 
 public interface IPerson
 {
-    public Guid ID { get; }
+    public Guid ID { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
     public string Fullname { get; }
@@ -12,7 +12,7 @@ public interface IPerson
 
 public class Person : IPerson
 { 
-    public Guid ID { get; } =  Guid.NewGuid();
+    public Guid ID { get; set; } =  Guid.NewGuid();
     public string Name { get; set; }
     public string Surname { get; set; }
     public string Fullname { get => $"{Name} {Surname}"; }
