@@ -18,7 +18,7 @@ namespace Session_11
         public PetShop petShop { get; set; }
         private Customer _customer = new Customer();
         private List<Customer> CustomerList = new List<Customer>();
-        
+        private bool _deleteON = false;
         public FormCustomer()
         {
             InitializeComponent();
@@ -102,6 +102,7 @@ namespace Session_11
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DeleteOn();
             MessageBox.Show("Click the Customer you want to delete");
         }
 
@@ -117,7 +118,12 @@ namespace Session_11
 
         private void gridCustomerList_Click(object sender, EventArgs e)
         {
-            DeleteCustomer();
+            if (_deleteON == true)
+            {
+                DeleteCustomer();
+                DeleteOff();
+            }
+            
 
 
 
@@ -262,8 +268,25 @@ namespace Session_11
 
         }
 
-       
+        private void DeleteOn()
+        {
+            if (_deleteON == false)
+            {
+                _deleteON = true;
+            }
+           
+        }
+        private void DeleteOff()
+        {
+            if (_deleteON == true)
+            {
+                _deleteON = false;
+            }
 
-       
+        }
+
+
+
+
     }
 }
