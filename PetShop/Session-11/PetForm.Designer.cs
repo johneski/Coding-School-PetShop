@@ -118,30 +118,35 @@
             resources.ApplyResources(this.colAnimalType, "colAnimalType");
             this.colAnimalType.FieldName = "AnimalType";
             this.colAnimalType.Name = "colAnimalType";
+            this.colAnimalType.OptionsColumn.AllowEdit = false;
             // 
             // colBreed
             // 
             resources.ApplyResources(this.colBreed, "colBreed");
             this.colBreed.FieldName = "Breed";
             this.colBreed.Name = "colBreed";
+            this.colBreed.OptionsColumn.AllowEdit = false;
             // 
             // colStatus
             // 
             resources.ApplyResources(this.colStatus, "colStatus");
             this.colStatus.FieldName = "Status";
             this.colStatus.Name = "colStatus";
+            this.colStatus.OptionsColumn.AllowEdit = false;
             // 
             // colCost
             // 
             resources.ApplyResources(this.colCost, "colCost");
             this.colCost.FieldName = "Cost";
             this.colCost.Name = "colCost";
+            this.colCost.OptionsColumn.AllowEdit = false;
             // 
             // colPrice
             // 
             resources.ApplyResources(this.colPrice, "colPrice");
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
+            this.colPrice.OptionsColumn.AllowEdit = false;
             // 
             // btnCancel
             // 

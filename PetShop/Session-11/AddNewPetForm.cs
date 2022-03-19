@@ -78,7 +78,8 @@ namespace Session_11
                 MessageBox.Show("Please fill all the fields");
 
             }
-            MessageBox.Show("Saved");
+            //MessageBox.Show("Saved");
+            this.Close();
             
             
 
