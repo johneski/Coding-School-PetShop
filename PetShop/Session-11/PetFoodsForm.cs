@@ -12,7 +12,7 @@ namespace Session_11
 {
     public partial class PetFoodsForm : Form
     {
-       public List<PetFoodType> _petFoodTypes = new List<PetFoodType>();
+       public List<PetFood> _petFoodTypes = new List<PetFood>();
         private PetShopLibrary.PetShop _petShop;
         public PetFoodsForm()
         {
@@ -30,10 +30,10 @@ namespace Session_11
 
         private void PopulateControls()
         {
-            var dry = new PetFoodType();
-            var canned = new PetFoodType();
-            var home_cooked = new PetFoodType();
-            var raw = new PetFoodType();
+            var dry = new PetFood();
+            var canned = new PetFood();
+            var home_cooked = new PetFood();
+            var raw = new PetFood();
 
             _petShop.PetFoods.Add(dry);
             _petShop.PetFoods.Add(dry);
