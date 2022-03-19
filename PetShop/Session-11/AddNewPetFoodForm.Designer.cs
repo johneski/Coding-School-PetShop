@@ -37,26 +37,26 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Type = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.Brand = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Cost = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Price = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.Price = new DevExpress.XtraLayout.LayoutControlItem();
+            this.Brand = new DevExpress.XtraLayout.LayoutControlItem();
+            this.Cost = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Type)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Brand)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Brand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cost)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -126,6 +126,7 @@
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(346, 23);
             this.cmbType.TabIndex = 0;
+            this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             // 
             // Root
             // 
@@ -151,38 +152,6 @@
             this.Type.Name = "Type";
             this.Type.Size = new System.Drawing.Size(390, 25);
             this.Type.TextSize = new System.Drawing.Size(28, 13);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 50);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 354);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // Brand
-            // 
-            this.Brand.Control = this.cmbBrand;
-            this.Brand.Location = new System.Drawing.Point(0, 25);
-            this.Brand.Name = "Brand";
-            this.Brand.Size = new System.Drawing.Size(390, 25);
-            this.Brand.TextSize = new System.Drawing.Size(28, 13);
-            // 
-            // Cost
-            // 
-            this.Cost.Control = this.txtCost;
-            this.Cost.Location = new System.Drawing.Point(390, 25);
-            this.Cost.Name = "Cost";
-            this.Cost.Size = new System.Drawing.Size(390, 25);
-            this.Cost.TextSize = new System.Drawing.Size(28, 13);
-            // 
-            // Price
-            // 
-            this.Price.Control = this.txtPrice;
-            this.Price.Location = new System.Drawing.Point(390, 0);
-            this.Price.Name = "Price";
-            this.Price.Size = new System.Drawing.Size(390, 25);
-            this.Price.TextSize = new System.Drawing.Size(28, 13);
             // 
             // layoutControlItem5
             // 
@@ -210,6 +179,38 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(528, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 50);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 354);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // Price
+            // 
+            this.Price.Control = this.txtPrice;
+            this.Price.Location = new System.Drawing.Point(390, 0);
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(390, 25);
+            this.Price.TextSize = new System.Drawing.Size(28, 13);
+            // 
+            // Brand
+            // 
+            this.Brand.Control = this.cmbBrand;
+            this.Brand.Location = new System.Drawing.Point(0, 25);
+            this.Brand.Name = "Brand";
+            this.Brand.Size = new System.Drawing.Size(390, 25);
+            this.Brand.TextSize = new System.Drawing.Size(28, 13);
+            // 
+            // Cost
+            // 
+            this.Cost.Control = this.txtCost;
+            this.Cost.Location = new System.Drawing.Point(390, 25);
+            this.Cost.Name = "Cost";
+            this.Cost.Size = new System.Drawing.Size(390, 25);
+            this.Cost.TextSize = new System.Drawing.Size(28, 13);
+            // 
             // AddNewPetFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -225,13 +226,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Type)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Brand)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Brand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cost)).EndInit();
             this.ResumeLayout(false);
 
         }

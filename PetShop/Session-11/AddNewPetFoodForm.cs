@@ -14,14 +14,16 @@ namespace Session_11
     public partial class AddNewPetFoodForm : Form
     {
         private PetShopManager _petShop;
-        public AddNewPetFoodForm()
+        public AddNewPetFoodForm(PetShopManager petShopManager)
         {
             InitializeComponent();
+            _petShop = petShopManager;
+            
         }
 
         private void AddNewPetFoodForm_Load(object sender, EventArgs e)
         {
-            _petShop = new PetShopManager();
+            
             //cmbType.DataSource = Enum.GetValues(Typ)
             //cmbAnimalType.DataSource = Enum.GetValues(typeof(AnimalType));
             //cmbAnimalType.SelectedIndex = -1;
@@ -42,6 +44,9 @@ namespace Session_11
 
         }
 
-        
+        private void cmbType_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

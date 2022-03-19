@@ -31,6 +31,7 @@ namespace Session_11
             bsPets.DataSource = _petShop.GetPets();
 
             grdPets.DataSource = bsPets;
+            grvPets.RefreshData();
 
         }
 
