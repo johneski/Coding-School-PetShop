@@ -46,13 +46,37 @@ namespace Session_11
                 if(price >= cost)
                 {
                     FoodType foodType = (FoodType)foodTypeIndex;
-                    FoodType foodBrandType = (FoodType)foodBrandIndex;
+                    FoodBrand foodBrandType = (FoodBrand)foodBrandIndex;
+
+                    PetFood petFood = new PetFood()
+                    {
+                        Brand = foodBrandType,
+                        Price = price,
+                        Cost = cost,
+                        Type = foodType,
+                        ID = Guid.NewGuid(),
+                    };
+
+
+
+                    _petShop.Add(petFood);
+                    _petShop.Save();
+
                 }
+                else
+                {
+                    MessageBox.Show("Check again the price and cost ");
+                }
+                
             }
+            MessageBox.Show("Saved");
+            this.Close();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
 
         }
 
