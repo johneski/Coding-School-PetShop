@@ -14,9 +14,6 @@ public enum AnimalType
     Rat
 }
 
-public 
-
-
 
 public enum PetStatus
 {

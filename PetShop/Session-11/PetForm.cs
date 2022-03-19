@@ -39,31 +39,31 @@ namespace Session_11
         {
             var reptil = new Pet()
             {
-                AnimalType = AnimalType.Reptilian,
+                AnimalType = AnimalType.Snake,
                 Breed = "Cobra",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = FoodBrand.Purina, Price=80, ID = new Guid(), Cost=20}
             };
 
             var dog = new Pet()
             {
-                AnimalType = AnimalType.Mammal,
+                AnimalType = AnimalType.Dog,
                 Breed = "Labrador",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.DogFood, Brand = FoodBrand.Pedigree, Price = 50, Cost = 15, ID = new Guid() } 
             };
             var cat = new Pet()
             {
-                AnimalType = AnimalType.Mammal,
+                AnimalType = AnimalType.Cat,
                 Breed = "egyptian",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.CatFood, Brand = FoodBrand.Friskis, Price = 100 , ID = new Guid(), Cost = 25 }
             };
             var fish = new Pet()
             {
                 AnimalType = AnimalType.Fish,
                 Breed = "goldfish",
-                Status = PetStatus.OK,
+                HealthStatus = PetStatus.OK,
                 FoodType = new PetFood() { Type = FoodType.FishFood, Brand = FoodBrand.Friskis, Cost= 10, ID= new Guid(), Price= 60 }
             };
             _petShop.Add(reptil);
