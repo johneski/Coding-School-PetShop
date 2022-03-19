@@ -25,8 +25,11 @@ namespace Session_11
             
             _petShop = new PetShopLibrary.PetShop();
             _petShop.Pets = new List<Pet>();
-
-            PopulateControls();
+            if(_petShop.Pets == null)
+            {
+                PopulateControls();
+            }
+            
         }
 
         private void PopulateControls()
