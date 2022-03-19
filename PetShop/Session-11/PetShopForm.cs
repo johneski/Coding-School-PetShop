@@ -2,10 +2,10 @@ using PetShopLibrary;
 
 namespace Session_11
 {
-    public partial class Form1 : Form
+    public partial class PetShopForm : Form
     {
         private PetShop _petShop;
-        public Form1()
+        public PetShopForm()
         {
             InitializeComponent();
         }
@@ -73,8 +73,7 @@ namespace Session_11
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TransactionsF form = new TransactionsF();
-            form.ShowDialog();
+            
         }
 
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
