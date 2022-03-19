@@ -83,5 +83,10 @@ namespace Session_11
             NewEmployeeForm form = new NewEmployeeForm();
             form.ShowDialog();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
