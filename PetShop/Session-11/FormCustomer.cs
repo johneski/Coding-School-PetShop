@@ -36,10 +36,10 @@ namespace Session_11
         private void FormCustomer_Load(object sender, EventArgs e)
         {
             InitialView();
-            
+
             //DummyCustomers();
 
-            CustomerList = _petshopManager.GetCustomers();
+            LoadToCustomerList();
 
 
 
@@ -291,6 +291,11 @@ namespace Session_11
 
 
             }
+        }
+
+       private void LoadToCustomerList()
+        {
+            CustomerList = _petshopManager.GetCustomers();
         }
 
      
