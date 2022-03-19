@@ -1,6 +1,6 @@
 ﻿namespace Session_11
 {
-    partial class NewTransactionF
+    partial class NewTransactionF : Form
     {
         /// <summary>
         /// Required designer variable.

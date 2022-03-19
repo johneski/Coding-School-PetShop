@@ -26,9 +26,6 @@ namespace Session_11
 
         private void AddNewPetForm_Load(object sender, EventArgs e)
         {
-           
-
-            
             cmbAnimalType.DataSource = Enum.GetValues(typeof(AnimalType));
             cmbAnimalType.SelectedIndex = -1;
             cmbAnimalType.Text = "Please choose a type";
@@ -67,6 +64,7 @@ namespace Session_11
                     
                     _petShop.Add(pet);
                     _petShop.Save();
+                    
                 }
                 else
                 {
@@ -78,10 +76,9 @@ namespace Session_11
                 MessageBox.Show("Please fill all the fields");
 
             }
-            //MessageBox.Show("Saved");
+            MessageBox.Show("Saved");
+
             this.Close();
-            
-            
 
         }
 
