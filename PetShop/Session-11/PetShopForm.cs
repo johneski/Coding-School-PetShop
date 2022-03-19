@@ -12,58 +12,9 @@ namespace Session_11
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // if filename does not exist then
-            // create data and save
-            // LoadData            
+                   
         }
 
-        private void Save()
-        {
-
-        }
-
-        private void Load()
-        {
-
-        }
-
-        private void CreateCustomer()
-        {
-            Customer customer = new Customer()
-            {
-                Name = "John",
-                Surname = "Eski",
-                PhoneNumber = "1234567",
-                Tin = "1234"
-            };
-
-            _petShop.Customers.Add(customer);
-        }
-
-        private void CreatePet()
-        {
-
-        }
-
-        private void CreatePetFood()
-        {
-
-        }
-
-        private void CreateEmployee()
-        {
-
-        }
-
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void petsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -79,6 +30,18 @@ namespace Session_11
         private void petFoodsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PetFoodsForm form = new PetFoodsForm();
+            form.ShowDialog();
+        }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeesForm employeesForm = new EmployeesForm();
+            employeesForm.ShowDialog();
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCustomer form = new FormCustomer();
             form.ShowDialog();
         }
     }

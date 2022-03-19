@@ -14,9 +14,10 @@ namespace Session_11
     public partial class NewEmployeeForm : Form
     {
         private PetShopManager _petShopManager;
-        public NewEmployeeForm()
+        public NewEmployeeForm(PetShopManager petShopManager)
         {
             InitializeComponent();
+            _petShopManager = petShopManager;
         }
 
         private void NewEmployeeForm_Load(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace Session_11
                     Salary = Convert.ToDecimal(salary),
                     Type = type
                 };
-                _petShopManager = new PetShopManager();
+                
                 _petShopManager.Add(emp);
                 _petShopManager.Save();
                 this.Close();

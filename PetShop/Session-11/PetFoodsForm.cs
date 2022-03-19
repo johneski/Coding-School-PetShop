@@ -88,7 +88,7 @@ namespace Session_11
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            AddNewPetFoodForm addNeewPetFoodForm = new AddNewPetFoodForm();
+            AddNewPetFoodForm addNeewPetFoodForm = new AddNewPetFoodForm(_petShop);
             addNeewPetFoodForm.ShowDialog();
         }
 

@@ -80,8 +80,9 @@ namespace Session_11
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            NewEmployeeForm form = new NewEmployeeForm();
+            NewEmployeeForm form = new NewEmployeeForm(_petShopManager);
             form.ShowDialog();
+            gridView1.RefreshData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
