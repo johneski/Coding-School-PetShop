@@ -110,6 +110,7 @@
             this.petFoodsToolStripMenuItem.Name = "petFoodsToolStripMenuItem";
             this.petFoodsToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.petFoodsToolStripMenuItem.Text = "PetFoods";
+            this.petFoodsToolStripMenuItem.Click += new System.EventHandler(this.petFoodsToolStripMenuItem_Click);
             // 
             // PetShopForm
             // 

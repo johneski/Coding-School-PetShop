@@ -13,7 +13,7 @@ namespace Session_11
 {
     public partial class PetFoodsForm : Form
     {
-
+       
         private PetShopManager _petShop;
         public PetFoodsForm()
         {
@@ -23,8 +23,8 @@ namespace Session_11
         private void PetFoodsForm_Load(object sender, EventArgs e)
         {
             _petShop = new PetShopManager();
-
-
+            
+            
 
             PopulateControls();
 
@@ -34,11 +34,11 @@ namespace Session_11
         {
             var CatFood = new PetFood()
             {
-                Price = 40,
-                Brand = FoodBrand.Purina,
-                Cost = 30,
-                ID = Guid.NewGuid(),
-                Type = FoodType.CatFood
+               Price = 40,
+               Brand = FoodBrand.Purina,
+               Cost = 30,
+               ID = Guid.NewGuid(),
+               Type = FoodType.CatFood
             };
             var DogFood = new PetFood()
             {
@@ -88,7 +88,8 @@ namespace Session_11
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            AddNewPetFoodForm addNeewPetFoodForm = new AddNewPetFoodForm();
+            addNeewPetFoodForm.ShowDialog();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -103,7 +104,7 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
