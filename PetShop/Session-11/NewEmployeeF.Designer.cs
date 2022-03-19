@@ -68,35 +68,40 @@
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(381, 171);
+            this.layoutControl1.Size = new System.Drawing.Size(435, 228);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(118, 60);
+            this.cmbType.Location = new System.Drawing.Point(141, 72);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(251, 23);
+            this.cmbType.Size = new System.Drawing.Size(281, 28);
             this.cmbType.TabIndex = 7;
             this.cmbType.Text = "Please Choose a Type...";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(192, 109);
+            this.btnExit.Location = new System.Drawing.Point(219, 132);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(177, 50);
+            this.btnExit.Size = new System.Drawing.Size(203, 80);
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 109);
+            this.btnSave.Location = new System.Drawing.Point(13, 132);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(176, 50);
+            this.btnSave.Size = new System.Drawing.Size(202, 80);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
@@ -104,25 +109,28 @@
             // 
             // txtSalary
             // 
-            this.txtSalary.Location = new System.Drawing.Point(118, 85);
+            this.txtSalary.Location = new System.Drawing.Point(141, 104);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(70, 20);
+            this.txtSalary.Size = new System.Drawing.Size(74, 22);
             this.txtSalary.StyleController = this.layoutControl1;
             this.txtSalary.TabIndex = 4;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(118, 36);
+            this.txtSurname.Location = new System.Drawing.Point(141, 44);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(251, 20);
+            this.txtSurname.Size = new System.Drawing.Size(281, 22);
             this.txtSurname.StyleController = this.layoutControl1;
             this.txtSurname.TabIndex = 2;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(118, 12);
+            this.txtName.Location = new System.Drawing.Point(141, 16);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(251, 20);
+            this.txtName.Size = new System.Drawing.Size(281, 22);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 0;
             // 
@@ -139,7 +147,7 @@
             this.emptySpaceItem1,
             this.Employee_Type});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(381, 171);
+            this.Root.Size = new System.Drawing.Size(435, 228);
             this.Root.TextVisible = false;
             // 
             // Employee_Name
@@ -147,32 +155,32 @@
             this.Employee_Name.Control = this.txtName;
             this.Employee_Name.Location = new System.Drawing.Point(0, 0);
             this.Employee_Name.Name = "Employee_Name";
-            this.Employee_Name.Size = new System.Drawing.Size(361, 24);
-            this.Employee_Name.TextSize = new System.Drawing.Size(94, 13);
+            this.Employee_Name.Size = new System.Drawing.Size(413, 28);
+            this.Employee_Name.TextSize = new System.Drawing.Size(114, 16);
             // 
             // Employee_Surname
             // 
             this.Employee_Surname.Control = this.txtSurname;
-            this.Employee_Surname.Location = new System.Drawing.Point(0, 24);
+            this.Employee_Surname.Location = new System.Drawing.Point(0, 28);
             this.Employee_Surname.Name = "Employee_Surname";
-            this.Employee_Surname.Size = new System.Drawing.Size(361, 24);
-            this.Employee_Surname.TextSize = new System.Drawing.Size(94, 13);
+            this.Employee_Surname.Size = new System.Drawing.Size(413, 28);
+            this.Employee_Surname.TextSize = new System.Drawing.Size(114, 16);
             // 
             // Employee_Salary
             // 
             this.Employee_Salary.Control = this.txtSalary;
-            this.Employee_Salary.Location = new System.Drawing.Point(0, 73);
+            this.Employee_Salary.Location = new System.Drawing.Point(0, 88);
             this.Employee_Salary.Name = "Employee_Salary";
-            this.Employee_Salary.Size = new System.Drawing.Size(180, 24);
-            this.Employee_Salary.TextSize = new System.Drawing.Size(94, 13);
+            this.Employee_Salary.Size = new System.Drawing.Size(206, 28);
+            this.Employee_Salary.TextSize = new System.Drawing.Size(114, 16);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnSave;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 97);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 116);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(89, 35);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(180, 54);
+            this.layoutControlItem5.Size = new System.Drawing.Size(206, 86);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -180,10 +188,10 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnExit;
-            this.layoutControlItem6.Location = new System.Drawing.Point(180, 97);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(78, 26);
+            this.layoutControlItem6.Location = new System.Drawing.Point(206, 116);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(89, 35);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(181, 54);
+            this.layoutControlItem6.Size = new System.Drawing.Size(207, 86);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -191,25 +199,26 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(180, 73);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(206, 88);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(181, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(207, 28);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Employee_Type
             // 
             this.Employee_Type.Control = this.cmbType;
-            this.Employee_Type.Location = new System.Drawing.Point(0, 48);
+            this.Employee_Type.Location = new System.Drawing.Point(0, 56);
             this.Employee_Type.Name = "Employee_Type";
-            this.Employee_Type.Size = new System.Drawing.Size(361, 25);
-            this.Employee_Type.TextSize = new System.Drawing.Size(94, 13);
+            this.Employee_Type.Size = new System.Drawing.Size(413, 32);
+            this.Employee_Type.TextSize = new System.Drawing.Size(114, 16);
             // 
             // NewEmployeeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 171);
+            this.ClientSize = new System.Drawing.Size(435, 228);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NewEmployeeForm";
             this.Text = "New Employee";
             this.Load += new System.EventHandler(this.NewEmployeeForm_Load);

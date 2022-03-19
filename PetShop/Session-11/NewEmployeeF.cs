@@ -48,13 +48,18 @@ namespace Session_11
                 _petShopManager = new PetShopManager();
                 _petShopManager.Add(emp);
                 _petShopManager.Save();
-
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Please fill all the fields");
             }
                 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
