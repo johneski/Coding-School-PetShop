@@ -89,5 +89,16 @@ namespace Session_11
             
 
         }
+
+        private void PetShopForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f =new FormMonthlyLedger();
+            f.ShowDialog();
+        }
     }
 }

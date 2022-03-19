@@ -37,6 +37,7 @@
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.employeesToolStripMenuItem,
             this.transactionsToolStripMenuItem,
             this.petsToolStripMenuItem,
-            this.petFoodsToolStripMenuItem});
+            this.petFoodsToolStripMenuItem,
+            this.monthlyLedgerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
@@ -111,6 +113,13 @@
             this.petFoodsToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.petFoodsToolStripMenuItem.Text = "PetFoods";
             // 
+            // monthlyLedgerToolStripMenuItem
+            // 
+            this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
+            this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.monthlyLedgerToolStripMenuItem.Text = "MonthlyLedger";
+            this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
+            // 
             // PetShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -138,5 +147,6 @@
         private ToolStripMenuItem transactionsToolStripMenuItem;
         private ToolStripMenuItem petsToolStripMenuItem;
         private ToolStripMenuItem petFoodsToolStripMenuItem;
+        private ToolStripMenuItem monthlyLedgerToolStripMenuItem;
     }
 }

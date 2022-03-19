@@ -32,7 +32,7 @@ namespace Session_11
 
 
 
-        #region FormCustomer
+        #region FormCustomer_UI
         private void FormCustomer_Load(object sender, EventArgs e)
         {
             InitialView();
