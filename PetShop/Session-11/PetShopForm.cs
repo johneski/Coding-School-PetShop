@@ -75,5 +75,19 @@ namespace Session_11
         {
             
         }
+
+        private void PetShopForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCustomer formCustomer = new FormCustomer();
+            formCustomer.ShowDialog();
+             
+            
+
+        }
     }
 }

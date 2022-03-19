@@ -69,7 +69,6 @@
             this.gridCustomerList.TabIndex = 0;
             this.gridCustomerList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCustomers});
-            this.gridCustomerList.Click += new System.EventHandler(this.gridCustomerList_Click);
             // 
             // gridViewCustomers
             // 
@@ -280,6 +279,7 @@
             this.Controls.Add(this.ctrlName);
             this.Name = "FormCustomer";
             this.Text = "FormCustomers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCustomer_FormClosing);
             this.Load += new System.EventHandler(this.FormCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomerList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).EndInit();

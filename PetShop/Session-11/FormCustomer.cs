@@ -14,47 +14,42 @@ namespace Session_11
 {
     public partial class FormCustomer : Form
     {
-        
-        public PetShop petShop { get; set; }
+        //LOad from jsonfile
+        //Petshop petshop=load(json)
+        //PetShop petShop = new PetShop();
         private Customer _customer = new Customer();
-        private List<Customer> CustomerList = new List<Customer>();
-        private bool _deleteON = false;
+        private List<Customer> CustomerList ;
+        private PetShopManager _petshopManager = new PetShopManager();
+     
         public FormCustomer()
         {
             InitializeComponent();
         }
-        
-        
 
+
+
+
+
+
+
+        #region FormCustomer
         private void FormCustomer_Load(object sender, EventArgs e)
         {
-
-
             InitialView();
+            
+            //DummyCustomers();
+
+            CustomerList = _petshopManager.GetCustomers();
+
+
+
 
             //sbisto
-            DummyCustomers();
-            
-            
-
-
-
-
-
-
-            
-            
-
+            //ummyCustomers();
 
 
             SetDataBindings();
-
-
         }
-
-       
-
-# region FormCustomer
         private void bindingPetShopCustomers_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -79,7 +74,7 @@ namespace Session_11
         private void gridViewCustomers_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             _customer=gridViewCustomers.GetFocusedRow() as Customer;
-
+            
             FillControlsWithGrid(_customer);
 
 
@@ -92,23 +87,20 @@ namespace Session_11
         {
             var _customerpolicies = new CustomerPolicies();
 
-            SaveCustomer(_customerpolicies);
-
-
-
-
+            SaveCustomerToGrid(_customerpolicies);
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DeleteOn();
-            MessageBox.Show("Click the Customer you want to delete");
+            /*DeleteOn();
+            MessageBox.Show("Click the Customer you want to delete");*/
+            DeleteCustomer();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
-        {
-            CloseCustomerForm();
+        {            
+            Close();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -118,33 +110,42 @@ namespace Session_11
 
         private void gridCustomerList_Click(object sender, EventArgs e)
         {
-            if (_deleteON == true)
-            {
-                DeleteCustomer();
-                DeleteOff();
-            }
+           
             
+        }
 
-
-
-
-
-
-
+        private void FormCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            KeepChanges();
 
         }
+
 
         #endregion
 
         private void FillControlsWithGrid(Customer _customer)
         {
-            ctrlName.EditValue = _customer.Name;
-            ctrlSurname.EditValue = _customer.Surname;
-            ctrlFullname.EditValue = _customer.Fullname;
-            ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
-            ctrlTIN.EditValue = _customer.Tin;
+            if (_customer.Tin !="Insert TIN") 
+            {
+                ctrlName.EditValue = _customer.Name;
+                ctrlSurname.EditValue = _customer.Surname;
+                ctrlFullname.EditValue = _customer.Fullname;
+                ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
+                ctrlTIN.EditValue = _customer.Tin;
+
+            }
+            else
+            {
+                ctrlName.EditValue = _customer.Name;
+                ctrlSurname.EditValue = _customer.Surname;
+                ctrlFullname.EditValue = "It will be autofilled";
+                ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
+                ctrlTIN.EditValue = _customer.Tin;
+
+            }
+            
         }
-        private void SaveCustomer(CustomerPolicies _customerpolicies)
+        private void SaveCustomerToGrid(CustomerPolicies _customerpolicies)
         {//mou lipe to jsonsave mono
             if (_customerpolicies.CheckValidSave(ctrlPhoneNumber.Text, ctrlTIN.Text))
             {
@@ -160,9 +161,7 @@ namespace Session_11
             }
             else
             {
-
-
-                
+                        
 
                 MessageBox.Show("Invalid Input, could not save.","Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
             }
@@ -178,18 +177,24 @@ namespace Session_11
         private void DummyCustomers()
         {
             //initialization
-            var petShop = new PetShop();
+
             Customer K = new Customer("Kyriakos", "Mousias", "0123456789", "123456789");
             Customer G = new Customer("Giannis", "Eskioglou", "2345678901", "234567891");
             Customer A = new Customer("Axilleas", "Mplekos", "3456789012", "345678912");
             Customer D = new Customer("Dimitris", "Mantikidis", "4567890123", "456789123");
 
             CustomerList = new List<Customer>();
-            CustomerList = petShop.Customers;
+
             CustomerList.Add(K);
             CustomerList.Add(G);
             CustomerList.Add(A);
             CustomerList.Add(D);
+            //petShop.Customers = CustomerList;
+            
+            //SOS
+            //need to put_petshop public
+
+            //_petshopManager._petShop.Customers = CustomerList;
             //end initialization
         }
 
@@ -241,9 +246,10 @@ namespace Session_11
             }
 
         }
-        private void CloseCustomerForm()
+        private void RemoveEmptyNewCustomerAndSave()
         {
-            var _petshopManager = new PetShopManager();
+            //_petshopManager._petShop = petShop;
+            
 
             try
             {
@@ -251,10 +257,12 @@ namespace Session_11
                 {
                     CustomerList.RemoveAt(CustomerList.Count - 1);
                     _petshopManager.Save();
+                    MessageBox.Show("Json file is saved");
                 }
                 else
                 {
                     _petshopManager.Save();
+                    MessageBox.Show("Json file is saved");
                 }
 
             }
@@ -263,28 +271,29 @@ namespace Session_11
 
                 
             }
-            Close();
+            
 
 
         }
 
-        private void DeleteOn()
+       private void KeepChanges()
         {
-            if (_deleteON == false)
+            var msg2 = "Do you want to save the changes?";
+            MessageBoxButtons buttons1 = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(msg2, "Exit", buttons1);
+            if (result == DialogResult.Yes)
             {
-                _deleteON = true;
+                RemoveEmptyNewCustomerAndSave();
+
             }
-           
-        }
-        private void DeleteOff()
-        {
-            if (_deleteON == true)
+            else
             {
-                _deleteON = false;
-            }
 
+
+            }
         }
 
+     
 
 
 

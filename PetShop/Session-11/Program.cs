@@ -14,7 +14,7 @@ namespace Session_11
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormCustomer());
+            Application.Run(new PetShopForm());
         }
     }
 }
