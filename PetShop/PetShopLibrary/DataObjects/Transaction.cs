@@ -26,17 +26,17 @@
         public Guid PetFoodID { get; set; }
         public int PetFoodQty { get; set; }
         public decimal PetFoodPrice { get; set; }
-        public decimal TotalPrice { get => (PetFoodQty - 1) * PetFoodPrice + PetPrice; }
+        public decimal TotalPrice { get; set; }
+
 
         public Transaction()
         {
             ID = Guid.NewGuid();
+            Date = DateTime.Now;
         }
 
-        public Transaction(Guid customerID, Guid employeeID, Guid petID, decimal petPrice, Guid petFoodID, int petFoodQty, decimal petFoodPrice)
+        public Transaction(Guid customerID, Guid employeeID, Guid petID, decimal petPrice, Guid petFoodID, int petFoodQty, decimal petFoodPrice) : this()
         {
-            ID = Guid.NewGuid();
-            Date = DateTime.Now;
             CustomerID = customerID;
             EmployeeID = employeeID;
             PetID = petID;
