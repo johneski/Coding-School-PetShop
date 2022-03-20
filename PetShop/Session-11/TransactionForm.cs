@@ -25,8 +25,32 @@ namespace Session_11
         private void TransactionForm_Load_1(object sender, EventArgs e)
         {
             txtDate.EditValue = DateTime.UtcNow;
-            bsPets.DataSource = _petShop.GetPets();
+            List<Pet> pets = _petShop.GetPets();
+            bsPets.DataSource = pets;
             grdTransaction.DataSource = bsPets;
+
+            grvTransaction.FocusedRowChanged += OnFocusRowChange;
+            grvTransaction.OptionsBehavior.Editable = false;
+
+            if (pets.Count > 0)
+                OnFocusRowChange(sender, null);            
+        }
+
+        private void OnFocusRowChange(object sender, FocusedRowChangedEventArgs e)
+        {
+            Pet? pet = grvTransaction.GetFocusedRow() as Pet;
+            if (pet == null) return;
+
+            var availableBrands = _petShop.GetAvailableFoodBrands(pet.AnimalType);
+
+            if(availableBrands.Count > 0) cmbFoodBrand.DataSource = availableBrands;
+            else cmbFoodBrand.DataSource = new List<string>() { ""};
+
+            pet.FoodType.Brand = cmbFoodBrand.SelectedText;
+
+            txtTotal.EditValue = _petShop.GetTotalPrice(pet, (int) spinPetFoodQty.Value);
+
+            cmbFoodBrand.Refresh();
         }
 
         private void txtTIN_KeyPress(object sender, KeyPressEventArgs e)
@@ -53,12 +77,7 @@ namespace Session_11
             txtSurName.EditValue = customer.Surname;
             txtPhoneNumber.EditValue = customer.PhoneNumber;
 
-            
-
         }
 
-
-
-        
     }
 }
