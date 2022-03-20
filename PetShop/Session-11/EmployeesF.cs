@@ -27,7 +27,7 @@ namespace Session_11
         {
             _petShopManager = new PetShopManager();
             _employees = new List<Employee>();
-            PopulateControls();
+            //PopulateControls();
 
             BindingSource bsEmployees = new BindingSource();
             bsEmployees.DataSource = _petShopManager.GetEmployees();
@@ -37,43 +37,43 @@ namespace Session_11
 
         }
 
-        private void PopulateControls()
-        {
-            var employee3 = new Employee()
-            {
-                Name = "Dimitris",
-                Surname = "Mantikidis",
-                Type = EmployeeType.Employee,
-                Salary = 1000
-            };
+        //private void PopulateControls()
+        //{
+        //    var employee3 = new Employee()
+        //    {
+        //        Name = "Dimitris",
+        //        Surname = "Mantikidis",
+        //        Type = EmployeeType.Employee,
+        //        Salary = 1000
+        //    };
 
-            var manager = new Employee()
-            {
-                Name = "Giannis",
-                Surname = "Eskioglou",
-                Type = EmployeeType.Manager,
-                Salary = 1000
-            };
-            var employee1 = new Employee()
-            {
-                Name = "Achileas",
-                Surname = "M",
-                Type = EmployeeType.Employee,
-                Salary = 1000
-            };
-            var employee2 = new Employee()
-            {
-                Name = "Kyriakos",
-                Surname = "M",
-                Type = EmployeeType.Employee,
-                Salary = 1000
-            };
-            _petShopManager.Add(employee1);
-            _petShopManager.Add(employee2);
-            _petShopManager.Add(employee3);
-            _petShopManager.Add(manager);
+        //    var manager = new Employee()
+        //    {
+        //        Name = "Giannis",
+        //        Surname = "Eskioglou",
+        //        Type = EmployeeType.Manager,
+        //        Salary = 1000
+        //    };
+        //    var employee1 = new Employee()
+        //    {
+        //        Name = "Achileas",
+        //        Surname = "M",
+        //        Type = EmployeeType.Employee,
+        //        Salary = 1000
+        //    };
+        //    var employee2 = new Employee()
+        //    {
+        //        Name = "Kyriakos",
+        //        Surname = "M",
+        //        Type = EmployeeType.Employee,
+        //        Salary = 1000
+        //    };
+        //    _petShopManager.Add(employee1);
+        //    _petShopManager.Add(employee2);
+        //    _petShopManager.Add(employee3);
+        //    _petShopManager.Add(manager);
 
-        }
+        //}
 
         private void EmployeesF_Load_1(object sender, EventArgs e)
         {
@@ -93,6 +93,11 @@ namespace Session_11
             _petShopManager.Delete(employee);
             _petShopManager.Save();
             grvEmployees.RefreshData();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
