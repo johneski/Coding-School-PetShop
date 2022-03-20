@@ -44,6 +44,7 @@ public class Pet : Product, IPet
 
     public Pet()
 	{
+        FoodType = new PetFood();
     }
 }
 

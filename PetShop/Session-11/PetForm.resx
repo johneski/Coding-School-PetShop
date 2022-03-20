@@ -179,6 +179,9 @@
   <data name="colPrice.VisibleIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="colObjectStatus.Caption" xml:space="preserve">
+    <value>ObjectStatus</value>
+  </data>
   <data name="grdPets.Size" type="System.Drawing.Size, System.Drawing">
     <value>773, 331</value>
   </data>
@@ -295,6 +298,12 @@
     <value>colPrice</value>
   </data>
   <data name="&gt;&gt;colPrice.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colObjectStatus.Name" xml:space="preserve">
+    <value>colObjectStatus</value>
+  </data>
+  <data name="&gt;&gt;colObjectStatus.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;Root.Name" xml:space="preserve">

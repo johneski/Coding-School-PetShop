@@ -44,6 +44,9 @@
             this.Price = new DevExpress.XtraLayout.LayoutControlItem();
             this.Brand = new DevExpress.XtraLayout.LayoutControlItem();
             this.Cost = new DevExpress.XtraLayout.LayoutControlItem();
+            this.spinQty = new DevExpress.XtraEditors.SpinEdit();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
@@ -57,10 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.Price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Brand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinQty.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.spinQty);
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.txtPrice);
@@ -81,7 +88,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(123, 22);
             this.btnSave.StyleController = this.layoutControl1;
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -91,7 +98,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(121, 22);
             this.btnCancel.StyleController = this.layoutControl1;
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             // 
             // txtPrice
@@ -100,7 +107,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(346, 20);
             this.txtPrice.StyleController = this.layoutControl1;
-            this.txtPrice.TabIndex = 4;
+            this.txtPrice.TabIndex = 2;
             // 
             // txtCost
             // 
@@ -108,7 +115,7 @@
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(346, 20);
             this.txtCost.StyleController = this.layoutControl1;
-            this.txtCost.TabIndex = 3;
+            this.txtCost.TabIndex = 4;
             // 
             // cmbBrand
             // 
@@ -116,7 +123,7 @@
             this.cmbBrand.Location = new System.Drawing.Point(52, 37);
             this.cmbBrand.Name = "cmbBrand";
             this.cmbBrand.Size = new System.Drawing.Size(346, 23);
-            this.cmbBrand.TabIndex = 2;
+            this.cmbBrand.TabIndex = 3;
             // 
             // cmbType
             // 
@@ -139,7 +146,9 @@
             this.emptySpaceItem1,
             this.Price,
             this.Brand,
-            this.Cost});
+            this.Cost,
+            this.layoutControlItem1,
+            this.emptySpaceItem3});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(800, 450);
             this.Root.TextVisible = false;
@@ -181,9 +190,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 50);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 74);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 354);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 330);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Price
@@ -210,6 +219,38 @@
             this.Cost.Size = new System.Drawing.Size(390, 25);
             this.Cost.TextSize = new System.Drawing.Size(28, 13);
             // 
+            // spinQty
+            // 
+            this.spinQty.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinQty.Location = new System.Drawing.Point(52, 62);
+            this.spinQty.Name = "spinQty";
+            this.spinQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinQty.Size = new System.Drawing.Size(55, 20);
+            this.spinQty.StyleController = this.layoutControl1;
+            this.spinQty.TabIndex = 5;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.spinQty;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(99, 24);
+            this.layoutControlItem1.Text = "Qty";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(28, 13);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(99, 50);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(681, 24);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // AddNewPetFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -232,6 +273,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Brand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinQty.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +298,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.SpinEdit spinQty;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
     }
 }

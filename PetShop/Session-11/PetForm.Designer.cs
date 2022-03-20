@@ -40,6 +40,7 @@
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colObjectStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -109,7 +110,8 @@
             this.colBreed,
             this.colStatus,
             this.colCost,
-            this.colPrice});
+            this.colPrice,
+            this.colObjectStatus});
             this.grvPets.GridControl = this.grdPets;
             this.grvPets.Name = "grvPets";
             // 
@@ -130,7 +132,7 @@
             // colStatus
             // 
             resources.ApplyResources(this.colStatus, "colStatus");
-            this.colStatus.FieldName = "Status";
+            this.colStatus.FieldName = "HealthStatus";
             this.colStatus.Name = "colStatus";
             this.colStatus.OptionsColumn.AllowEdit = false;
             // 
@@ -147,6 +149,12 @@
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.OptionsColumn.AllowEdit = false;
+            // 
+            // colObjectStatus
+            // 
+            resources.ApplyResources(this.colObjectStatus, "colObjectStatus");
+            this.colObjectStatus.FieldName = "ObjectStatus";
+            this.colObjectStatus.Name = "colObjectStatus";
             // 
             // btnCancel
             // 
@@ -267,5 +275,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraGrid.Columns.GridColumn colCost;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colObjectStatus;
     }
 }
