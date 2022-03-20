@@ -97,6 +97,7 @@
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
@@ -181,7 +182,7 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Employee Salary";
-            this.gridColumn4.DisplayFormat.FormatString = "c4";
+            this.gridColumn4.DisplayFormat.FormatString = "c2";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "Salary";
             this.gridColumn4.MinWidth = 23;

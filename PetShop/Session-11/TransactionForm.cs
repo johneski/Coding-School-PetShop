@@ -26,6 +26,7 @@ namespace Session_11
         {
             InitializeComponent();
             _petShop = petShop;
+            this.CenterToScreen();
         }
 
         private void TransactionForm_Load_1(object sender, EventArgs e)

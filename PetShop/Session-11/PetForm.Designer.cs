@@ -140,11 +140,12 @@
             this.colStatus.FieldName = "HealthStatus";
             this.colStatus.MinWidth = 23;
             this.colStatus.Name = "colStatus";
-            this.colStatus.OptionsColumn.AllowEdit = false;
             // 
             // colCost
             // 
             resources.ApplyResources(this.colCost, "colCost");
+            this.colCost.DisplayFormat.FormatString = "c2";
+            this.colCost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCost.FieldName = "Cost";
             this.colCost.MinWidth = 23;
             this.colCost.Name = "colCost";
@@ -153,6 +154,8 @@
             // colPrice
             // 
             resources.ApplyResources(this.colPrice, "colPrice");
+            this.colPrice.DisplayFormat.FormatString = "c2";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Price";
             this.colPrice.MinWidth = 23;
             this.colPrice.Name = "colPrice";
@@ -192,51 +195,51 @@
             this.layoutControlItem1.Control = this.grdPets;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(889, 449);
+            this.layoutControlItem1.Size = new System.Drawing.Size(891, 457);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(816, 449);
+            this.layoutControlItem3.Location = new System.Drawing.Point(817, 457);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(73, 33);
+            this.layoutControlItem3.Size = new System.Drawing.Size(74, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 449);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 457);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(594, 33);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(595, 31);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnSave;
-            this.layoutControlItem2.Location = new System.Drawing.Point(747, 449);
+            this.layoutControlItem2.Location = new System.Drawing.Point(748, 457);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(69, 33);
+            this.layoutControlItem2.Size = new System.Drawing.Size(69, 31);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnDelete;
-            this.layoutControlItem4.Location = new System.Drawing.Point(671, 449);
+            this.layoutControlItem4.Location = new System.Drawing.Point(672, 457);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(76, 33);
+            this.layoutControlItem4.Size = new System.Drawing.Size(76, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnNew;
-            this.layoutControlItem5.Location = new System.Drawing.Point(594, 449);
+            this.layoutControlItem5.Location = new System.Drawing.Point(595, 457);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(77, 33);
+            this.layoutControlItem5.Size = new System.Drawing.Size(77, 31);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 

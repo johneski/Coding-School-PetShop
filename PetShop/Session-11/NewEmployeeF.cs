@@ -18,6 +18,7 @@ namespace Session_11
         {
             InitializeComponent();
             _petShopManager = petShopManager;
+            this.CenterToScreen();
         }
 
         private void NewEmployeeForm_Load(object sender, EventArgs e)

@@ -152,6 +152,8 @@
             this.txtSalary.Location = new System.Drawing.Point(82, 94);
             this.txtSalary.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Properties.DisplayFormat.FormatString = "c2";
+            this.txtSalary.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSalary.Size = new System.Drawing.Size(130, 22);
             this.txtSalary.StyleController = this.layoutControl1;
             this.txtSalary.TabIndex = 4;

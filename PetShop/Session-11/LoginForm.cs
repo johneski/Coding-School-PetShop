@@ -23,8 +23,19 @@ namespace Session_11
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            PasswordCover();
+            txtPassWord.KeyPress += LoginForm_KeyPress;
         }
+
+        private void LoginForm_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar != 13) return;
+            Authenticate();
+
+            
+        }
+
         private void Authenticate()
         {
             User user = new User();
@@ -71,6 +82,18 @@ namespace Session_11
             {
                 this.Close();
             }
+        }
+
+        private void PasswordCover()
+        {
+            txtPassWord.Text = "";
+            txtPassWord.Properties.PasswordChar = '*';
+            txtPassWord.Properties.MaxLength = 10;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         //private void CancelButtonManager_Click(object sender, EventArgs e)

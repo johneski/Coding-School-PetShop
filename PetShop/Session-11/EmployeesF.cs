@@ -20,6 +20,7 @@ namespace Session_11
         public EmployeesForm()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
 
@@ -97,7 +98,14 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+
             this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _petShopManager.Save();
+            MessageBox.Show("Saved");
         }
     }
 }

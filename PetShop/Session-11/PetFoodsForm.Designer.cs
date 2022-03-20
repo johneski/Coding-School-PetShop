@@ -79,11 +79,11 @@
             // grdPetFoods
             // 
             this.grdPetFoods.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grdPetFoods.Location = new System.Drawing.Point(13, 16);
+            this.grdPetFoods.Location = new System.Drawing.Point(12, 12);
             this.grdPetFoods.MainView = this.grvPetFoods;
             this.grdPetFoods.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdPetFoods.Name = "grdPetFoods";
-            this.grdPetFoods.Size = new System.Drawing.Size(1006, 635);
+            this.grdPetFoods.Size = new System.Drawing.Size(1008, 645);
             this.grdPetFoods.TabIndex = 0;
             this.grdPetFoods.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPetFoods});
@@ -126,6 +126,8 @@
             // colCost
             // 
             this.colCost.Caption = "Cost";
+            this.colCost.DisplayFormat.FormatString = "c2";
+            this.colCost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCost.FieldName = "Cost";
             this.colCost.MinWidth = 23;
             this.colCost.Name = "colCost";
@@ -137,6 +139,8 @@
             // colPrice
             // 
             this.colPrice.Caption = "Price";
+            this.colPrice.DisplayFormat.FormatString = "c2";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Price";
             this.colPrice.MinWidth = 23;
             this.colPrice.Name = "colPrice";
@@ -155,10 +159,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(903, 657);
+            this.btnCancel.Location = new System.Drawing.Point(903, 661);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 27);
+            this.btnCancel.Size = new System.Drawing.Size(117, 27);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
@@ -166,7 +170,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(779, 657);
+            this.btnDelete.Location = new System.Drawing.Point(779, 661);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(120, 27);
@@ -177,7 +181,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(654, 657);
+            this.btnSave.Location = new System.Drawing.Point(654, 661);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(121, 27);
@@ -188,7 +192,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(527, 657);
+            this.btnNew.Location = new System.Drawing.Point(527, 661);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(123, 27);
@@ -217,52 +221,52 @@
             this.layoutControlItem1.Control = this.grdPetFoods;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1010, 641);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1012, 649);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnCancel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(890, 641);
+            this.layoutControlItem2.Location = new System.Drawing.Point(891, 649);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(120, 33);
+            this.layoutControlItem2.Size = new System.Drawing.Size(121, 31);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnDelete;
-            this.layoutControlItem3.Location = new System.Drawing.Point(766, 641);
+            this.layoutControlItem3.Location = new System.Drawing.Point(767, 649);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(124, 33);
+            this.layoutControlItem3.Size = new System.Drawing.Size(124, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(641, 641);
+            this.layoutControlItem4.Location = new System.Drawing.Point(642, 649);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(125, 33);
+            this.layoutControlItem4.Size = new System.Drawing.Size(125, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnNew;
-            this.layoutControlItem5.Location = new System.Drawing.Point(514, 641);
+            this.layoutControlItem5.Location = new System.Drawing.Point(515, 649);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(127, 33);
+            this.layoutControlItem5.Size = new System.Drawing.Size(127, 31);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 641);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 649);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(514, 33);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(515, 31);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PetFoodsForm
