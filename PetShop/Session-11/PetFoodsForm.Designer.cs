@@ -256,7 +256,7 @@
             this.ClientSize = new System.Drawing.Size(903, 525);
             this.Controls.Add(this.layoutControl1);
             this.Name = "PetFoodsForm";
-            this.Text = "PetFoodsForm";
+            this.Text = "Pet Food List";
             this.Load += new System.EventHandler(this.PetFoodsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

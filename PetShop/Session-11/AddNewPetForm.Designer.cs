@@ -158,7 +158,7 @@
             this.Controls.Add(this.ctrlBreed);
             this.Controls.Add(this.ctrlAnimalType);
             this.Name = "AddNewPetForm";
-            this.Text = "AddNewPetForm";
+            this.Text = "New Pet";
             this.Load += new System.EventHandler(this.AddNewPetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtBreed.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();

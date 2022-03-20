@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PetShopLibrary.DataObjects;
 
 namespace PetShopLibrary
 {
-    public enum AnimalType { dog, cat, parrot}
+    
     public interface IPetReport
     {
         int Year { get; set; }

@@ -42,7 +42,7 @@ namespace Session_11
                 AnimalType = AnimalType.Snake,
                 Breed = "Cobra",
                 HealthStatus = PetStatus.OK,
-                FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = FoodBrand.Purina, Price=80, ID = new Guid(), Cost=20}
+                FoodType = new PetFood() { Type = FoodType.ReptilianFood, Brand = "Purina", Price=80, ID = new Guid(), Cost=20}
             };
 
             var dog = new Pet()
@@ -50,21 +50,21 @@ namespace Session_11
                 AnimalType = AnimalType.Dog,
                 Breed = "Labrador",
                 HealthStatus = PetStatus.OK,
-                FoodType = new PetFood() { Type = FoodType.DogFood, Brand = FoodBrand.Pedigree, Price = 50, Cost = 15, ID = new Guid() } 
+                FoodType = new PetFood() { Type = FoodType.DogFood, Brand = "Purina", Price = 50, Cost = 15, ID = new Guid() } 
             };
             var cat = new Pet()
             {
                 AnimalType = AnimalType.Cat,
                 Breed = "egyptian",
                 HealthStatus = PetStatus.OK,
-                FoodType = new PetFood() { Type = FoodType.CatFood, Brand = FoodBrand.Friskis, Price = 100 , ID = new Guid(), Cost = 25 }
+                FoodType = new PetFood() { Type = FoodType.CatFood, Brand = "Purina", Price = 100 , ID = new Guid(), Cost = 25 }
             };
             var fish = new Pet()
             {
                 AnimalType = AnimalType.Fish,
                 Breed = "goldfish",
                 HealthStatus = PetStatus.OK,
-                FoodType = new PetFood() { Type = FoodType.FishFood, Brand = FoodBrand.Friskis, Cost= 10, ID= new Guid(), Price= 60 }
+                FoodType = new PetFood() { Type = FoodType.FishFood, Brand = "Purina", Cost= 10, ID= new Guid(), Price= 60 }
             };
             _petShop.Add(reptil);
             _petShop.Add(dog);

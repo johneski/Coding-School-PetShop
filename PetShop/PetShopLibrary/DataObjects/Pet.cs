@@ -22,6 +22,7 @@ public enum PetStatus
     Recovering
 }
 
+
 public interface IPet
 {
     PetFood FoodType { get; set; }
