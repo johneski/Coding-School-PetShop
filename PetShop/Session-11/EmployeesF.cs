@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using PetShopLibrary;
 
 namespace Session_11
@@ -25,14 +26,15 @@ namespace Session_11
         private void EmployeesF_Load(object sender, EventArgs e)
         {
             _petShopManager = new PetShopManager();
-            //_employee = new Employee();
             _employees = new List<Employee>();
             PopulateControls();
 
             BindingSource bsEmployees = new BindingSource();
             bsEmployees.DataSource = _petShopManager.GetEmployees();
             grdEmployees.DataSource = bsEmployees;
-            
+
+            grvEmployees.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");
+
         }
 
         private void PopulateControls()
@@ -82,12 +84,15 @@ namespace Session_11
         {
             NewEmployeeForm form = new NewEmployeeForm(_petShopManager);
             form.ShowDialog();
-            gridView1.RefreshData();
+            grvEmployees.RefreshData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            Employee employee = grvEmployees.GetFocusedRow() as Employee;
+            _petShopManager.Delete(employee);
+            _petShopManager.Save();
+            grvEmployees.RefreshData();
         }
     }
 }

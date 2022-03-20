@@ -344,8 +344,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 277);
+            this.ControlBox = false;
             this.Controls.Add(this.layoutControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewEmployeeForm";
             this.Text = "New Employee";
             this.Load += new System.EventHandler(this.NewEmployeeForm_Load);
