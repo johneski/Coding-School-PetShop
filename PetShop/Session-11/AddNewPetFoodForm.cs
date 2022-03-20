@@ -44,8 +44,9 @@ namespace Session_11
             var validCost = decimal.TryParse(txtCost.Text, out cost);
             var validPrice = decimal.TryParse(txtPrice.Text, out price);
 
-            if(validCost && validPrice && (int)animalType != -1 && brand != String.Empty)
+            if(validCost && validPrice && (int)animalType != -1 && brand != String.Empty && price >= cost)
             {
+
                 var food = new PetFood()
                 {
                     Brand = brand,
@@ -69,6 +70,7 @@ namespace Session_11
             AnimalType type = (AnimalType)cmbType.SelectedIndex;
             List<string> brands = _petShop.GetFoodBrand(type);
             cmbBrand.DataSource = brands;
+            
 
         }
     }

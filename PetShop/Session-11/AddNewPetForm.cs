@@ -49,7 +49,7 @@ namespace Session_11
                 {
                     AnimalType animalType = (AnimalType)animalTypeIndex;
                     PetStatus status = (PetStatus)statusIndex;
-                    
+
 
                     Pet pet = new Pet()
                     {
@@ -58,10 +58,14 @@ namespace Session_11
                         HealthStatus = status,
                         Cost = cost,
                         Price = price,
+                        FoodType = new PetFood()
+                        {
+                            Type = _petShop.GetFoodType(animalType)
+
+                        }
+
                     };
 
-
-                    
                     _petShop.Add(pet);
                     _petShop.Save();
                     
