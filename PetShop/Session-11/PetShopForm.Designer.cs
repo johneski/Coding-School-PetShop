@@ -37,6 +37,7 @@
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.employeesToolStripMenuItem,
             this.transactionsToolStripMenuItem,
             this.petsToolStripMenuItem,
-            this.petFoodsToolStripMenuItem});
+            this.petFoodsToolStripMenuItem,
+            this.monthlyLedgerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(674, 24);
@@ -112,6 +114,13 @@
             this.petFoodsToolStripMenuItem.Text = "PetFoods";
             this.petFoodsToolStripMenuItem.Click += new System.EventHandler(this.petFoodsToolStripMenuItem_Click);
             // 
+            // monthlyLedgerToolStripMenuItem
+            // 
+            this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
+            this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.monthlyLedgerToolStripMenuItem.Text = "MonthlyLedger";
+            //this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
+            // 
             // PetShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -142,5 +151,6 @@
         private ToolStripMenuItem transactionsToolStripMenuItem;
         private ToolStripMenuItem petsToolStripMenuItem;
         private ToolStripMenuItem petFoodsToolStripMenuItem;
+        private ToolStripMenuItem monthlyLedgerToolStripMenuItem;
     }
 }
