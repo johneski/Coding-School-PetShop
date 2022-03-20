@@ -1,29 +1,34 @@
-﻿using System;
+﻿using PetShopLibrary;
+using System;
 
 public enum FoodType
 {
-    Pedigree,
-    Friskis,
-    Rats
+    CatFood,
+    DogFood,
+    FishFood,
+    ReptilianFood,
+    BirdFood,
+    RatFood,
+    TurtleFood,
+    SnakeFood
 }
 
 public interface IFood
 {
-    FoodType Food { get; set; }
+    FoodType Type { get; set; }
 }
 
-    public class PetFood : IFood
+public class PetFood : Product, IFood
+{
+    public FoodType Type { get; set; }
+
+    public string Brand { get; set; }
+
+    public PetFood()
     {
-        public FoodType Food { get; set; }
-
-
-
-        public PetFood()
-        {
-
-        }
 
     }
 
+}
 
 

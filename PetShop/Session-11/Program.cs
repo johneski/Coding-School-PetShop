@@ -13,13 +13,10 @@ namespace Session_11
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-           
-            
-
+            PetShopManager petShop = new PetShopManager();
 
             ApplicationConfiguration.Initialize();
-            //Application.Run(new FormCustom());
-            Application.Run(new FormCustomer());
+            Application.Run(new PetShopForm(petShop));
         }
     }
 }
