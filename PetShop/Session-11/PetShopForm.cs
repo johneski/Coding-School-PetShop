@@ -24,7 +24,8 @@ namespace Session_11
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            TransactionForm transactionForm = new TransactionForm();
+            transactionForm.ShowDialog();
         }
 
         private void petFoodsToolStripMenuItem_Click(object sender, EventArgs e)

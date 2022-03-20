@@ -26,7 +26,7 @@ namespace Session_11
         {
 
             _petShop = new PetShopManager();
-            PopulateControls();
+            //PopulateControls();
             BindingSource bsPets = new BindingSource();
             bsPets.DataSource = _petShop.GetPets();
 

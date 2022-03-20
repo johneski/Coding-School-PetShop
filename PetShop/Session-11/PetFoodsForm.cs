@@ -23,11 +23,12 @@ namespace Session_11
         private void PetFoodsForm_Load(object sender, EventArgs e)
         {
             _petShop = new PetShopManager();
-            
-            
 
-            PopulateControls();
-
+            //PopulateControls();
+            BindingSource bsPetFood = new BindingSource();
+            bsPetFood.DataSource = _petShop.GetPetFoods();
+            grdPetFoods.DataSource = bsPetFood;
+            grvPetFoods.RefreshData();
         }
 
         private void PopulateControls()
@@ -80,9 +81,7 @@ namespace Session_11
             _petShop.Add(BirdFood);
 
 
-            BindingSource bsPetFood = new BindingSource();
-            bsPetFood.DataSource = _petShop.GetPetFoods();
-            grdPetFoods.DataSource = bsPetFood;
+            
 
         }
 
@@ -90,6 +89,7 @@ namespace Session_11
         {
             AddNewPetFoodForm addNeewPetFoodForm = new AddNewPetFoodForm(_petShop);
             addNeewPetFoodForm.ShowDialog();
+            grvPetFoods.RefreshData();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

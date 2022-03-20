@@ -101,6 +101,7 @@
             this.colID.Caption = "ID";
             this.colID.FieldName = "ID";
             this.colID.Name = "colID";
+            this.colID.OptionsColumn.AllowEdit = false;
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
             // 
@@ -109,6 +110,7 @@
             this.colType.Caption = "Type";
             this.colType.FieldName = "Type";
             this.colType.Name = "colType";
+            this.colType.OptionsColumn.AllowEdit = false;
             this.colType.Visible = true;
             this.colType.VisibleIndex = 1;
             // 
@@ -117,6 +119,7 @@
             this.colBrand.Caption = "Brand";
             this.colBrand.FieldName = "Brand";
             this.colBrand.Name = "colBrand";
+            this.colBrand.OptionsColumn.AllowEdit = false;
             this.colBrand.Visible = true;
             this.colBrand.VisibleIndex = 2;
             // 
@@ -125,6 +128,7 @@
             this.colCost.Caption = "Cost";
             this.colCost.FieldName = "Cost";
             this.colCost.Name = "colCost";
+            this.colCost.OptionsColumn.AllowEdit = false;
             this.colCost.Visible = true;
             this.colCost.VisibleIndex = 3;
             // 
@@ -133,6 +137,7 @@
             this.colPrice.Caption = "Price";
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
+            this.colPrice.OptionsColumn.AllowEdit = false;
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 4;
             // 
