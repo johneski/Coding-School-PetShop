@@ -200,11 +200,11 @@ namespace PetShopLibrary
             return GetPetFoods().FindAll(x => x.Brand == brand).Count();
         }
 
-        public decimal? GetTotalPrice(Pet pet, int qty)
+        public decimal GetTotalPrice(Pet pet, int qty)
         {
             return GetFoodPrice(pet) * (qty-1 >= 0 ? qty-1 : 0 ) + pet.Price;
         }
-        public decimal? GetFoodPrice(Pet pet)
+        public decimal GetFoodPrice(Pet pet)
         {
             PetFood? petFood = GetPetFoods().Find(x => x.Brand == pet.FoodType.Brand);
             if (petFood == null) return 0;

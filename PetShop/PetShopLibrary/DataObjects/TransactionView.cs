@@ -8,22 +8,35 @@ namespace PetShopLibrary.DataObjects
 {
     public class TransactionView
     {
-        public Guid CustomerID { get; set; }
-        public Guid EmployeeID { get; set; }
-        public Guid PetID { get; set; }
-        public decimal PetPrice { get; set; }
-        public Guid PetFoodID { get; set; }
-        public int PetFoodQty { get; set; }
-        public decimal PetFoodPrice { get; set; }
-        public decimal TotalPrice { get; set; }
 
-        public TransactionView()
+        private PetShopManager _petShop { get; set; }
+
+        public TransactionView(PetShopManager petshop)
         {
+            _petShop = petshop;
         }
 
-        public Transaction CreateView()
+        public Transaction CreateView(string empID, Guid custId,
+                                    Guid petId, decimal petPrice, Guid foodId, int qty, decimal foodPrice, decimal total)
         {
-            throw new NotImplementedException();
+
+            return new Transaction()
+                        {
+                            EmployeeID = FindEmployee(empID),
+                            CustomerID = custId,
+                            PetID = petId,
+                            PetPrice = petPrice,
+                            PetFoodID = foodId,
+                            PetFoodQty = qty,
+                            PetFoodPrice = foodPrice,
+                            TotalPrice = total
+                        };
         }
+
+        private Guid FindEmployee(string id) 
+        {
+            return _petShop.GetEmployees().Find(x => x.ID.Equals(id)).ID;   
+        }
+
     }
 }

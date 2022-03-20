@@ -19,6 +19,8 @@ namespace Session_11
         private PetShopManager _petShop;
         private Pet _currentPet;
         private Customer? _currentCustomer;
+        private decimal _total;
+        private bool _searched = false;
 
         public TransactionForm(PetShopManager petShop)
         {
@@ -92,7 +94,8 @@ namespace Session_11
 
         private void CalcTotalPrice()
         {
-            txtTotal.EditValue = _petShop.GetTotalPrice(_currentPet, int.Parse(spinPetFoodQty.Value.ToString()));
+            _total = _petShop.GetTotalPrice(_currentPet, int.Parse(spinPetFoodQty.Value.ToString()));
+            txtTotal.EditValue = _total;
         }
 
         private void txtTIN_KeyPress(object sender, KeyPressEventArgs e)
@@ -119,6 +122,8 @@ namespace Session_11
             txtSurName.EditValue = _currentCustomer.Surname;
             txtPhoneNumber.EditValue = _currentCustomer.PhoneNumber;
 
+            _searched = true;
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -130,8 +135,20 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!_searched) return;
 
-           _petShop.Save();
+            string user = txtUser.Text;
+            Guid petId = (Guid)_currentPet.ID;
+            Guid custId = (Guid)_currentCustomer.ID;
+            decimal petPrice = _currentPet.Price;
+            Guid foodId = (Guid)_currentPet.FoodType.ID;
+            int qty = int.Parse(spinPetFoodQty.Value.ToString());
+            decimal foodPrice = _currentPet.FoodType.Price;
+
+            TransactionView transView = new TransactionView(_petShop);
+            Transaction transaction = transView.CreateView(user, custId, petId, petPrice, foodId, qty, foodPrice, _total);
+            _petShop.Add(transaction);
+            _petShop.Save();
         }
     }
 }
