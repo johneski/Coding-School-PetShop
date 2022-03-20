@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetShopLibrary.DataObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,23 +44,25 @@ namespace PetShopLibrary
 
         public void Delete(Customer customer) 
         {
-            _petShop.Customers.Remove(customer);
+            customer.ObjectStatus = DataObjects.Status.Inactive;
         }
 
         public void Delete(Employee employee)
         {
-            _petShop.Employees.Remove(employee);
+            employee.ObjectStatus = DataObjects.Status.Inactive;
         }
 
         public void Delete(Pet pet)
         {
-            _petShop.Pets.Remove(pet);
+            pet.ObjectStatus = DataObjects.Status.Inactive;
         }
+
 
         public void Delete(PetFood petFood)
         {
-            _petShop.PetFoods.Remove(petFood);
+            petFood.ObjectStatus = DataObjects.Status.Inactive;
         }
+
 
         public List<Customer> GetCustomers()
         {
@@ -74,11 +77,6 @@ namespace PetShopLibrary
         public List<Pet> GetPets()
         {
             return _petShop.Pets;
-        }
-
-        public List<Pet> GetHealthyPets() 
-        {
-            return _petShop.Pets.FindAll(x => x.Status != PetStatus.Unhealthy);
         }
 
         public List<PetFood> GetPetFoods()
@@ -114,6 +112,73 @@ namespace PetShopLibrary
         public void Add(PetFood petFood)
         {
             _petShop.PetFoods.Add(petFood);
+        }
+
+        public List<string> GetFoodBrand(AnimalType type)
+        {
+            FoodBrands brand = new FoodBrands();
+            if(type == AnimalType.Dog)
+            {
+                return brand.DogFoodBrands;
+            }
+            else if(type == AnimalType.Bird)
+            {
+                return brand.BirdFoodBrands;
+            }
+            else if(type == AnimalType.Rat)
+            {
+                return brand.RatFoodBrands;
+            }
+            else if(type== AnimalType.Fish)
+            {
+                return brand.FishFoodBrands;
+            }
+            else if(type == AnimalType.Turtle)
+            {
+                return brand.TurtleFoodBrands;
+            }
+            else if(type == AnimalType.Snake)
+            {
+                return brand.SnakeFoodBrands;
+            }
+            else if(type == AnimalType.Cat)
+            {
+                return brand.CatFoodBrands;
+            }
+            else return null;
+        }
+
+        public FoodType GetFoodType(AnimalType type)
+        {
+            if (type == AnimalType.Dog)
+            {
+                return FoodType.DogFood;
+            }
+            else if (type == AnimalType.Bird)
+            {
+                return FoodType.BirdFood;
+            }
+            else if (type == AnimalType.Rat)
+            {
+                return FoodType.RatFood;
+            }
+            else if (type == AnimalType.Fish)
+            {
+                return FoodType.FishFood;
+            }
+            else if (type == AnimalType.Turtle)
+            {
+                return FoodType.TurtleFood;
+            }
+            else if (type == AnimalType.Snake)
+            {
+                return FoodType.SnakeFood;
+            }
+            else
+            {
+                return FoodType.CatFood;
+            }
+            
         }
 
     }

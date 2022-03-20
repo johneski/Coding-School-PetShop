@@ -7,17 +7,10 @@ public enum FoodType
     DogFood,
     FishFood,
     ReptilianFood,
-    BirdFood
-}
-
-public enum FoodBrand
-{
-    Pedigree,
-    Friskis,
-    Purina,
-    Royal,
-
-
+    BirdFood,
+    RatFood,
+    TurtleFood,
+    SnakeFood
 }
 
 public interface IFood
@@ -29,7 +22,7 @@ public class PetFood : Product, IFood
 {
     public FoodType Type { get; set; }
 
-    public FoodBrand Brand { get; set; }
+    public string Brand { get; set; }
 
     public PetFood()
     {
