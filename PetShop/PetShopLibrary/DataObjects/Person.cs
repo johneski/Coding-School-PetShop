@@ -1,8 +1,11 @@
-﻿using System;
+﻿using PetShopLibrary.DataObjects;
+using System;
+
 
 
 public interface IPerson
 {
+
     public Guid ID { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
@@ -10,7 +13,7 @@ public interface IPerson
 }
 
 
-public class Person : IPerson
+public class Person : CurrentStatus, IPerson
 { 
     public Guid ID { get; set; } =  Guid.NewGuid();
     public string Name { get; set; }

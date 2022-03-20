@@ -55,7 +55,7 @@ namespace Session_11
                     {
                         AnimalType = animalType,
                         Breed = breed,
-                        Status = status,
+                        HealthStatus = status,
                         Cost = cost,
                         Price = price,
                     };
