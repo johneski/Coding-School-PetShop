@@ -18,10 +18,13 @@ namespace Session_11
         //Petshop petshop=load(json)
         //PetShop petShop = new PetShop();
         private Customer _customer = new Customer();
-        private List<Customer> CustomerList ;
+        CustomerPolicies _customerpolicies = new CustomerPolicies();
+        private List<Customer> CustomerList;
         private PetShopManager _petshopManager;
         private bool allowChange = false;
-     
+        private bool _lastactionsave = true;
+
+
         public FormCustomer(PetShopManager petshopManager)
         {
             InitializeComponent();
@@ -49,13 +52,13 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void ctrlName_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ctrlName_EditValueChanged(object sender, EventArgs e)
@@ -65,8 +68,8 @@ namespace Session_11
 
         private void gridViewCustomers_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            _customer=gridViewCustomers.GetFocusedRow() as Customer;
-            
+            _customer = gridViewCustomers.GetFocusedRow() as Customer;
+
             FillControlsWithGrid(_customer);
 
 
@@ -77,21 +80,24 @@ namespace Session_11
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            var _customerpolicies = new CustomerPolicies();
+
+
+            RemoveEmptyCustomer();
 
             SaveCustomerToGrid(_customerpolicies);
 
+            SaveCustomer();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /*DeleteOn();
-            MessageBox.Show("Click the Customer you want to delete");*/
+
             DeleteCustomer();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
-        {            
+        {
+            //RemoveEmptyCustomer();
             Close();
         }
 
@@ -102,13 +108,18 @@ namespace Session_11
 
         private void gridCustomerList_Click(object sender, EventArgs e)
         {
-           
-            
+
+
         }
 
         private void FormCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KeepChanges();
+
+            KeepChanges(_customerpolicies, NewlastCustomernew());
+            RemoveEmptyCustomer();
+
+
+
 
         }
 
@@ -117,7 +128,8 @@ namespace Session_11
 
         private void FillControlsWithGrid(Customer _customer)
         {
-            if (_customer.Tin !="Insert TIN") 
+
+            if (_customer.Tin != "Insert TIN")
             {
                 ctrlName.EditValue = _customer.Name;
                 ctrlSurname.EditValue = _customer.Surname;
@@ -135,13 +147,13 @@ namespace Session_11
                 ctrlTIN.EditValue = _customer.Tin;
 
             }
-            
+
         }
         private void SaveCustomerToGrid(CustomerPolicies _customerpolicies)
         {//mou lipe to jsonsave mono
             if (_customerpolicies.CheckValidSave(ctrlPhoneNumber.Text, ctrlTIN.Text))
             {
-                
+
                 var _rowStudent = (gridViewCustomers.GetFocusedRow() as Customer);
 
                 _rowStudent.Tin = ctrlTIN.Text;
@@ -153,7 +165,8 @@ namespace Session_11
             }
             else
             {
-                MessageBox.Show("Invalid Input, could not save.","Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
+                MessageBox.Show("Invalid Input, could not save.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
+                gridViewCustomers.RefreshData();
             }
         }
         private void InitialView()
@@ -181,7 +194,7 @@ namespace Session_11
             CustomerList.Add(A);
             CustomerList.Add(D);
             //petShop.Customers = CustomerList;
-            
+
             //SOS
             //need to put_petshop public
 
@@ -207,7 +220,7 @@ namespace Session_11
                 gridViewCustomers.DeleteRow(gridViewCustomers.RowCount - 1);
                 allowChange = true;
             }
-                
+
         }
 
         private void NewCustomer()
@@ -230,14 +243,14 @@ namespace Session_11
         }
         private void DeleteCustomer()
         {
-            
+
             var index = gridViewCustomers.FocusedRowHandle;
-            var msg = string.Format("  Are you sure you want to delete{0}", CustomerList[index].Fullname);
+            var msg = string.Format("  Are you sure you want to delete{0} ", CustomerList[index].Fullname);
 
 
 
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(msg, "Delete Window", buttons);
+            DialogResult result = MessageBox.Show(msg, " Delete Window ", buttons);
             if (result == DialogResult.Yes)
             {
                 CustomerList.RemoveAt(index);
@@ -251,59 +264,69 @@ namespace Session_11
             }
 
         }
-        private void RemoveEmptyNewCustomerAndSave()
+        private void SaveCustomer()
         {
-            //_petshopManager._petShop = petShop;
-            
 
-            try
-            {
-                if (CustomerList[^1].Tin == "Insert TIN")//can it be 0???
-                {
-                    CustomerList.RemoveAt(CustomerList.Count - 1);
-                    _petshopManager.Save();
-                    MessageBox.Show("Json file is saved");
-                }
-                else
-                {
-                    _petshopManager.Save();
-                    MessageBox.Show("Json file is saved");
-                }
-
-            }
-            catch (Exception)
-            {
-
-                
-            }
-            
+            _petshopManager.Save();
 
 
         }
 
-       private void KeepChanges()
+        private void RemoveEmptyCustomer()
         {
-            var msg2 = "Do you want to save the changes?";
-            MessageBoxButtons buttons1 = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(msg2, "Exit", buttons1);
-            if (result == DialogResult.Yes)
+            if (CustomerList[^1].Tin == "Insert TIN")
             {
-                RemoveEmptyNewCustomerAndSave();
+                CustomerList.RemoveAt(CustomerList.Count - 1);
 
+            }
+        }
+        private void KeepChanges(CustomerPolicies _customerpolicies, bool _indexednewcustomer)
+        {
+            _customer = gridViewCustomers.GetFocusedRow() as Customer;
+
+            if (
+           _customer.Name == ctrlName.EditValue &&
+           _customer.Surname == ctrlSurname.EditValue &&
+           _customer.PhoneNumber == ctrlPhoneNumber.EditValue &&
+           _customer.Tin == ctrlTIN.EditValue)
+            {
             }
             else
             {
+                if (!_indexednewcustomer)
+                {
+                    var msg2 = "Do you want to save the changes?";
+                    MessageBoxButtons buttons1 = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(msg2, "Exit", buttons1);
+                    if (result == DialogResult.Yes)
+                    {
+                        SaveCustomerToGrid(_customerpolicies);
+                        SaveCustomer();
 
+                    }
+                }
+                else
+                {
+                    RemoveEmptyCustomer();
+                    SaveCustomer();
+                }
 
             }
-        }
 
-       private void LoadToCustomerList()
+
+
+        }
+        private bool NewlastCustomernew()
+        {
+            return (CustomerList[^1].Tin == "Insert TIN");
+        }
+        private void LoadToCustomerList()
         {
             CustomerList = _petshopManager.GetCustomers();
+
         }
 
-     
+
 
 
 
