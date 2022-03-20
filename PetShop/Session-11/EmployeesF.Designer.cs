@@ -164,7 +164,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Employee Type";
-            this.gridColumn3.FieldName = "EmployeeType";
+            this.gridColumn3.FieldName = "Type";
             this.gridColumn3.MinWidth = 23;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
