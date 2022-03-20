@@ -37,6 +37,8 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.grdTransaction = new DevExpress.XtraGrid.GridControl();
             this.grvTransaction = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.repoPetsLookUp = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtPhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtTIN = new DevExpress.XtraEditors.TextEdit();
             this.txtSurName = new DevExpress.XtraEditors.TextEdit();
@@ -67,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransaction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoPetsLookUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTIN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurName.Properties)).BeginInit();
@@ -126,7 +130,7 @@
             // spinPetFoodQty
             // 
             this.spinPetFoodQty.EditValue = new decimal(new int[] {
-            1,
+            0,
             0,
             0,
             0});
@@ -136,19 +140,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinPetFoodQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinPetFoodQty.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.spinPetFoodQty.Properties.MaxValue = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.spinPetFoodQty.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.spinPetFoodQty.Properties.IsFloatValue = false;
+            this.spinPetFoodQty.Properties.MaskSettings.Set("mask", "N00");
             this.spinPetFoodQty.Size = new System.Drawing.Size(112, 20);
             this.spinPetFoodQty.StyleController = this.layoutControl1;
             this.spinPetFoodQty.TabIndex = 8;
+            this.spinPetFoodQty.EditValueChanged += new System.EventHandler(this.spinPetFoodQty_EditValueChanged);
             // 
             // txtTotal
             // 
@@ -168,6 +165,7 @@
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
@@ -177,12 +175,15 @@
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // grdTransaction
             // 
             this.grdTransaction.Location = new System.Drawing.Point(12, 129);
             this.grdTransaction.MainView = this.grvTransaction;
             this.grdTransaction.Name = "grdTransaction";
+            this.grdTransaction.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repoPetsLookUp});
             this.grdTransaction.Size = new System.Drawing.Size(776, 234);
             this.grdTransaction.TabIndex = 7;
             this.grdTransaction.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -192,6 +193,21 @@
             // 
             this.grvTransaction.GridControl = this.grdTransaction;
             this.grvTransaction.Name = "grvTransaction";
+            // 
+            // repoPetsLookUp
+            // 
+            this.repoPetsLookUp.AutoHeight = false;
+            this.repoPetsLookUp.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repoPetsLookUp.Name = "repoPetsLookUp";
+            this.repoPetsLookUp.PopupView = this.repositoryItemSearchLookUpEdit1View;
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // txtPhoneNumber
             // 
@@ -424,6 +440,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoPetsLookUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTIN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurName.Properties)).EndInit();
@@ -486,5 +504,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private ComboBox cmbFoodBrand;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repoPetsLookUp;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
     }
 }

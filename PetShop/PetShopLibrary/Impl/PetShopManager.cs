@@ -194,9 +194,15 @@ namespace PetShopLibrary
             }
             
         }
+
+        public int GetAvailableFoodQty(string brand)
+        {
+            return GetPetFoods().FindAll(x => x.Brand == brand).Count();
+        }
+
         public decimal? GetTotalPrice(Pet pet, int qty)
         {
-            return GetFoodPrice(pet) * (qty - 1) + pet.Price;
+            return GetFoodPrice(pet) * (qty-1 >= 0 ? qty-1 : 0 ) + pet.Price;
         }
         public decimal? GetFoodPrice(Pet pet)
         {

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Base;
+﻿using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 using PetShopLibrary;
 using PetShopLibrary.DataObjects;
 using System;
@@ -16,6 +17,9 @@ namespace Session_11
     public partial class TransactionForm : Form
     {
         private PetShopManager _petShop;
+        private Pet _currentPet;
+        private Customer? _currentCustomer;
+
         public TransactionForm(PetShopManager petShop)
         {
             InitializeComponent();
@@ -31,26 +35,64 @@ namespace Session_11
 
             grvTransaction.FocusedRowChanged += OnFocusRowChange;
             grvTransaction.OptionsBehavior.Editable = false;
+            spinPetFoodQty.Properties.MinValue = 0;
 
             if (pets.Count > 0)
-                OnFocusRowChange(sender, null);            
+                OnFocusRowChange(sender, null);
+
+            grvTransaction.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active' and HealthStatus != 'Unhealthy'");
         }
 
         private void OnFocusRowChange(object sender, FocusedRowChangedEventArgs e)
         {
-            Pet? pet = grvTransaction.GetFocusedRow() as Pet;
-            if (pet == null) return;
+            _currentPet = grvTransaction.GetFocusedRow() as Pet;
+            if (_currentPet == null) return;
 
-            var availableBrands = _petShop.GetAvailableFoodBrands(pet.AnimalType);
+            
+            var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);
 
-            if(availableBrands.Count > 0) cmbFoodBrand.DataSource = availableBrands;
-            else cmbFoodBrand.DataSource = new List<string>() { ""};
+            if (availableBrands.Count > 0)
+            {
+                cmbFoodBrand.DataSource = availableBrands;
+            }
+            else
+            {
+                cmbFoodBrand.DataSource = new List<string>() { "" };
+                cmbFoodBrand.SelectedIndex = -1;
+            }
 
-            pet.FoodType.Brand = cmbFoodBrand.SelectedText;
+            var index = cmbFoodBrand.SelectedIndex;
 
-            txtTotal.EditValue = _petShop.GetTotalPrice(pet, (int) spinPetFoodQty.Value);
+            if(index >= 0)
+                _currentPet.FoodType.Brand = availableBrands[index];
+
+            var qty = _petShop.GetAvailableFoodQty(_currentPet.FoodType.Brand);
+            if(qty > 0)
+            {
+                spinPetFoodQty.Value = 1;
+                spinPetFoodQty.Properties.ReadOnly = false;
+            }
+            else
+            {
+                spinPetFoodQty.Value = 0;
+                spinPetFoodQty.Properties.ReadOnly = true;
+            }
+
+            spinPetFoodQty.Properties.MaxValue = qty;
+
+            CalcTotalPrice();
 
             cmbFoodBrand.Refresh();
+        }
+
+        private void spinPetFoodQty_EditValueChanged(object sender, EventArgs e)
+        {
+            CalcTotalPrice();
+        }
+
+        private void CalcTotalPrice()
+        {
+            txtTotal.EditValue = _petShop.GetTotalPrice(_currentPet, int.Parse(spinPetFoodQty.Value.ToString()));
         }
 
         private void txtTIN_KeyPress(object sender, KeyPressEventArgs e)
@@ -66,18 +108,30 @@ namespace Session_11
                 return;
             }
 
-            var customer = _petShop.GetCustomers().Find(x => x.Tin.Equals(TIN));
-            if (customer == null)
+            _currentCustomer = _petShop.GetCustomers().Find(x => x.Tin.Equals(TIN));
+            if (_currentCustomer == null)
             {
                 MessageBox.Show(this, "Customer not found!", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            txtName.EditValue = customer.Name;
-            txtSurName.EditValue = customer.Surname;
-            txtPhoneNumber.EditValue = customer.PhoneNumber;
+            txtName.EditValue = _currentCustomer.Name;
+            txtSurName.EditValue = _currentCustomer.Surname;
+            txtPhoneNumber.EditValue = _currentCustomer.PhoneNumber;
 
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            var choice = MessageBox.Show("Are you sure you want to exit?\nAll unsaved changes will be lost!","Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+           _petShop.Save();
+        }
     }
 }
