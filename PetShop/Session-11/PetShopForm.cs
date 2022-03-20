@@ -9,6 +9,7 @@ namespace Session_11
         {
             InitializeComponent();
             _petShop = petShop;
+            this.CenterToScreen();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,7 +50,9 @@ namespace Session_11
 
         private void PetShopForm_Load(object sender, EventArgs e)
         {
-
+            //PetShopForm.CenterToScreen
+            LoginForm loginform = new LoginForm();
+            loginform.ShowDialog();
         }
     }
 }
