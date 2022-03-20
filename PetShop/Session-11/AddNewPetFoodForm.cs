@@ -26,12 +26,8 @@ namespace Session_11
             
             cmbType.DataSource = Enum.GetValues(typeof(AnimalType));
             cmbType.SelectedIndex = -1;
-            //cmbAnimalType.DataSource = Enum.GetValues(typeof(AnimalType));
-            //cmbAnimalType.SelectedIndex = -1;
-            //cmbAnimalType.Text = "Please choose a type";
-            //cmbStatus.DataSource = Enum.GetValues(typeof(PetStatus));
-            //cmbStatus.SelectedIndex = -1;
-            //cmbStatus.Text = "Please choose a status";
+            spinQty.Properties.MaxValue = 100;
+            spinQty.Properties.MinValue = 1;
 
         }
 
@@ -44,16 +40,21 @@ namespace Session_11
             var validCost = decimal.TryParse(txtCost.Text, out cost);
             var validPrice = decimal.TryParse(txtPrice.Text, out price);
 
-            if(validCost && validPrice && (int)animalType != -1 && brand != String.Empty)
+            if(validCost && validPrice && (int)animalType != -1 && brand != String.Empty && price >= cost)
             {
-                var food = new PetFood()
+                
+                int qty = (int)spinQty.Value;
+                for(int i = 0; i < qty; i++)
                 {
-                    Brand = brand,
-                    Price = price,
-                    Cost = cost,
-                    Type = _petShop.GetFoodType(animalType)
-                };
-                _petShop.Add(food);
+                    var food = new PetFood()
+                    {
+                        Brand = brand,
+                        Price = price,
+                        Cost = cost,
+                        Type = _petShop.GetFoodType(animalType)
+                    };
+                    _petShop.Add(food);
+                }                
                 _petShop.Save();
                 this.Close();
             }
@@ -69,7 +70,6 @@ namespace Session_11
             AnimalType type = (AnimalType)cmbType.SelectedIndex;
             List<string> brands = _petShop.GetFoodBrand(type);
             cmbBrand.DataSource = brands;
-
         }
     }
 }

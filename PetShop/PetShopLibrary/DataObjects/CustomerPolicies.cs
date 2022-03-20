@@ -15,12 +15,12 @@ namespace PetShopLibrary.DataObjects
 
         }
 
-        private bool CheckIFNumber(string stringNumber)
+        public bool CheckIFNumber(string stringNumber)
         {
-            /*  int numericValue; str.All(char.IsDigit)
-              bool isNumber = int.TryParse(stringNumber, out numericValue);*/
-            if (stringNumber == null) return false;
-
+            if(stringNumber == "")
+            {
+                return false;
+            }
             return (stringNumber.All(char.IsDigit));
         }
 
@@ -45,5 +45,6 @@ namespace PetShopLibrary.DataObjects
             return (CheckInt(INT) && ChecKPhoneNumber(phoneNumber));
             
         }
+
     }
 }

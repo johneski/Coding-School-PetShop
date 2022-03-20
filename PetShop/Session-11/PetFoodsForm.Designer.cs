@@ -31,7 +31,6 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.grdPetFoods = new DevExpress.XtraGrid.GridControl();
             this.grvPetFoods = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBrand = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,6 +46,7 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.colObjectStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPetFoods)).BeginInit();
@@ -88,22 +88,13 @@
             // grvPetFoods
             // 
             this.grvPetFoods.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID,
             this.colType,
             this.colBrand,
             this.colCost,
-            this.colPrice});
+            this.colPrice,
+            this.colObjectStatus});
             this.grvPetFoods.GridControl = this.grdPetFoods;
             this.grvPetFoods.Name = "grvPetFoods";
-            // 
-            // colID
-            // 
-            this.colID.Caption = "ID";
-            this.colID.FieldName = "ID";
-            this.colID.Name = "colID";
-            this.colID.OptionsColumn.AllowEdit = false;
-            this.colID.Visible = true;
-            this.colID.VisibleIndex = 0;
             // 
             // colType
             // 
@@ -112,7 +103,7 @@
             this.colType.Name = "colType";
             this.colType.OptionsColumn.AllowEdit = false;
             this.colType.Visible = true;
-            this.colType.VisibleIndex = 1;
+            this.colType.VisibleIndex = 0;
             // 
             // colBrand
             // 
@@ -121,7 +112,7 @@
             this.colBrand.Name = "colBrand";
             this.colBrand.OptionsColumn.AllowEdit = false;
             this.colBrand.Visible = true;
-            this.colBrand.VisibleIndex = 2;
+            this.colBrand.VisibleIndex = 1;
             // 
             // colCost
             // 
@@ -130,7 +121,7 @@
             this.colCost.Name = "colCost";
             this.colCost.OptionsColumn.AllowEdit = false;
             this.colCost.Visible = true;
-            this.colCost.VisibleIndex = 3;
+            this.colCost.VisibleIndex = 2;
             // 
             // colPrice
             // 
@@ -139,7 +130,7 @@
             this.colPrice.Name = "colPrice";
             this.colPrice.OptionsColumn.AllowEdit = false;
             this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 4;
+            this.colPrice.VisibleIndex = 3;
             // 
             // btnCancel
             // 
@@ -249,6 +240,12 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(449, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // colObjectStatus
+            // 
+            this.colObjectStatus.Caption = "ObjectStatus";
+            this.colObjectStatus.FieldName = "ObjectStatus";
+            this.colObjectStatus.Name = "colObjectStatus";
+            // 
             // PetFoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -289,10 +286,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colType;
         private DevExpress.XtraGrid.Columns.GridColumn colBrand;
         private DevExpress.XtraGrid.Columns.GridColumn colCost;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colObjectStatus;
     }
 }

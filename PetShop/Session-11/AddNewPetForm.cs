@@ -57,7 +57,7 @@ namespace Session_11
                         Breed = breed,
                         HealthStatus = status,
                         Cost = cost,
-                        Price = price,
+                        Price = price
                     };
 
 

@@ -26,7 +26,7 @@ public class PetFood : Product, IFood
 
     public PetFood()
     {
-
+        Brand = "";
     }
 
 }
