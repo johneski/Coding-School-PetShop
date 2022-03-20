@@ -32,6 +32,7 @@ namespace Session_11
         {
             InitializeComponent();
         }
+
         #region FormCustomer_UI
         private void FormMonthlyLedger_Load(object sender, EventArgs e)
         {
@@ -40,15 +41,10 @@ namespace Session_11
             
             GetInitial();
 
-            ctrlExpenses.ReadOnly = true;
-            ctrlIncome.ReadOnly = true;
-            ctrlTotal.ReadOnly=true;
+            DisplayQualities();
 
-            ctrlExpenses.BackColor= System.Drawing.SystemColors.Window;
-            ctrlIncome.BackColor= System.Drawing.SystemColors.Window;
-            ctrlTotal.BackColor= System.Drawing.SystemColors.Window;
 
-            
+
 
 
             var t1 = new Transaction();
@@ -68,12 +64,13 @@ namespace Session_11
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            _month=GetMonth(_month);
+            ClearResult();
+            _month =GetMonth();
             
 
             if (ValidMonthAndYear(_month, ctrlYear.Text))
             {
-                IncomeExpensesTotal();
+                IncomeExpensesTotal(_month, ctrlYear.Text);
 
             }
 
@@ -84,13 +81,13 @@ namespace Session_11
         }
         #endregion
 
-        public void IncomeExpensesTotal()
+        public void IncomeExpensesTotal(int month, string year)
         {
             decimal _income = 0;
             decimal? _expenses = 0;
 
 
-            var _listOfMonthYearTransactions = _listOfTransactions.Where(x => (x.Date.Month == _month) && x.Date.Year == _year);
+            var _listOfMonthYearTransactions = _listOfTransactions.Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
 
             foreach (Transaction transaction in _listOfMonthYearTransactions)
             {
@@ -116,10 +113,21 @@ namespace Session_11
             ctrlTotal.Text = (_income - _expenses).ToString();
 
         }
+        private void DisplayQualities()
+        {
+            comboBoxMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            ctrlExpenses.ReadOnly = true;
+            ctrlIncome.ReadOnly = true;
+            ctrlTotal.ReadOnly = true;
+
+            ctrlExpenses.BackColor = System.Drawing.SystemColors.Window;
+            ctrlIncome.BackColor = System.Drawing.SystemColors.Window;
+            ctrlTotal.BackColor = System.Drawing.SystemColors.Window;
+        }
 
         private void GetInitial()
         {
-            comboBoxMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+           
 
             _listOfTransactions = _petShopManager.GetTransactions();
             _listPetFoods = _petShopManager.GetPetFoods();
@@ -130,15 +138,15 @@ namespace Session_11
            
         }
 
-      private int GetMonth(int month)
+      private int GetMonth()
         {
-            month = comboBoxMonth.SelectedIndex + 1;
-            return month;
+            
+            return comboBoxMonth.SelectedIndex + 1;
         }
         private bool ValidMonth(int month)
         {
-            _month = month;
-            if (_month == -1)
+            
+            if (month == 0)
             {
                 MessageBox.Show("You have not selected a month");
                 return false;
@@ -185,16 +193,20 @@ namespace Session_11
             return false;
         }
 
+        private void ClearResult()
+        {
+            ctrlExpenses.Text = string.Empty;
+            ctrlIncome.Text = string.Empty;
+            ctrlTotal.Text = string.Empty;
+        }
+
        
 
 
 
 
 
-        /*
-       BindingSource bsTransactionList = new BindingSource();
-       bsTransactionList.DataSource = _listransactions;
-       gridTransactionList.DataSource = bsTransactionList.DataSource;*/
+        
 
 
 
