@@ -30,7 +30,7 @@ namespace Session_11
         {
             InitializeComponent();
         }
-
+        #region FormPetReport_UI
         private void FormPetReport_Load(object sender, EventArgs e)
         {
             GetInitial();
@@ -38,7 +38,25 @@ namespace Session_11
             DisplayQualities();
 
         }
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            ClearResult();
+            _month = GetMonth();
 
+
+            if (ValidMonthAndYear(_month, ctrlYear.Text) && CheckAnimalType(comboBoxAnimalType.SelectedIndex))
+            {
+                IncomeExpensesTotal(_month, ctrlYear.Text);
+
+            }
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
         private void GetInitial()
         {
 
@@ -168,23 +186,6 @@ namespace Session_11
 
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
-            ClearResult();
-            _month = GetMonth();
-
-
-            if (ValidMonthAndYear(_month, ctrlYear.Text) && CheckAnimalType(comboBoxAnimalType.SelectedIndex))
-            {
-                IncomeExpensesTotal(_month, ctrlYear.Text);
-                
-            }
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+       
     }
 }
