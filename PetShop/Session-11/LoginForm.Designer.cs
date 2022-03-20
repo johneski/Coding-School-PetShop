@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.txtPassWord = new DevExpress.XtraEditors.TextEdit();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txtPassWord = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
@@ -77,6 +77,44 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblWelcome.Location = new System.Drawing.Point(12, 12);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(290, 30);
+            this.lblWelcome.TabIndex = 7;
+            this.lblWelcome.Text = "Welcome to PetShop Manager";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(74, 126);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(157, 47);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "Login";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // txtPassWord
+            // 
+            this.txtPassWord.Location = new System.Drawing.Point(123, 82);
+            this.txtPassWord.Name = "txtPassWord";
+            this.txtPassWord.Size = new System.Drawing.Size(123, 22);
+            this.txtPassWord.StyleController = this.layoutControl1;
+            this.txtPassWord.TabIndex = 2;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(123, 56);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(123, 22);
+            this.txtUserName.StyleController = this.layoutControl1;
+            this.txtUserName.TabIndex = 0;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -97,14 +135,6 @@
             this.Root.Size = new System.Drawing.Size(314, 185);
             this.Root.TextVisible = false;
             // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(123, 56);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(123, 22);
-            this.txtUserName.StyleController = this.layoutControl1;
-            this.txtUserName.TabIndex = 0;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txtUserName;
@@ -122,14 +152,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(294, 18);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // txtPassWord
-            // 
-            this.txtPassWord.Location = new System.Drawing.Point(123, 82);
-            this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(123, 22);
-            this.txtPassWord.StyleController = this.layoutControl1;
-            this.txtPassWord.TabIndex = 2;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtPassWord;
@@ -138,17 +160,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(197, 26);
             this.layoutControlItem2.Text = "Password";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(58, 16);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(74, 126);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(157, 47);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 3;
-            this.simpleButton1.Text = "Login";
             // 
             // layoutControlItem4
             // 
@@ -184,16 +195,6 @@
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(71, 51);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWelcome.Location = new System.Drawing.Point(12, 12);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(290, 30);
-            this.lblWelcome.TabIndex = 7;
-            this.lblWelcome.Text = "Welcome to PetShop Manager";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // layoutControlItem5
             // 
@@ -236,13 +237,15 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "LoginForm";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
