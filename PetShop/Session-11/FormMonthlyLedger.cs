@@ -94,9 +94,10 @@ namespace Session_11
                 _income += transaction.TotalPrice;
 
                 var _petfoodID = transaction.PetFoodID;
+                var _petID = transaction.PetID;
 
                 var _specificPetfood = _listPetFoods.FirstOrDefault(y => y.ID == _petfoodID);
-                var _specificPet = _listOfPet.FirstOrDefault(y => y.ID == _petfoodID);
+                var _specificPet = _listOfPet.FirstOrDefault(y => y.ID == _petID);
 
                 if (_specificPetfood != null && _specificPet != null)
                 {
@@ -138,7 +139,7 @@ namespace Session_11
            
         }
 
-      private int GetMonth()
+        private int GetMonth()
         {
             
             return comboBoxMonth.SelectedIndex + 1;
@@ -184,7 +185,7 @@ namespace Session_11
             }
         }
 
-       private bool ValidMonthAndYear(int month,string year)
+        private bool ValidMonthAndYear(int month,string year)
         {
             if (ValidMonth(month))
             {
