@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.spinPetFoodQty = new DevExpress.XtraEditors.SpinEdit();
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
@@ -47,13 +48,16 @@
             this.User = new DevExpress.XtraLayout.LayoutControlItem();
             this.CustomerName = new DevExpress.XtraLayout.LayoutControlItem();
             this.SurName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TIN = new DevExpress.XtraLayout.LayoutControlItem();
             this.PhoneNumber = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Total = new DevExpress.XtraLayout.LayoutControlItem();
             this.PetFoodQty = new DevExpress.XtraLayout.LayoutControlItem();
+            this.TIN = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bsPets = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinPetFoodQty.Properties)).BeginInit();
@@ -72,13 +76,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SurName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TIN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhoneNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PetFoodQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TIN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPets)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -145,10 +152,10 @@
             // 
             // grdTransaction
             // 
-            this.grdTransaction.Location = new System.Drawing.Point(12, 84);
+            this.grdTransaction.Location = new System.Drawing.Point(12, 150);
             this.grdTransaction.MainView = this.grvTransaction;
             this.grdTransaction.Name = "grdTransaction";
-            this.grdTransaction.Size = new System.Drawing.Size(776, 304);
+            this.grdTransaction.Size = new System.Drawing.Size(776, 238);
             this.grdTransaction.TabIndex = 7;
             this.grdTransaction.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTransaction});
@@ -160,51 +167,52 @@
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(481, 60);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(91, 126);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(307, 20);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(697, 20);
             this.txtPhoneNumber.StyleController = this.layoutControl1;
             this.txtPhoneNumber.TabIndex = 6;
             // 
             // txtTIN
             // 
-            this.txtTIN.Location = new System.Drawing.Point(91, 60);
+            this.txtTIN.Location = new System.Drawing.Point(91, 12);
             this.txtTIN.Name = "txtTIN";
-            this.txtTIN.Size = new System.Drawing.Size(307, 20);
+            this.txtTIN.Size = new System.Drawing.Size(131, 20);
             this.txtTIN.StyleController = this.layoutControl1;
-            this.txtTIN.TabIndex = 5;
+            this.txtTIN.TabIndex = 0;
+            this.txtTIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTIN_KeyPress);
             // 
             // txtSurName
             // 
-            this.txtSurName.Location = new System.Drawing.Point(481, 36);
+            this.txtSurName.Location = new System.Drawing.Point(481, 102);
             this.txtSurName.Name = "txtSurName";
             this.txtSurName.Size = new System.Drawing.Size(307, 20);
             this.txtSurName.StyleController = this.layoutControl1;
-            this.txtSurName.TabIndex = 4;
+            this.txtSurName.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(91, 36);
+            this.txtName.Location = new System.Drawing.Point(91, 102);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(307, 20);
             this.txtName.StyleController = this.layoutControl1;
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 4;
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(481, 12);
+            this.txtUser.Location = new System.Drawing.Point(481, 78);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(307, 20);
             this.txtUser.StyleController = this.layoutControl1;
-            this.txtUser.TabIndex = 2;
+            this.txtUser.TabIndex = 3;
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(91, 12);
+            this.txtDate.Location = new System.Drawing.Point(91, 78);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(307, 20);
             this.txtDate.StyleController = this.layoutControl1;
-            this.txtDate.TabIndex = 0;
+            this.txtDate.TabIndex = 2;
             // 
             // Root
             // 
@@ -216,13 +224,15 @@
             this.User,
             this.CustomerName,
             this.SurName,
-            this.TIN,
             this.PhoneNumber,
             this.layoutControlItem7,
             this.layoutControlItem8,
             this.layoutControlItem9,
             this.Total,
-            this.PetFoodQty});
+            this.PetFoodQty,
+            this.TIN,
+            this.emptySpaceItem2,
+            this.emptySpaceItem3});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(800, 450);
             this.Root.TextVisible = false;
@@ -230,7 +240,7 @@
             // Date
             // 
             this.Date.Control = this.txtDate;
-            this.Date.Location = new System.Drawing.Point(0, 0);
+            this.Date.Location = new System.Drawing.Point(0, 66);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(390, 24);
             this.Date.TextSize = new System.Drawing.Size(67, 13);
@@ -246,7 +256,7 @@
             // User
             // 
             this.User.Control = this.txtUser;
-            this.User.Location = new System.Drawing.Point(390, 0);
+            this.User.Location = new System.Drawing.Point(390, 66);
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(390, 24);
             this.User.TextSize = new System.Drawing.Size(67, 13);
@@ -254,7 +264,7 @@
             // CustomerName
             // 
             this.CustomerName.Control = this.txtName;
-            this.CustomerName.Location = new System.Drawing.Point(0, 24);
+            this.CustomerName.Location = new System.Drawing.Point(0, 90);
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.Size = new System.Drawing.Size(390, 24);
             this.CustomerName.Text = "Name";
@@ -263,33 +273,25 @@
             // SurName
             // 
             this.SurName.Control = this.txtSurName;
-            this.SurName.Location = new System.Drawing.Point(390, 24);
+            this.SurName.Location = new System.Drawing.Point(390, 90);
             this.SurName.Name = "SurName";
             this.SurName.Size = new System.Drawing.Size(390, 24);
             this.SurName.TextSize = new System.Drawing.Size(67, 13);
             // 
-            // TIN
-            // 
-            this.TIN.Control = this.txtTIN;
-            this.TIN.Location = new System.Drawing.Point(0, 48);
-            this.TIN.Name = "TIN";
-            this.TIN.Size = new System.Drawing.Size(390, 24);
-            this.TIN.TextSize = new System.Drawing.Size(67, 13);
-            // 
             // PhoneNumber
             // 
             this.PhoneNumber.Control = this.txtPhoneNumber;
-            this.PhoneNumber.Location = new System.Drawing.Point(390, 48);
+            this.PhoneNumber.Location = new System.Drawing.Point(0, 114);
             this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.Size = new System.Drawing.Size(390, 24);
+            this.PhoneNumber.Size = new System.Drawing.Size(780, 24);
             this.PhoneNumber.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.grdTransaction;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 138);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(780, 308);
+            this.layoutControlItem7.Size = new System.Drawing.Size(780, 242);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -327,6 +329,30 @@
             this.PetFoodQty.Size = new System.Drawing.Size(195, 24);
             this.PetFoodQty.TextSize = new System.Drawing.Size(67, 13);
             // 
+            // TIN
+            // 
+            this.TIN.Control = this.txtTIN;
+            this.TIN.Location = new System.Drawing.Point(0, 0);
+            this.TIN.Name = "TIN";
+            this.TIN.Size = new System.Drawing.Size(214, 24);
+            this.TIN.TextSize = new System.Drawing.Size(67, 13);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(780, 42);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(214, 0);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(566, 24);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -335,6 +361,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "TransactionForm";
             this.Text = "TransactionForm";
+            this.Load += new System.EventHandler(this.TransactionForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spinPetFoodQty.Properties)).EndInit();
@@ -353,13 +380,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.User)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SurName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TIN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PhoneNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PetFoodQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TIN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPets)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,5 +422,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem Total;
         private DevExpress.XtraLayout.LayoutControlItem PetFoodQty;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private BindingSource bsPets;
     }
 }

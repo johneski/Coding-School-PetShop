@@ -19,18 +19,14 @@ namespace Session_11
         //PetShop petShop = new PetShop();
         private Customer _customer = new Customer();
         private List<Customer> CustomerList ;
-        private PetShopManager _petshopManager = new PetShopManager();
+        private PetShopManager _petshopManager;
+        private bool allowChange = false;
      
-        public FormCustomer()
+        public FormCustomer(PetShopManager petshopManager)
         {
             InitializeComponent();
+            _petshopManager = petshopManager;
         }
-
-
-
-
-
-
 
         #region FormCustomer
         private void FormCustomer_Load(object sender, EventArgs e)
@@ -41,12 +37,8 @@ namespace Session_11
 
             LoadToCustomerList();
 
-
-
-
             //sbisto
             //ummyCustomers();
-
 
             SetDataBindings();
         }
@@ -149,7 +141,7 @@ namespace Session_11
         {//mou lipe to jsonsave mono
             if (_customerpolicies.CheckValidSave(ctrlPhoneNumber.Text, ctrlTIN.Text))
             {
-
+                
                 var _rowStudent = (gridViewCustomers.GetFocusedRow() as Customer);
 
                 _rowStudent.Tin = ctrlTIN.Text;
@@ -161,14 +153,13 @@ namespace Session_11
             }
             else
             {
-                        
-
                 MessageBox.Show("Invalid Input, could not save.","Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
             }
         }
         private void InitialView()
         {
-            
+            gridViewCustomers.FocusedRowChanged += OnRowFocusChange;
+
             gridViewCustomers.OptionsBehavior.Editable = false;
 
             ctrlFullname.ReadOnly = true;
@@ -208,9 +199,20 @@ namespace Session_11
 
         }
 
+        private void OnRowFocusChange(object sender, EventArgs e)
+        {
+            var row = gridViewCustomers.GetRow(gridViewCustomers.RowCount - 1) as Customer;
+            if (row.Tin == "Insert TIN" && allowChange)
+            {
+                gridViewCustomers.DeleteRow(gridViewCustomers.RowCount - 1);
+                allowChange = true;
+            }
+                
+        }
+
         private void NewCustomer()
         {
-            if (CustomerList[^1].Tin != "Insert TIN")
+            if (CustomerList.Count == 0 || CustomerList[^1].Tin != "Insert TIN")
             {
                 var _newcustomer = new Customer();
                 _newcustomer.Name = "Insert Name";
@@ -220,6 +222,9 @@ namespace Session_11
                 _newcustomer.PhoneNumber = "Insert Phonenumber";
                 CustomerList.Add(_newcustomer);
                 gridViewCustomers.RefreshData();
+                allowChange = false;
+                gridViewCustomers.FocusedRowHandle = gridViewCustomers.RowCount - 1;
+                allowChange = true;
                 //SOSOSOS bug waiting on the corner if fullname changes 
             }
         }

@@ -19,10 +19,12 @@ namespace PetShopLibrary.DataObjects
         {
             /*  int numericValue; str.All(char.IsDigit)
               bool isNumber = int.TryParse(stringNumber, out numericValue);*/
+            if (stringNumber == null) return false;
+
             return (stringNumber.All(char.IsDigit));
         }
 
-        private bool CheckInt(string INT)
+        public bool CheckInt(string INT)
         {
             if (CheckIFNumber(INT))
             {
