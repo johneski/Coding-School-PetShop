@@ -24,7 +24,8 @@ namespace Session_11
         private void AddNewPetFoodForm_Load(object sender, EventArgs e)
         {
             
-            //cmbType.DataSource = Enum.GetValues(Typ)
+            cmbType.DataSource = Enum.GetValues(typeof(AnimalType));
+            cmbType.SelectedIndex = -1;
             //cmbAnimalType.DataSource = Enum.GetValues(typeof(AnimalType));
             //cmbAnimalType.SelectedIndex = -1;
             //cmbAnimalType.Text = "Please choose a type";
@@ -36,16 +37,38 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            decimal cost = 0;
+            decimal price = 0;
+            var animalType = (AnimalType)cmbType.SelectedItem;
+            var brand = cmbBrand.Text;
+            var validCost = decimal.TryParse(txtCost.Text, out cost);
+            var validPrice = decimal.TryParse(txtPrice.Text, out price);
+
+            if(validCost && validPrice && (int)animalType != -1 && brand != String.Empty)
+            {
+                var food = new PetFood()
+                {
+                    Brand = brand,
+                    Price = price,
+                    Cost = cost,
+                    Type = _petShop.GetFoodType(animalType)
+                };
+                _petShop.Add(food);
+                _petShop.Save();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong or empty values!");
+            }
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cmbType_SelectedValueChanged(object sender, EventArgs e)
-        {
+            AnimalType type = (AnimalType)cmbType.SelectedIndex;
+            List<string> brands = _petShop.GetFoodBrand(type);
+            cmbBrand.DataSource = brands;
 
         }
     }

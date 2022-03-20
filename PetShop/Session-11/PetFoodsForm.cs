@@ -24,8 +24,6 @@ namespace Session_11
         {
             _petShop = new PetShopManager();
             
-            
-
             PopulateControls();
 
         }
@@ -35,7 +33,7 @@ namespace Session_11
             var CatFood = new PetFood()
             {
                Price = 40,
-               Brand = FoodBrand.Purina,
+               Brand = "Purina",
                Cost = 30,
                ID = Guid.NewGuid(),
                Type = FoodType.CatFood
@@ -43,7 +41,7 @@ namespace Session_11
             var DogFood = new PetFood()
             {
                 Price = 60,
-                Brand = FoodBrand.Purina,
+                Brand = "Purina",
                 Cost = 50,
                 ID = Guid.NewGuid(),
                 Type = FoodType.DogFood
@@ -51,7 +49,7 @@ namespace Session_11
             var BirdFood = new PetFood()
             {
                 Price = 30,
-                Brand = FoodBrand.Purina,
+                Brand = "Purina",
                 Cost = 20,
                 ID = Guid.NewGuid(),
                 Type = FoodType.BirdFood
@@ -59,7 +57,7 @@ namespace Session_11
             var ReptilFood = new PetFood()
             {
                 Price = 50,
-                Brand = FoodBrand.Purina,
+                Brand = "Purina",
                 Cost = 20,
                 ID = Guid.NewGuid(),
                 Type = FoodType.ReptilianFood
@@ -67,7 +65,7 @@ namespace Session_11
             var FishFood = new PetFood()
             {
                 Price = 20,
-                Brand = FoodBrand.Purina,
+                Brand = "Purina",
                 Cost = 10,
                 ID = Guid.NewGuid(),
                 Type = FoodType.FishFood
@@ -90,6 +88,7 @@ namespace Session_11
         {
             AddNewPetFoodForm addNeewPetFoodForm = new AddNewPetFoodForm(_petShop);
             addNeewPetFoodForm.ShowDialog();
+            grvPetFoods.RefreshData();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
