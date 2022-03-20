@@ -119,7 +119,7 @@
             this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
             this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.monthlyLedgerToolStripMenuItem.Text = "MonthlyLedger";
-            this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
+            //this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
             // 
             // PetShopForm
             // 

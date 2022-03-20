@@ -24,7 +24,7 @@ namespace PetShopLibrary.DataObjects
             return (stringNumber.All(char.IsDigit));
         }
 
-        private bool CheckInt(string INT)
+        public bool CheckInt(string INT)
         {
             if (CheckIFNumber(INT))
             {
