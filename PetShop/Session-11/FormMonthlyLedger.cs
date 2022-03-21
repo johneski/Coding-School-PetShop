@@ -44,6 +44,7 @@ namespace Session_11
         public FormMonthlyLedger()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         #region FormCustomer_UI

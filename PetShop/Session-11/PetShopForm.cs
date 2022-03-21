@@ -42,7 +42,7 @@ namespace Session_11
 
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmployeesForm employeesForm = new EmployeesForm();
+            EmployeesForm employeesForm = new EmployeesForm(_petShop);
             employeesForm.ShowDialog();
         }
 

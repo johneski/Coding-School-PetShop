@@ -44,6 +44,7 @@ namespace Session_11
         public FormPetReport()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
         #region FormPetReport_UI
         private void FormPetReport_Load(object sender, EventArgs e)

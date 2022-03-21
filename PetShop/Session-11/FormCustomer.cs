@@ -26,6 +26,7 @@ namespace Session_11
         public FormCustomer(PetShopManager petshopManager)
         {
             InitializeComponent();
+            this.CenterToScreen();
             _petshopManager = petshopManager;
         }
 
