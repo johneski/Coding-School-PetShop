@@ -20,7 +20,7 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         private List<PetFood> _listPetFoods;
         private List<Pet> _listOfPet;
-        public PetShopManager _petShopManager;
+        public PetShopManager _petShopManager =new PetShopManager();
         private int _month;
         private int _year;
 

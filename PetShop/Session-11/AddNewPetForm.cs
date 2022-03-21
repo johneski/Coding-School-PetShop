@@ -89,5 +89,10 @@ namespace Session_11
             
             this.Close();
         }
+
+        private void txtPrice_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

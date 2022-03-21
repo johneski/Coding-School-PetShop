@@ -67,6 +67,7 @@ namespace Session_11
 
             
             var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);
+            grvTransaction.RefreshData();
 
             if (availableBrands.Count > 0)
             {

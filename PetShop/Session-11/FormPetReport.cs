@@ -17,7 +17,7 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         
         private List<Pet> _listOfPet;
-        public PetShopManager petShopManager;
+        public PetShopManager petShopManager=new PetShopManager();
         private AnimalType _animalType;
         private int _month;
         private int _year;
