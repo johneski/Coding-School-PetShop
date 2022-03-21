@@ -129,6 +129,10 @@ namespace Session_11
 
         private void txtTIN_KeyPress(object sender, KeyPressEventArgs e)
         {
+            txtName.EditValue = String.Empty;
+            txtSurName.EditValue = String.Empty;
+            txtPhoneNumber.EditValue = String.Empty;
+
             if (e.KeyChar != 13) return;
 
             string TIN = (string)txtTIN.EditValue;
