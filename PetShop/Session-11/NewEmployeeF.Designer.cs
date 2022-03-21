@@ -154,6 +154,9 @@
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Properties.DisplayFormat.FormatString = "c2";
             this.txtSalary.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSalary.Properties.EditFormat.FormatString = "c2";
+            this.txtSalary.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSalary.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtSalary.Size = new System.Drawing.Size(130, 22);
             this.txtSalary.StyleController = this.layoutControl1;
             this.txtSalary.TabIndex = 4;

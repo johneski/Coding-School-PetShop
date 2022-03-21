@@ -72,5 +72,10 @@ namespace Session_11
             List<string> brands = _petShop.GetFoodBrand(type);
             cmbBrand.DataSource = brands;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

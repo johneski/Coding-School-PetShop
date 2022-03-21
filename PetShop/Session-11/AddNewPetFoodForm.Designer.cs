@@ -120,12 +120,17 @@
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(57, 72);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.DisplayFormat.FormatString = "c2";
+            this.txtPrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtPrice.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.txtPrice.Size = new System.Drawing.Size(110, 22);
             this.txtPrice.StyleController = this.layoutControl1;
             this.txtPrice.TabIndex = 3;
