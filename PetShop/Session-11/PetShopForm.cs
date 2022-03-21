@@ -71,5 +71,18 @@ namespace Session_11
             form.ShowDialog();
 
         }
+
+        private void petReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formpetreport=new FormPetReport();
+            formpetreport.ShowDialog();
+        }
+
+        private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formpetreport = new FormMonthlyLedger();
+            formpetreport.ShowDialog();
+
+        }
     }
 }
