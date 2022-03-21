@@ -17,7 +17,7 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         
         private List<Pet> _listOfPet;
-        private PetShopManager _petShopManager = new PetShopManager();
+        public PetShopManager petShopManager;
         private AnimalType _animalType;
         private int _month;
         private int _year;
@@ -36,6 +36,8 @@ namespace Session_11
             GetInitial();
 
             DisplayQualities();
+
+            comboBoxAnimalType.Properties.Items.AddRange(Enum.GetValues(typeof(AnimalType)));
 
         }
         private void btnEnter_Click(object sender, EventArgs e)
@@ -59,17 +61,9 @@ namespace Session_11
         #endregion
         private void GetInitial()
         {
-
-
-            _listOfTransactions = _petShopManager.GetTransactions();
+            _listOfTransactions = petShopManager.GetTransactions();
             
-            _listOfPet = _petShopManager.GetPets();
-
-            
-
-
-
-
+            _listOfPet = petShopManager.GetPets();
         }
 
         private void DisplayQualities()
@@ -160,6 +154,8 @@ namespace Session_11
 
 
             var _listOfMonthYearTransactions = _listOfTransactions.Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
+
+            _animalType = (AnimalType)comboBoxAnimalType.SelectedIndex;
 
             foreach (Transaction transaction in _listOfMonthYearTransactions)
             {

@@ -38,6 +38,7 @@
             this.petsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.petReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,8 @@
             this.transactionsToolStripMenuItem,
             this.petsToolStripMenuItem,
             this.petFoodsToolStripMenuItem,
-            this.monthlyLedgerToolStripMenuItem});
+            this.monthlyLedgerToolStripMenuItem,
+            this.petReportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(674, 24);
@@ -117,9 +119,16 @@
             // monthlyLedgerToolStripMenuItem
             // 
             this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
-            this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.monthlyLedgerToolStripMenuItem.Text = "MonthlyLedger";
-            //this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
+            this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
+            // 
+            // petReportToolStripMenuItem
+            // 
+            this.petReportToolStripMenuItem.Name = "petReportToolStripMenuItem";
+            this.petReportToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.petReportToolStripMenuItem.Text = "PetReport";
+            this.petReportToolStripMenuItem.Click += new System.EventHandler(this.petReportToolStripMenuItem_Click);
             // 
             // PetShopForm
             // 
@@ -152,5 +161,6 @@
         private ToolStripMenuItem petsToolStripMenuItem;
         private ToolStripMenuItem petFoodsToolStripMenuItem;
         private ToolStripMenuItem monthlyLedgerToolStripMenuItem;
+        private ToolStripMenuItem petReportToolStripMenuItem;
     }
 }

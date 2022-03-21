@@ -20,11 +20,11 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         private List<PetFood> _listPetFoods;
         private List<Pet> _listOfPet;
-        private PetShopManager _petShopManager = new PetShopManager();
+        public PetShopManager _petShopManager;
         private int _month;
         private int _year;
 
-        private CustomerPolicies _customerPolicies=new CustomerPolicies();
+        private CustomerPolicies _customerPolicies = new CustomerPolicies();
         
 
 
@@ -47,12 +47,12 @@ namespace Session_11
 
 
 
-            var t1 = new Transaction();
-            var t2 = new Transaction();
-            var t3 = new Transaction();
-            _listOfTransactions.Add(t1);
-            _listOfTransactions.Add(t2);
-            _listOfTransactions.Add(t3);
+            //var t1 = new Transaction();
+            //var t2 = new Transaction();
+            //var t3 = new Transaction();
+            //_listOfTransactions.Add(t1);
+            //_listOfTransactions.Add(t2);
+            //_listOfTransactions.Add(t3);
 
 
 
@@ -87,7 +87,7 @@ namespace Session_11
             decimal? _expenses = 0;
 
 
-            var _listOfMonthYearTransactions = _listOfTransactions.Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
+            var _listOfMonthYearTransactions = _petShopManager.GetTransactions().Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
 
             foreach (Transaction transaction in _listOfMonthYearTransactions)
             {
@@ -96,8 +96,8 @@ namespace Session_11
                 var _petfoodID = transaction.PetFoodID;
                 var _petID = transaction.PetID;
 
-                var _specificPetfood = _listPetFoods.FirstOrDefault(y => y.ID == _petfoodID);
-                var _specificPet = _listOfPet.FirstOrDefault(y => y.ID == _petID);
+                var _specificPetfood = _listPetFoods.FirstOrDefault(y => y.ID.Equals(_petfoodID));
+                var _specificPet = _listOfPet.FirstOrDefault(y => y.ID.Equals(_petID));
 
                 if (_specificPetfood != null && _specificPet != null)
                 {
@@ -200,21 +200,6 @@ namespace Session_11
             ctrlIncome.Text = string.Empty;
             ctrlTotal.Text = string.Empty;
         }
-
-       
-
-
-
-
-
-        
-
-
-
-
-
-
-
 
     }
    
