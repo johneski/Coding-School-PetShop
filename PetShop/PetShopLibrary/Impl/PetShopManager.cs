@@ -23,7 +23,7 @@ namespace PetShopLibrary
             _petShop = petShop;
         }
 
-        private void Load()
+        public void Load()
         {
             if (File.Exists(FILE_NAME))
             {
