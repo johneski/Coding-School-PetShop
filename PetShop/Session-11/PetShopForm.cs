@@ -9,6 +9,11 @@ namespace Session_11
         {
             InitializeComponent();
             _petShop = petShop;
+            this.CenterToScreen();
+        }
+        public PetShopForm()
+        {
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,7 +54,26 @@ namespace Session_11
 
         private void PetShopForm_Load(object sender, EventArgs e)
         {
+            
+            LoginForm loginform = new LoginForm();
+            loginform.ShowDialog();
+        }
 
+      
+      
+
+        private void petReportToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FormPetReport form = new FormPetReport() { petShopManager = _petShop };
+            form.ShowDialog();
+
+        }
+
+        private void monthlyLedgerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            FormMonthlyLedger form = new FormMonthlyLedger() { _petShopManager = _petShop };
+            form.ShowDialog();
         }
     }
 }

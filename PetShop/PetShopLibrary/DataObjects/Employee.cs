@@ -9,13 +9,13 @@ public enum EmployeeType
 
 public interface IEmployee
 {
-	EmployeeType Type { get; set; }
+	EmployeeType EmpType { get; set; }
 
 }
 public class Employee : Person, IEmployee
 {
 	public decimal Salary { get; set; }
-	public EmployeeType Type { get; set; }
+	public EmployeeType EmpType { get; set; }
 
 	public Employee()
     {

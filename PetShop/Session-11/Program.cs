@@ -14,7 +14,19 @@ namespace Session_11
             // see https://aka.ms/applicationconfiguration.
 
             PetShopManager petShop = new PetShopManager();
-
+            var employees = petShop.GetEmployees();
+            if (employees.Count == 0)
+            {
+                petShop.Add(new Employee()
+                {
+                    Name = "Admin",
+                    Surname = "",
+                    ObjectStatus = PetShopLibrary.DataObjects.Status.Active,
+                    Salary = 0,
+                    EmpType = EmployeeType.Manager
+                });
+            }
+            
             ApplicationConfiguration.Initialize();
             Application.Run(new PetShopForm(petShop));
         }

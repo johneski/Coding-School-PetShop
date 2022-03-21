@@ -40,6 +40,7 @@
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colObjectStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -96,6 +97,7 @@
             // 
             // grdPets
             // 
+            this.grdPets.EmbeddedNavigator.Margin = ((System.Windows.Forms.Padding)(resources.GetObject("grdPets.EmbeddedNavigator.Margin")));
             resources.ApplyResources(this.grdPets, "grdPets");
             this.grdPets.MainView = this.grvPets;
             this.grdPets.Name = "grdPets";
@@ -109,14 +111,18 @@
             this.colBreed,
             this.colStatus,
             this.colCost,
-            this.colPrice});
+            this.colPrice,
+            this.colObjectStatus});
+            this.grvPets.DetailHeight = 467;
             this.grvPets.GridControl = this.grdPets;
             this.grvPets.Name = "grvPets";
+            this.grvPets.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // colAnimalType
             // 
             resources.ApplyResources(this.colAnimalType, "colAnimalType");
             this.colAnimalType.FieldName = "AnimalType";
+            this.colAnimalType.MinWidth = 23;
             this.colAnimalType.Name = "colAnimalType";
             this.colAnimalType.OptionsColumn.AllowEdit = false;
             // 
@@ -124,29 +130,43 @@
             // 
             resources.ApplyResources(this.colBreed, "colBreed");
             this.colBreed.FieldName = "Breed";
+            this.colBreed.MinWidth = 23;
             this.colBreed.Name = "colBreed";
             this.colBreed.OptionsColumn.AllowEdit = false;
             // 
             // colStatus
             // 
             resources.ApplyResources(this.colStatus, "colStatus");
-            this.colStatus.FieldName = "Status";
+            this.colStatus.FieldName = "HealthStatus";
+            this.colStatus.MinWidth = 23;
             this.colStatus.Name = "colStatus";
-            this.colStatus.OptionsColumn.AllowEdit = false;
             // 
             // colCost
             // 
             resources.ApplyResources(this.colCost, "colCost");
+            this.colCost.DisplayFormat.FormatString = "c2";
+            this.colCost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCost.FieldName = "Cost";
+            this.colCost.MinWidth = 23;
             this.colCost.Name = "colCost";
             this.colCost.OptionsColumn.AllowEdit = false;
             // 
             // colPrice
             // 
             resources.ApplyResources(this.colPrice, "colPrice");
+            this.colPrice.DisplayFormat.FormatString = "c2";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Price";
+            this.colPrice.MinWidth = 23;
             this.colPrice.Name = "colPrice";
             this.colPrice.OptionsColumn.AllowEdit = false;
+            // 
+            // colObjectStatus
+            // 
+            resources.ApplyResources(this.colObjectStatus, "colObjectStatus");
+            this.colObjectStatus.FieldName = "ObjectStatus";
+            this.colObjectStatus.MinWidth = 23;
+            this.colObjectStatus.Name = "colObjectStatus";
             // 
             // btnCancel
             // 
@@ -167,7 +187,7 @@
             this.layoutControlItem4,
             this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(797, 381);
+            this.Root.Size = new System.Drawing.Size(911, 508);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -175,51 +195,51 @@
             this.layoutControlItem1.Control = this.grdPets;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(777, 335);
+            this.layoutControlItem1.Size = new System.Drawing.Size(891, 457);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(713, 335);
+            this.layoutControlItem3.Location = new System.Drawing.Point(817, 457);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(64, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(74, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 335);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 457);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(519, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(595, 31);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnSave;
-            this.layoutControlItem2.Location = new System.Drawing.Point(653, 335);
+            this.layoutControlItem2.Location = new System.Drawing.Point(748, 457);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(60, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(69, 31);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnDelete;
-            this.layoutControlItem4.Location = new System.Drawing.Point(586, 335);
+            this.layoutControlItem4.Location = new System.Drawing.Point(672, 457);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(67, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(76, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnNew;
-            this.layoutControlItem5.Location = new System.Drawing.Point(519, 335);
+            this.layoutControlItem5.Location = new System.Drawing.Point(595, 457);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(67, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(77, 31);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -267,5 +287,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraGrid.Columns.GridColumn colCost;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colObjectStatus;
     }
 }

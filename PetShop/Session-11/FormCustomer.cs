@@ -81,12 +81,31 @@ namespace Session_11
         private void btnSave_Click_1(object sender, EventArgs e)
         {
 
+            /* if (!(CustomerList.Count == 1 && CustomerList[0].Tin == "Insert TIN"))
+             {
+                 RemoveEmptyCustomer();
+             }*/
 
-            RemoveEmptyCustomer();
+
 
             SaveCustomerToGrid(_customerpolicies);
 
-            SaveCustomer();
+            if (CustomerList[0].Tin != "Insert TIN")
+            {
+                RemoveEmptyCustomer();
+                SaveCustomer();
+            }
+            else
+            {
+                RemoveEmptyCustomer();
+                SaveCustomer();
+                Customer emptyCustomer = new Customer("Insert Name", "Insert Surname", "Insert PhoneNumber", "Insert TIN");
+                CustomerList.Add(emptyCustomer);
+                gridViewCustomers.RefreshData();
+
+            }
+
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -115,11 +134,7 @@ namespace Session_11
         private void FormCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-            KeepChanges(_customerpolicies, NewlastCustomernew());
-            RemoveEmptyCustomer();
-
-
-
+            KeepChanges(_customerpolicies);
 
         }
 
@@ -128,25 +143,34 @@ namespace Session_11
 
         private void FillControlsWithGrid(Customer _customer)
         {
-
-            if (_customer.Tin != "Insert TIN")
+            try
             {
-                ctrlName.EditValue = _customer.Name;
-                ctrlSurname.EditValue = _customer.Surname;
-                ctrlFullname.EditValue = _customer.Fullname;
-                ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
-                ctrlTIN.EditValue = _customer.Tin;
+                if (_customer.Tin != "Insert TIN")
+                {
+                    ctrlName.EditValue = _customer.Name;
+                    ctrlSurname.EditValue = _customer.Surname;
+                    ctrlFullname.EditValue = _customer.Fullname;
+                    ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
+                    ctrlTIN.EditValue = _customer.Tin;
+
+                }
+                else
+                {
+                    ctrlName.EditValue = _customer.Name;
+                    ctrlSurname.EditValue = _customer.Surname;
+                    ctrlFullname.EditValue = "It will be autofilled";
+                    ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
+                    ctrlTIN.EditValue = _customer.Tin;
+
+                }
 
             }
-            else
+            catch (Exception)
             {
-                ctrlName.EditValue = _customer.Name;
-                ctrlSurname.EditValue = _customer.Surname;
-                ctrlFullname.EditValue = "It will be autofilled";
-                ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
-                ctrlTIN.EditValue = _customer.Tin;
+
 
             }
+
 
         }
         private void SaveCustomerToGrid(CustomerPolicies _customerpolicies)
@@ -165,13 +189,14 @@ namespace Session_11
             }
             else
             {
-                MessageBox.Show("Invalid Input, could not save.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
+                MessageBox.Show("Could not save last input.", "Save-Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
                 gridViewCustomers.RefreshData();
             }
         }
         private void InitialView()
         {
             gridViewCustomers.FocusedRowChanged += OnRowFocusChange;
+            /*  gridViewCustomers.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");*/
 
             gridViewCustomers.OptionsBehavior.Editable = false;
 
@@ -244,24 +269,42 @@ namespace Session_11
         private void DeleteCustomer()
         {
 
-            var index = gridViewCustomers.FocusedRowHandle;
-            var msg = string.Format("  Are you sure you want to delete{0} ", CustomerList[index].Fullname);
-
-
-
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(msg, " Delete Window ", buttons);
-            if (result == DialogResult.Yes)
+            if (!(CustomerList.Count == 1 && CustomerList[0].Tin == "Insert TIN"))
             {
-                CustomerList.RemoveAt(index);
-                gridViewCustomers.RefreshData();
+
+                var index = gridViewCustomers.FocusedRowHandle;
+                if (CustomerList[index].Tin != "Insert TIN")
+                {
+                    var msg = string.Format("  Are you sure you want to delete {0} ", CustomerList[index].Fullname);
+
+
+
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(msg, " Delete Window ", buttons);
+                    if (result == DialogResult.Yes)
+                    {
+                        CustomerList.RemoveAt(index);
+                        FillControlsWithGrid(new Customer());
+                        if (CustomerList.Count == 0)
+                        {
+                            Customer emptyCustomer = new Customer("Insert Name", "Insert Surname", "Insert PhoneNumber", "Insert TIN");
+                            CustomerList.Add(emptyCustomer);
+                        }
+
+                        gridViewCustomers.RefreshData();
+
+                    }
+                    else
+                    {
+                        var msg2 = string.Format("Delete of {0} was cancelled", CustomerList[index].Fullname);
+                        MessageBox.Show(msg2);
+                    }
+                }
+
+
 
             }
-            else
-            {
-                var msg2 = string.Format("Delete of {0} was cancelled", CustomerList[index].Fullname);
-                MessageBox.Show(msg2);
-            }
+
 
         }
         private void SaveCustomer()
@@ -274,44 +317,66 @@ namespace Session_11
 
         private void RemoveEmptyCustomer()
         {
-            if (CustomerList[^1].Tin == "Insert TIN")
+            try
             {
-                CustomerList.RemoveAt(CustomerList.Count - 1);
+                if (CustomerList[^1].Tin == "Insert TIN")
+                {
+                    CustomerList.RemoveAt(CustomerList.Count - 1);
+
+                }
+            }
+            catch (Exception)
+            {
+
 
             }
+
         }
-        private void KeepChanges(CustomerPolicies _customerpolicies, bool _indexednewcustomer)
+        private void KeepChanges(CustomerPolicies _customerpolicies)
         {
             _customer = gridViewCustomers.GetFocusedRow() as Customer;
 
-            if (
+            /*if (
            _customer.Name == ctrlName.EditValue &&
            _customer.Surname == ctrlSurname.EditValue &&
            _customer.PhoneNumber == ctrlPhoneNumber.EditValue &&
            _customer.Tin == ctrlTIN.EditValue)
             {
-            }
-            else
-            {
-                if (!_indexednewcustomer)
-                {
-                    var msg2 = "Do you want to save the changes?";
-                    MessageBoxButtons buttons1 = MessageBoxButtons.YesNo;
-                    DialogResult result = MessageBox.Show(msg2, "Exit", buttons1);
-                    if (result == DialogResult.Yes)
-                    {
-                        SaveCustomerToGrid(_customerpolicies);
-                        SaveCustomer();
+            }*/
 
-                    }
-                }
-                else
+            var msg2 = "Do you want to save the changes?";
+            MessageBoxButtons buttons1 = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(msg2, "Exit", buttons1);
+            if (result == DialogResult.Yes)
+            {
+                SaveCustomerToGrid(_customerpolicies);
+                if (CustomerList[^1].Tin == "Insert TIN")
                 {
                     RemoveEmptyCustomer();
                     SaveCustomer();
                 }
+                else
+                {
+                    SaveCustomer();
+                }
 
             }
+            else
+            {
+                var x = new PetShopManager();
+                CustomerList = x.GetCustomers();
+                gridCustomerList.Refresh();
+                x.Save();
+                _petshopManager.Load();
+
+
+
+
+            }
+
+
+
+
 
 
 
@@ -322,7 +387,14 @@ namespace Session_11
         }
         private void LoadToCustomerList()
         {
+
             CustomerList = _petshopManager.GetCustomers();
+            if (CustomerList.Count == 0)
+            {
+                Customer emptyCustomer = new Customer("Insert Name", "Insert Surname", "Insert PhoneNumber", "Insert TIN");
+                CustomerList.Add(emptyCustomer);
+
+            }
 
         }
 

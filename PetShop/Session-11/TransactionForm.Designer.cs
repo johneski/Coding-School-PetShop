@@ -30,12 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbFoodBrand = new System.Windows.Forms.ComboBox();
             this.spinPetFoodQty = new DevExpress.XtraEditors.SpinEdit();
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.grdTransaction = new DevExpress.XtraGrid.GridControl();
             this.grvTransaction = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.repoPetsLookUp = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtPhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtTIN = new DevExpress.XtraEditors.TextEdit();
             this.txtSurName = new DevExpress.XtraEditors.TextEdit();
@@ -57,6 +60,8 @@
             this.TIN = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsPets = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -64,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransaction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoPetsLookUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTIN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurName.Properties)).BeginInit();
@@ -85,11 +92,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TIN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPets)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.cmbFoodBrand);
             this.layoutControl1.Controls.Add(this.spinPetFoodQty);
             this.layoutControl1.Controls.Add(this.txtTotal);
             this.layoutControl1.Controls.Add(this.btnExit);
@@ -109,6 +119,14 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // cmbFoodBrand
+            // 
+            this.cmbFoodBrand.FormattingEnabled = true;
+            this.cmbFoodBrand.Location = new System.Drawing.Point(91, 367);
+            this.cmbFoodBrand.Name = "cmbFoodBrand";
+            this.cmbFoodBrand.Size = new System.Drawing.Size(307, 23);
+            this.cmbFoodBrand.TabIndex = 12;
+            // 
             // spinPetFoodQty
             // 
             this.spinPetFoodQty.EditValue = new decimal(new int[] {
@@ -120,14 +138,24 @@
             this.spinPetFoodQty.Name = "spinPetFoodQty";
             this.spinPetFoodQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinPetFoodQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinPetFoodQty.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinPetFoodQty.Properties.IsFloatValue = false;
+            this.spinPetFoodQty.Properties.MaskSettings.Set("mask", "N00");
             this.spinPetFoodQty.Size = new System.Drawing.Size(112, 20);
             this.spinPetFoodQty.StyleController = this.layoutControl1;
             this.spinPetFoodQty.TabIndex = 8;
+            this.spinPetFoodQty.EditValueChanged += new System.EventHandler(this.spinPetFoodQty_EditValueChanged);
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(481, 392);
+            this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtTotal.Location = new System.Drawing.Point(481, 367);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Properties.DisplayFormat.FormatString = "c2";
+            this.txtTotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtTotal.Properties.ReadOnly = true;
+            this.txtTotal.Properties.UseReadOnlyAppearance = false;
             this.txtTotal.Size = new System.Drawing.Size(307, 20);
             this.txtTotal.StyleController = this.layoutControl1;
             this.txtTotal.TabIndex = 9;
@@ -140,6 +168,7 @@
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
@@ -149,13 +178,16 @@
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // grdTransaction
             // 
-            this.grdTransaction.Location = new System.Drawing.Point(12, 150);
+            this.grdTransaction.Location = new System.Drawing.Point(12, 129);
             this.grdTransaction.MainView = this.grvTransaction;
             this.grdTransaction.Name = "grdTransaction";
-            this.grdTransaction.Size = new System.Drawing.Size(776, 238);
+            this.grdTransaction.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repoPetsLookUp});
+            this.grdTransaction.Size = new System.Drawing.Size(776, 234);
             this.grdTransaction.TabIndex = 7;
             this.grdTransaction.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTransaction});
@@ -164,12 +196,30 @@
             // 
             this.grvTransaction.GridControl = this.grdTransaction;
             this.grvTransaction.Name = "grvTransaction";
+            this.grvTransaction.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            // 
+            // repoPetsLookUp
+            // 
+            this.repoPetsLookUp.AutoHeight = false;
+            this.repoPetsLookUp.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repoPetsLookUp.Name = "repoPetsLookUp";
+            this.repoPetsLookUp.PopupView = this.repositoryItemSearchLookUpEdit1View;
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(91, 126);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(91, 105);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(697, 20);
+            this.txtPhoneNumber.Properties.ReadOnly = true;
+            this.txtPhoneNumber.Properties.UseReadOnlyAppearance = false;
+            this.txtPhoneNumber.Size = new System.Drawing.Size(131, 20);
             this.txtPhoneNumber.StyleController = this.layoutControl1;
             this.txtPhoneNumber.TabIndex = 6;
             // 
@@ -184,32 +234,39 @@
             // 
             // txtSurName
             // 
-            this.txtSurName.Location = new System.Drawing.Point(481, 102);
+            this.txtSurName.Location = new System.Drawing.Point(481, 81);
             this.txtSurName.Name = "txtSurName";
+            this.txtSurName.Properties.ReadOnly = true;
+            this.txtSurName.Properties.UseReadOnlyAppearance = false;
             this.txtSurName.Size = new System.Drawing.Size(307, 20);
             this.txtSurName.StyleController = this.layoutControl1;
             this.txtSurName.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(91, 102);
+            this.txtName.Location = new System.Drawing.Point(91, 81);
             this.txtName.Name = "txtName";
+            this.txtName.Properties.ReadOnly = true;
+            this.txtName.Properties.UseReadOnlyAppearance = false;
             this.txtName.Size = new System.Drawing.Size(307, 20);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 4;
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(481, 78);
+            this.txtUser.Location = new System.Drawing.Point(481, 57);
             this.txtUser.Name = "txtUser";
+            this.txtUser.Properties.ReadOnly = true;
+            this.txtUser.Properties.UseReadOnlyAppearance = false;
             this.txtUser.Size = new System.Drawing.Size(307, 20);
             this.txtUser.StyleController = this.layoutControl1;
             this.txtUser.TabIndex = 3;
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(91, 78);
+            this.txtDate.Location = new System.Drawing.Point(91, 57);
             this.txtDate.Name = "txtDate";
+            this.txtDate.Properties.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(307, 20);
             this.txtDate.StyleController = this.layoutControl1;
             this.txtDate.TabIndex = 2;
@@ -232,7 +289,9 @@
             this.PetFoodQty,
             this.TIN,
             this.emptySpaceItem2,
-            this.emptySpaceItem3});
+            this.emptySpaceItem3,
+            this.emptySpaceItem4,
+            this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(800, 450);
             this.Root.TextVisible = false;
@@ -240,7 +299,7 @@
             // Date
             // 
             this.Date.Control = this.txtDate;
-            this.Date.Location = new System.Drawing.Point(0, 66);
+            this.Date.Location = new System.Drawing.Point(0, 45);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(390, 24);
             this.Date.TextSize = new System.Drawing.Size(67, 13);
@@ -256,7 +315,7 @@
             // User
             // 
             this.User.Control = this.txtUser;
-            this.User.Location = new System.Drawing.Point(390, 66);
+            this.User.Location = new System.Drawing.Point(390, 45);
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(390, 24);
             this.User.TextSize = new System.Drawing.Size(67, 13);
@@ -264,7 +323,7 @@
             // CustomerName
             // 
             this.CustomerName.Control = this.txtName;
-            this.CustomerName.Location = new System.Drawing.Point(0, 90);
+            this.CustomerName.Location = new System.Drawing.Point(0, 69);
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.Size = new System.Drawing.Size(390, 24);
             this.CustomerName.Text = "Name";
@@ -273,7 +332,7 @@
             // SurName
             // 
             this.SurName.Control = this.txtSurName;
-            this.SurName.Location = new System.Drawing.Point(390, 90);
+            this.SurName.Location = new System.Drawing.Point(390, 69);
             this.SurName.Name = "SurName";
             this.SurName.Size = new System.Drawing.Size(390, 24);
             this.SurName.TextSize = new System.Drawing.Size(67, 13);
@@ -281,17 +340,17 @@
             // PhoneNumber
             // 
             this.PhoneNumber.Control = this.txtPhoneNumber;
-            this.PhoneNumber.Location = new System.Drawing.Point(0, 114);
+            this.PhoneNumber.Location = new System.Drawing.Point(0, 93);
             this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.Size = new System.Drawing.Size(780, 24);
+            this.PhoneNumber.Size = new System.Drawing.Size(214, 24);
             this.PhoneNumber.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.grdTransaction;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 138);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 117);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(780, 242);
+            this.layoutControlItem7.Size = new System.Drawing.Size(780, 238);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -316,9 +375,9 @@
             // Total
             // 
             this.Total.Control = this.txtTotal;
-            this.Total.Location = new System.Drawing.Point(390, 380);
+            this.Total.Location = new System.Drawing.Point(390, 355);
             this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(390, 24);
+            this.Total.Size = new System.Drawing.Size(390, 49);
             this.Total.TextSize = new System.Drawing.Size(67, 13);
             // 
             // PetFoodQty
@@ -327,6 +386,7 @@
             this.PetFoodQty.Location = new System.Drawing.Point(0, 380);
             this.PetFoodQty.Name = "PetFoodQty";
             this.PetFoodQty.Size = new System.Drawing.Size(195, 24);
+            this.PetFoodQty.Text = "Qty";
             this.PetFoodQty.TextSize = new System.Drawing.Size(67, 13);
             // 
             // TIN
@@ -342,7 +402,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(780, 42);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(780, 21);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -352,6 +412,23 @@
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(566, 24);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(214, 93);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(566, 24);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.cmbFoodBrand;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 355);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(390, 25);
+            this.layoutControlItem1.Text = "Food Brand";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(67, 13);
             // 
             // TransactionForm
             // 
@@ -368,6 +445,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repoPetsLookUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTIN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurName.Properties)).EndInit();
@@ -389,6 +468,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TIN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPets)).EndInit();
             this.ResumeLayout(false);
 
@@ -425,5 +506,10 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private BindingSource bsPets;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private ComboBox cmbFoodBrand;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repoPetsLookUp;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
     }
 }
