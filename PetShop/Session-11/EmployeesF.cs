@@ -15,7 +15,7 @@ namespace Session_11
     public partial class EmployeesForm : Form
     {
         private List<Employee> _employees;
-        private PetShopManager _petShopManager;
+        public PetShopManager petShopManager;
         //private Employee _employee;
         public EmployeesForm()
         {
@@ -26,55 +26,13 @@ namespace Session_11
 
         private void EmployeesF_Load(object sender, EventArgs e)
         {
-            _petShopManager = new PetShopManager();
-            _employees = new List<Employee>();
-            //PopulateControls();
-
             BindingSource bsEmployees = new BindingSource();
-            bsEmployees.DataSource = _petShopManager.GetEmployees();
+            bsEmployees.DataSource = petShopManager.GetEmployees();
             grdEmployees.DataSource = bsEmployees;
 
             grvEmployees.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");
 
         }
-
-        //private void PopulateControls()
-        //{
-        //    var employee3 = new Employee()
-        //    {
-        //        Name = "Dimitris",
-        //        Surname = "Mantikidis",
-        //        Type = EmployeeType.Employee,
-        //        Salary = 1000
-        //    };
-
-        //    var manager = new Employee()
-        //    {
-        //        Name = "Giannis",
-        //        Surname = "Eskioglou",
-        //        Type = EmployeeType.Manager,
-        //        Salary = 1000
-        //    };
-        //    var employee1 = new Employee()
-        //    {
-        //        Name = "Achileas",
-        //        Surname = "M",
-        //        Type = EmployeeType.Employee,
-        //        Salary = 1000
-        //    };
-        //    var employee2 = new Employee()
-        //    {
-        //        Name = "Kyriakos",
-        //        Surname = "M",
-        //        Type = EmployeeType.Employee,
-        //        Salary = 1000
-        //    };
-        //    _petShopManager.Add(employee1);
-        //    _petShopManager.Add(employee2);
-        //    _petShopManager.Add(employee3);
-        //    _petShopManager.Add(manager);
-
-        //}
 
         private void EmployeesF_Load_1(object sender, EventArgs e)
         {
@@ -83,7 +41,7 @@ namespace Session_11
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            NewEmployeeForm form = new NewEmployeeForm(_petShopManager);
+            NewEmployeeForm form = new NewEmployeeForm(petShopManager);
             form.ShowDialog();
             grvEmployees.RefreshData();
         }
@@ -91,8 +49,9 @@ namespace Session_11
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Employee employee = grvEmployees.GetFocusedRow() as Employee;
-            _petShopManager.Delete(employee);
-            _petShopManager.Save();
+            if (employee == null || employee.EmpType.Equals(EmployeeType.Manager) || employee.EmpType.Equals(EmployeeType.CEO)) return;
+            petShopManager.Delete(employee);
+            petShopManager.Save();
             grvEmployees.RefreshData();
         }
 
@@ -104,7 +63,7 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _petShopManager.Save();
+            petShopManager.Save();
             MessageBox.Show("Saved");
         }
     }

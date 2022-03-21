@@ -40,12 +40,17 @@ namespace Session_11
             {
 
                 EmployeeType type = (EmployeeType)cmbIndex;
+                if (type.Equals(EmployeeType.Manager))
+                {
+                    MessageBox.Show("There is already a Manager!");
+                    return;
+                }
                 Employee emp = new Employee()
                 {
                     Name = name,
                     Surname = surname,
-                    Salary = Convert.ToDecimal(salary),
-                    Type = type
+                    Salary = Convert.ToDecimal(salary.Split()[0]),
+                    EmpType = type
                 };
                 
                 _petShopManager.Add(emp);
