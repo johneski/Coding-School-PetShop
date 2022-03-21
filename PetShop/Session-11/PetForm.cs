@@ -41,7 +41,7 @@ namespace Session_11
         private void btnNew_Click(object sender, EventArgs e)
         {
             
-            AddNewPetForm addNewPetForm = new AddNewPetForm(_petShop);
+            AddNewPetF addNewPetForm = new AddNewPetF(_petShop);
             addNewPetForm.ShowDialog();
             grvPets.RefreshData();
         }

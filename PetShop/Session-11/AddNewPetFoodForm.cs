@@ -34,7 +34,11 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmbType.SelectedIndex < 0 || cmbBrand.Text == String.Empty || txtCost.Text == String.Empty || txtPrice.Text == String.Empty) return;
+            if (cmbType.SelectedIndex < 0 || cmbBrand.Text == String.Empty || txtCost.Text == String.Empty || txtPrice.Text == String.Empty)
+            {
+                MessageBox.Show("Please fill all the fields");
+                return;
+            }
 
 
             decimal cost = 0;

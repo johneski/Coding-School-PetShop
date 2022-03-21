@@ -163,6 +163,7 @@ namespace Session_11
             Transaction transaction = transView.CreateView(user, custId, petId, petPrice, foodId, qty, foodPrice, _total);
             _petShop.Add(transaction);
             _petShop.Save();
+            MessageBox.Show("Saved");
         }
     }
 }
