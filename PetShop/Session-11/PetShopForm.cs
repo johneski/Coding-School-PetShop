@@ -61,7 +61,7 @@ namespace Session_11
 
         private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormMonthlyLedger form = new FormMonthlyLedger() { _petShopManager = _petShop};
+            FormMonthlyLedger form = new FormMonthlyLedger() { petShopManager = _petShop};
             form.ShowDialog();
         }
 
@@ -72,15 +72,15 @@ namespace Session_11
 
         }
 
-        private void petReportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void petReportStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formpetreport=new FormPetReport();
+            Form formpetreport = new FormPetReport() { petShopManager = _petShop};
             formpetreport.ShowDialog();
         }
 
-        private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void monthlyLedgerStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formpetreport = new FormMonthlyLedger();
+            Form formpetreport = new FormMonthlyLedger() { petShopManager = _petShop };
             formpetreport.ShowDialog();
 
         }

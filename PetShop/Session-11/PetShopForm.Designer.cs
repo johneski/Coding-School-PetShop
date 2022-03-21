@@ -121,14 +121,14 @@
             this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
             this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.monthlyLedgerToolStripMenuItem.Text = "MonthlyLedger";
-            this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
+            this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerStripMenuItem_Click);
             // 
             // petReportToolStripMenuItem
             // 
             this.petReportToolStripMenuItem.Name = "petReportToolStripMenuItem";
             this.petReportToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.petReportToolStripMenuItem.Text = "PetReport";
-            this.petReportToolStripMenuItem.Click += new System.EventHandler(this.petReportToolStripMenuItem_Click);
+            this.petReportToolStripMenuItem.Click += new System.EventHandler(this.petReportStripMenuItem_Click);
             // 
             // PetShopForm
             // 

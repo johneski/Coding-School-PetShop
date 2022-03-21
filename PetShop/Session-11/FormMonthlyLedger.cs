@@ -20,7 +20,7 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         private List<PetFood> _listPetFoods;
         private List<Pet> _listOfPet;
-        public PetShopManager _petShopManager;
+        public PetShopManager petShopManager;
         private int _month;
         private int _year;
 
@@ -87,7 +87,7 @@ namespace Session_11
             decimal? _expenses = 0;
 
 
-            var _listOfMonthYearTransactions = _petShopManager.GetTransactions().Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
+            var _listOfMonthYearTransactions = petShopManager.GetTransactions().Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
 
             foreach (Transaction transaction in _listOfMonthYearTransactions)
             {
@@ -130,9 +130,9 @@ namespace Session_11
         {
            
 
-            _listOfTransactions = _petShopManager.GetTransactions();
-            _listPetFoods = _petShopManager.GetPetFoods();
-            _listOfPet = _petShopManager.GetPets();
+            _listOfTransactions = petShopManager.GetTransactions();
+            _listPetFoods = petShopManager.GetPetFoods();
+            _listOfPet = petShopManager.GetPets();
 
 
             
