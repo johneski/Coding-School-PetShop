@@ -42,7 +42,15 @@ namespace Session_11
 
             _currentEmployee = _petShop.GetEmployees().FirstOrDefault();
             txtUser.EditValue = _currentEmployee.Name;
-            
+            int index = 0;
+            foreach(Pet pet in pets)
+            {
+                if(pet.ObjectStatus == Status.Active)
+                {
+                    grvTransaction.FocusedRowHandle = index;
+                }
+                index++;
+            }
 
             if (pets.Count > 0)
                 OnFocusRowChange(sender, null);
