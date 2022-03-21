@@ -15,7 +15,20 @@ namespace Session_11
     public partial class FormMonthlyLedger : Form
     {
         decimal RENT = 2000;
-
+        private List<string> _months = new List<string> {
+                                                        "January",
+                                                        "February",
+                                                        "March",
+                                                        "April",
+                                                        "May",
+                                                        "June",
+                                                        "July",
+                                                        "August",
+                                                        "September",
+                                                        "October",
+                                                        "November",
+                                                        "December"
+                                                                };
 
         private List<Transaction> _listOfTransactions;
         private List<PetFood> _listPetFoods;
@@ -100,7 +113,7 @@ namespace Session_11
             MonthlyLedger ledger = new MonthlyLedger()
             {
                 Year = Convert.ToInt32(ctrlYear.Text),
-                Month = comboBoxMonth.SelectedIndex + 1,
+                Month = _months[comboBoxMonth.SelectedIndex],
                 Income = _income,
                 Expences = (decimal)_expenses,
                 Total= (decimal)(_income - _expenses)

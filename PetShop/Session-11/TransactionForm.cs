@@ -181,7 +181,8 @@ namespace Session_11
             TransactionView transView = new TransactionView(_petShop);
             Transaction transaction = transView.CreateView(user, custId, petId, petPrice, foodId, qty, foodPrice, _total);
             _petShop.Add(transaction);
-            _currentPet.ObjectStatus = Status.Inactive;
+            _petShop.Delete(_currentPet);
+            _petShop.DeletePetFoodRange(_currentPet.FoodType.Brand, qty);
             _petShop.Save();
 
             grvTransaction.RefreshData();

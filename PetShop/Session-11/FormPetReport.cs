@@ -15,10 +15,25 @@ namespace Session_11
     public partial class FormPetReport : Form
     {
         private List<Transaction> _listOfTransactions;
-        
+
+        private List<string> _months = new List<string> {
+                                                        "January",
+                                                        "February",
+                                                        "March",
+                                                        "April",
+                                                        "May",
+                                                        "June",
+                                                        "July",
+                                                        "August",
+                                                        "September",
+                                                        "October",
+                                                        "November",
+                                                        "December" 
+                                                                };
+
+
         private List<Pet> _listOfPet;
         public PetShopManager petShopManager;
-        private AnimalType _animalType;
         private int _month;
         private int _year;
 
@@ -48,12 +63,20 @@ namespace Session_11
         {
             
             _month = GetMonth();
+            List<PetReport> petReports = new List<PetReport>();
 
-
-            if (ValidMonthAndYear(_month, ctrlYear.Text) && CheckAnimalType(comboBoxAnimalType.SelectedIndex))
+            if (ValidMonthAndYear(_month, ctrlYear.Text))
             {
-                IncomeExpensesTotal(_month, ctrlYear.Text);
+                foreach(AnimalType type in Enum.GetValues(typeof(AnimalType)))
+                {
+                    PetReport petReport = IncomeExpensesTotal(_month, ctrlYear.Text, type);
+                    petReports.Add(petReport);
+                }
 
+                BindingSource bsPetReports = new BindingSource();
+                bsPetReports.DataSource = petReports;
+                gridPetReport.DataSource = bsPetReports;
+                gridPetReport.Refresh();
             }
 
         }
@@ -65,6 +88,8 @@ namespace Session_11
         #endregion
         private void GetInitial()
         {
+            comboBoxMonth.Properties.Items.AddRange(_months);
+
             _listOfTransactions = petShopManager.GetTransactions();
             
             _listOfPet = petShopManager.GetPets();
@@ -73,9 +98,7 @@ namespace Session_11
         private void DisplayQualities()
         {
             comboBoxMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            comboBoxAnimalType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-
-            comboBoxAnimalType.Properties.Items.AddRange(Enum.GetValues(typeof(AnimalType)));
+        
             gridView1.OptionsBehavior.Editable = false;
 
         }
@@ -146,7 +169,7 @@ namespace Session_11
         }
         
 
-        public void IncomeExpensesTotal(int month, string year)
+        public PetReport IncomeExpensesTotal(int month, string year, AnimalType animalType)
         {
             
             decimal? _totalSold = 0;
@@ -154,7 +177,7 @@ namespace Session_11
 
             var _listOfMonthYearTransactions = _listOfTransactions.Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
 
-            _animalType = (AnimalType)comboBoxAnimalType.SelectedIndex;
+            //_animalType = (AnimalType)comboBoxAnimalType.SelectedIndex;
 
             foreach (Transaction transaction in _listOfMonthYearTransactions)
             {
@@ -166,7 +189,7 @@ namespace Session_11
                 var _specificPet = _listOfPet.FirstOrDefault(y => y.ID == _petID);
                 
 
-                if (_specificPet.AnimalType == _animalType && _specificPet != null) 
+                if (_specificPet.AnimalType == animalType && _specificPet != null) 
                 {
                     _totalSold++;
                    
@@ -177,24 +200,19 @@ namespace Session_11
             }
 
             //Defined an object and bind it to the grid. We can just show the results it to the text boxes but I think it was asked to be done like this.
-            Enum.TryParse(comboBoxAnimalType.Text,out AnimalType type);
+            //Enum.TryParse(comboBoxAnimalType.Text,out AnimalType type);
 
 
             PetReport petReport = new PetReport()
             {
                 Year = Convert.ToInt32(ctrlYear.Text),
-                Month = comboBoxMonth.SelectedIndex + 1,
-                Type = type,
-                TotalSold =Convert.ToInt32(_totalSold)
+                Month = _months[comboBoxMonth.SelectedIndex],
+                Type = animalType,
+                TotalSold = Convert.ToInt32(_totalSold)
             };
-            BindingSource bsPetReport = new BindingSource();
-            bsPetReport.DataSource = petReport;
-            gridPetReport.DataSource = bsPetReport;
-            gridPetReport.Refresh();
 
+            return petReport;
             
-
-
         }
 
        
