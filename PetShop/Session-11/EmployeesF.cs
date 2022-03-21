@@ -15,10 +15,11 @@ namespace Session_11
     public partial class EmployeesForm : Form
     {
         private List<Employee> _employees;
-        public PetShopManager petShopManager=new PetShopManager();
+        public PetShopManager petShopManager;
         //private Employee _employee;
-        public EmployeesForm()
+        public EmployeesForm(PetShopManager petShop)
         {
+            petShopManager = petShop;
             InitializeComponent();
             this.CenterToScreen();
         }

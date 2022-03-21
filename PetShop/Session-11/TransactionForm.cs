@@ -72,6 +72,7 @@ namespace Session_11
             grvTransaction.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active' and HealthStatus != 'Unhealthy'");
             grvTransaction.Columns["ID"].Visible = false;
             grvTransaction.Columns["ObjectStatus"].Visible = false;
+            grvTransaction.Columns["FoodType"].Visible = false;
         }
 
         private void OnFocusRowChange(object sender, FocusedRowChangedEventArgs e)
@@ -125,7 +126,7 @@ namespace Session_11
         private void CalcTotalPrice()
         {
             _total = _petShop.GetTotalPrice(_currentPet, int.Parse(spinPetFoodQty.Value.ToString()));
-            txtTotal.EditValue = _total;
+            txtTotal.EditValue = _total;            
         }
 
         private void txtTIN_KeyPress(object sender, KeyPressEventArgs e)
@@ -168,7 +169,12 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (_currentCustomer == null || _currentPet == null) return;
+            if (_currentCustomer == null || _currentPet == null)
+            {
+                MessageBox.Show("Please fill all the fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
             Guid user = _currentEmployee.ID;
             Guid petId = (Guid)_currentPet.ID;
@@ -187,6 +193,14 @@ namespace Session_11
 
             grvTransaction.RefreshData();
             MessageBox.Show("Transaction successfully Completed!");
+        }
+
+        private void cmbFoodBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = cmbFoodBrand.SelectedIndex;
+            var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);
+            _currentPet.FoodType.Brand = availableBrands[index];
+            txtFoodPrice.EditValue = _petShop.GetFoodPrice(_currentPet);
         }
     }
 }
