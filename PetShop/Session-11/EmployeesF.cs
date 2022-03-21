@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using PetShopLibrary;
 
 namespace Session_11
@@ -19,59 +20,61 @@ namespace Session_11
         public EmployeesForm()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
 
         private void EmployeesF_Load(object sender, EventArgs e)
         {
             _petShopManager = new PetShopManager();
-            //_employee = new Employee();
             _employees = new List<Employee>();
-            PopulateControls();
+            //PopulateControls();
 
             BindingSource bsEmployees = new BindingSource();
             bsEmployees.DataSource = _petShopManager.GetEmployees();
             grdEmployees.DataSource = bsEmployees;
-            
-        }
 
-        private void PopulateControls()
-        {
-            var employee3 = new Employee()
-            {
-                Name = "Dimitris",
-                Surname = "Mantikidis",
-                Type = EmployeeType.Employee,
-                Salary = 1000
-            };
-
-            var manager = new Employee()
-            {
-                Name = "Giannis",
-                Surname = "Eskioglou",
-                Type = EmployeeType.Manager,
-                Salary = 1000
-            };
-            var employee1 = new Employee()
-            {
-                Name = "Achileas",
-                Surname = "M",
-                Type = EmployeeType.Employee,
-                Salary = 1000
-            };
-            var employee2 = new Employee()
-            {
-                Name = "Kyriakos",
-                Surname = "M",
-                Type = EmployeeType.Employee,
-                Salary = 1000
-            };
-            _petShopManager.Add(employee1);
-            _petShopManager.Add(employee2);
-            _petShopManager.Add(employee3);
-            _petShopManager.Add(manager);
+            grvEmployees.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");
 
         }
+
+        //private void PopulateControls()
+        //{
+        //    var employee3 = new Employee()
+        //    {
+        //        Name = "Dimitris",
+        //        Surname = "Mantikidis",
+        //        Type = EmployeeType.Employee,
+        //        Salary = 1000
+        //    };
+
+        //    var manager = new Employee()
+        //    {
+        //        Name = "Giannis",
+        //        Surname = "Eskioglou",
+        //        Type = EmployeeType.Manager,
+        //        Salary = 1000
+        //    };
+        //    var employee1 = new Employee()
+        //    {
+        //        Name = "Achileas",
+        //        Surname = "M",
+        //        Type = EmployeeType.Employee,
+        //        Salary = 1000
+        //    };
+        //    var employee2 = new Employee()
+        //    {
+        //        Name = "Kyriakos",
+        //        Surname = "M",
+        //        Type = EmployeeType.Employee,
+        //        Salary = 1000
+        //    };
+        //    _petShopManager.Add(employee1);
+        //    _petShopManager.Add(employee2);
+        //    _petShopManager.Add(employee3);
+        //    _petShopManager.Add(manager);
+
+        //}
 
         private void EmployeesF_Load_1(object sender, EventArgs e)
         {
@@ -82,12 +85,27 @@ namespace Session_11
         {
             NewEmployeeForm form = new NewEmployeeForm(_petShopManager);
             form.ShowDialog();
-            gridView1.RefreshData();
+            grvEmployees.RefreshData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            Employee employee = grvEmployees.GetFocusedRow() as Employee;
+            _petShopManager.Delete(employee);
+            _petShopManager.Save();
+            grvEmployees.RefreshData();
+        }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _petShopManager.Save();
+            MessageBox.Show("Saved");
         }
     }
 }

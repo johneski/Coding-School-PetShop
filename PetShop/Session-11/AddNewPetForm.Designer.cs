@@ -74,7 +74,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(47, 298);
+            this.btnSave.Location = new System.Drawing.Point(43, 298);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(86, 31);
@@ -84,7 +84,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(170, 298);
+            this.btnCancel.Location = new System.Drawing.Point(217, 298);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 31);
@@ -98,7 +98,7 @@
             this.cmbAnimalType.Location = new System.Drawing.Point(107, 37);
             this.cmbAnimalType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbAnimalType.Name = "cmbAnimalType";
-            this.cmbAnimalType.Size = new System.Drawing.Size(162, 28);
+            this.cmbAnimalType.Size = new System.Drawing.Size(181, 28);
             this.cmbAnimalType.TabIndex = 12;
             // 
             // cmbStatus
@@ -107,7 +107,7 @@
             this.cmbStatus.Location = new System.Drawing.Point(107, 129);
             this.cmbStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(162, 28);
+            this.cmbStatus.Size = new System.Drawing.Size(181, 28);
             this.cmbStatus.TabIndex = 13;
             // 
             // txtBreed
@@ -115,7 +115,7 @@
             this.txtBreed.Location = new System.Drawing.Point(107, 80);
             this.txtBreed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBreed.Name = "txtBreed";
-            this.txtBreed.Size = new System.Drawing.Size(162, 22);
+            this.txtBreed.Size = new System.Drawing.Size(181, 22);
             this.txtBreed.TabIndex = 15;
             // 
             // labelControl1
@@ -141,7 +141,7 @@
             this.txtPrice.Location = new System.Drawing.Point(107, 188);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(162, 22);
+            this.txtPrice.Size = new System.Drawing.Size(63, 22);
             this.txtPrice.TabIndex = 18;
             // 
             // txtCost
@@ -149,14 +149,14 @@
             this.txtCost.Location = new System.Drawing.Point(107, 236);
             this.txtCost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(162, 22);
+            this.txtCost.Size = new System.Drawing.Size(63, 22);
             this.txtCost.TabIndex = 19;
             // 
             // AddNewPetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 379);
+            this.ClientSize = new System.Drawing.Size(367, 354);
             this.ControlBox = false;
             this.Controls.Add(this.txtCost);
             this.Controls.Add(this.txtPrice);

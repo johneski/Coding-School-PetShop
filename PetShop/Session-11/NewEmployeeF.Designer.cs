@@ -152,6 +152,11 @@
             this.txtSalary.Location = new System.Drawing.Point(82, 94);
             this.txtSalary.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Properties.DisplayFormat.FormatString = "c2";
+            this.txtSalary.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSalary.Properties.EditFormat.FormatString = "c2";
+            this.txtSalary.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSalary.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtSalary.Size = new System.Drawing.Size(130, 22);
             this.txtSalary.StyleController = this.layoutControl1;
             this.txtSalary.TabIndex = 4;
@@ -344,8 +349,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 277);
+            this.ControlBox = false;
             this.Controls.Add(this.layoutControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewEmployeeForm";
             this.Text = "New Employee";
             this.Load += new System.EventHandler(this.NewEmployeeForm_Load);

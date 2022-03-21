@@ -20,6 +20,7 @@ namespace Session_11
         {
             InitializeComponent();
             _petShop = petShop;
+            this.CenterToScreen();
         }
 
         private void PetFoodsForm_Load(object sender, EventArgs e)
@@ -44,7 +45,6 @@ namespace Session_11
         {
             _petShop.Save();
             MessageBox.Show("Saved");
-            this.Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

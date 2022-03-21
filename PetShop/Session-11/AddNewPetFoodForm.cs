@@ -18,7 +18,8 @@ namespace Session_11
         {
             InitializeComponent();
             _petShop = petShopManager;
-            
+            this.CenterToScreen();
+
         }
 
         private void AddNewPetFoodForm_Load(object sender, EventArgs e)
@@ -70,6 +71,11 @@ namespace Session_11
             AnimalType type = (AnimalType)cmbType.SelectedIndex;
             List<string> brands = _petShop.GetFoodBrand(type);
             cmbBrand.DataSource = brands;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

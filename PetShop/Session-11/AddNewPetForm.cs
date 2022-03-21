@@ -22,6 +22,7 @@ namespace Session_11
             InitializeComponent();
             
             _petShop = petShopManager;
+            this.CenterToScreen();
         }
 
         private void AddNewPetForm_Load(object sender, EventArgs e)
