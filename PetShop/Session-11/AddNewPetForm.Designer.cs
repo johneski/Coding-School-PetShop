@@ -132,11 +132,9 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.DisplayFormat.FormatString = "c2";
             this.txtPrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtPrice.Properties.EditFormat.FormatString = "c2";
-            this.txtPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.txtPrice.Size = new System.Drawing.Size(55, 20);
+            this.txtPrice.Size = new System.Drawing.Size(79, 20);
             this.txtPrice.TabIndex = 18;
             // 
             // txtCost
@@ -145,11 +143,9 @@
             this.txtCost.Name = "txtCost";
             this.txtCost.Properties.DisplayFormat.FormatString = "c2";
             this.txtCost.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtCost.Properties.EditFormat.FormatString = "c2";
-            this.txtCost.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtCost.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtCost.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.txtCost.Size = new System.Drawing.Size(55, 20);
+            this.txtCost.Size = new System.Drawing.Size(79, 20);
             this.txtCost.TabIndex = 19;
             // 
             // AddNewPetForm

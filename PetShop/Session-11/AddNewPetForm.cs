@@ -38,11 +38,12 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (cmbAnimalType.SelectedIndex < 0 || txtBreed.Text == String.Empty || cmbStatus.SelectedIndex < 0 || txtPrice.Text == String.Empty || txtCost.Text == String.Empty) return;
             int animalTypeIndex = cmbAnimalType.SelectedIndex;
             string breed = txtBreed.Text;
             int statusIndex = cmbStatus.SelectedIndex;
-            decimal price = Convert.ToDecimal(txtPrice.Text);
-            decimal cost = Convert.ToDecimal(txtCost.Text);
+            decimal price = Convert.ToDecimal(txtPrice.Text.Split()[0]);
+            decimal cost = Convert.ToDecimal(txtCost.Text.Split()[0]);
 
             if(animalTypeIndex >= 0 && breed != "" && statusIndex >= 0  && price>= 0 && cost >=0) 
             {

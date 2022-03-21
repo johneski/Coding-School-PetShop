@@ -149,8 +149,11 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtTotal.Location = new System.Drawing.Point(481, 367);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Properties.DisplayFormat.FormatString = "c2";
+            this.txtTotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTotal.Properties.ReadOnly = true;
             this.txtTotal.Properties.UseReadOnlyAppearance = false;
             this.txtTotal.Size = new System.Drawing.Size(307, 20);

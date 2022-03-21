@@ -55,7 +55,7 @@ namespace Session_11
         private void OnFocusRowChange(object sender, FocusedRowChangedEventArgs e)
         {
             _currentPet = grvTransaction.GetFocusedRow() as Pet;
-            if (_currentPet == null) return;
+            if (_currentPet == null || _currentPet.ObjectStatus == Status.Inactive || _currentPet.HealthStatus == PetStatus.Unhealthy) return;
 
             
             var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);

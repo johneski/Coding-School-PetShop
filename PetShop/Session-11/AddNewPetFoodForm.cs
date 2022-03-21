@@ -34,12 +34,15 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (cmbType.SelectedIndex < 0 || cmbBrand.Text == String.Empty || txtCost.Text == String.Empty || txtPrice.Text == String.Empty) return;
+
+
             decimal cost = 0;
             decimal price = 0;
             var animalType = (AnimalType)cmbType.SelectedItem;
             var brand = cmbBrand.Text;
-            var validCost = decimal.TryParse(txtCost.Text, out cost);
-            var validPrice = decimal.TryParse(txtPrice.Text, out price);
+            var validCost = decimal.TryParse(txtCost.Text.Split()[0], out cost);
+            var validPrice = decimal.TryParse(txtPrice.Text.Split()[0], out price);
 
             if(validCost && validPrice && (int)animalType != -1 && brand != String.Empty && price >= cost)
             {

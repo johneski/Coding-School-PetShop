@@ -49,6 +49,7 @@ namespace Session_11
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Pet pet= grvPets.GetFocusedRow() as Pet;
+            if (pet == null) return;
             _petShop.Delete(pet);
             _petShop.Save();
             grvPets.RefreshData();
