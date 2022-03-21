@@ -84,5 +84,16 @@ namespace Session_11
             formpetreport.ShowDialog();
 
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _petShop.Save();
+            MessageBox.Show("Save completed!");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

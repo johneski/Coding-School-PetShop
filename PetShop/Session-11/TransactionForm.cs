@@ -39,11 +39,25 @@ namespace Session_11
             grvTransaction.FocusedRowChanged += OnFocusRowChange;
             grvTransaction.OptionsBehavior.Editable = false;
             spinPetFoodQty.Properties.MinValue = 0;
-
-            _currentEmployee = _petShop.GetEmployees().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
-            txtUser.EditValue = _currentEmployee.Name;
             int index = 0;
-            foreach(Pet pet in pets)
+            _currentEmployee = _petShop.GetEmployees().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
+            if(_currentEmployee != null)
+            {
+                txtUser.EditValue = _currentEmployee.Name;
+            }
+
+            index = 0;
+            _currentPet = _petShop.GetPets().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
+            if(_currentPet != null)
+            {
+                index = _petShop.GetPets().IndexOf(_currentPet);
+                grvTransaction.FocusedRowHandle = index;
+            }
+            
+            
+            grvTransaction.FocusedRowHandle = index;
+
+            foreach (Pet pet in pets)
             {
                 if(pet.ObjectStatus == Status.Active)
                 {
