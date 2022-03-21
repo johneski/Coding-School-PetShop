@@ -18,9 +18,9 @@ namespace Session_11
     {
         private PetShopManager _petShop;
         private Pet _currentPet;
-        private Customer? _currentCustomer;
+        private Customer _currentCustomer;
+        private Employee _currentEmployee;
         private decimal _total;
-        private bool _searched = false;
 
         public TransactionForm(PetShopManager petShop)
         {
@@ -39,10 +39,16 @@ namespace Session_11
             grvTransaction.OptionsBehavior.Editable = false;
             spinPetFoodQty.Properties.MinValue = 0;
 
+            _currentEmployee = _petShop.GetEmployees().FirstOrDefault();
+            txtUser.EditValue = _currentEmployee.Name;
+            
+
             if (pets.Count > 0)
                 OnFocusRowChange(sender, null);
 
             grvTransaction.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active' and HealthStatus != 'Unhealthy'");
+            grvTransaction.Columns["ID"].Visible = false;
+            grvTransaction.Columns["ObjectStatus"].Visible = false;
         }
 
         private void OnFocusRowChange(object sender, FocusedRowChangedEventArgs e)
@@ -122,7 +128,6 @@ namespace Session_11
             txtSurName.EditValue = _currentCustomer.Surname;
             txtPhoneNumber.EditValue = _currentCustomer.PhoneNumber;
 
-            _searched = true;
 
         }
 
@@ -135,9 +140,9 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!_searched) return;
+            if (_currentCustomer == null || _currentPet == null) return;
 
-            string user = txtUser.Text;
+            Guid user = _currentEmployee.ID;
             Guid petId = (Guid)_currentPet.ID;
             Guid custId = (Guid)_currentCustomer.ID;
             decimal petPrice = _currentPet.Price;

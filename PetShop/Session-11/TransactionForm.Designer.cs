@@ -193,6 +193,7 @@
             // 
             this.grvTransaction.GridControl = this.grdTransaction;
             this.grvTransaction.Name = "grvTransaction";
+            this.grvTransaction.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // repoPetsLookUp
             // 
@@ -262,6 +263,7 @@
             // 
             this.txtDate.Location = new System.Drawing.Point(91, 57);
             this.txtDate.Name = "txtDate";
+            this.txtDate.Properties.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(307, 20);
             this.txtDate.StyleController = this.layoutControl1;
             this.txtDate.TabIndex = 2;

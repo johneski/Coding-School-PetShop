@@ -16,13 +16,13 @@ namespace PetShopLibrary.DataObjects
             _petShop = petshop;
         }
 
-        public Transaction CreateView(string empID, Guid custId,
+        public Transaction CreateView(Guid empID, Guid custId,
                                     Guid petId, decimal petPrice, Guid foodId, int qty, decimal foodPrice, decimal total)
         {
 
             return new Transaction()
                         {
-                            EmployeeID = FindEmployee(empID),
+                            EmployeeID = empID,
                             CustomerID = custId,
                             PetID = petId,
                             PetPrice = petPrice,

@@ -69,7 +69,7 @@ namespace Session_11
         private void gridViewCustomers_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             _customer = gridViewCustomers.GetFocusedRow() as Customer;
-
+            if (_customer == null) return;
             FillControlsWithGrid(_customer);
 
 
@@ -114,13 +114,8 @@ namespace Session_11
 
         private void FormCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
-
             KeepChanges(_customerpolicies, NewlastCustomernew());
             RemoveEmptyCustomer();
-
-
-
-
         }
 
 
@@ -129,7 +124,7 @@ namespace Session_11
         private void FillControlsWithGrid(Customer _customer)
         {
 
-            if (_customer.Tin != "Insert TIN")
+            if (CustomerList != null && (CustomerList.Count > 0) && _customer.Tin != "Insert TIN")
             {
                 ctrlName.EditValue = _customer.Name;
                 ctrlSurname.EditValue = _customer.Surname;
@@ -145,30 +140,34 @@ namespace Session_11
                 ctrlFullname.EditValue = "It will be autofilled";
                 ctrlPhoneNumber.EditValue = _customer.PhoneNumber;
                 ctrlTIN.EditValue = _customer.Tin;
-
             }
 
         }
         private void SaveCustomerToGrid(CustomerPolicies _customerpolicies)
-        {//mou lipe to jsonsave mono
+        {
+            var _rowCustomer = (gridViewCustomers.GetFocusedRow() as Customer);
+            
+            if (_rowCustomer == null)
+            {
+                _rowCustomer = new Customer();
+                CustomerList.Add(_rowCustomer);
+            }
+
             if (_customerpolicies.CheckValidSave(ctrlPhoneNumber.Text, ctrlTIN.Text))
             {
-
-                var _rowStudent = (gridViewCustomers.GetFocusedRow() as Customer);
-
-                _rowStudent.Tin = ctrlTIN.Text;
-                _rowStudent.Name = ctrlName.Text;
-                _rowStudent.Surname = ctrlSurname.Text;
-                _rowStudent.PhoneNumber = ctrlPhoneNumber.Text;
+                _rowCustomer.Tin = ctrlTIN.Text;
+                _rowCustomer.Name = ctrlName.Text;
+                _rowCustomer.Surname = ctrlSurname.Text;
+                _rowCustomer.PhoneNumber = ctrlPhoneNumber.Text;
                 gridViewCustomers.RefreshData();
+                return;
+            }
 
-            }
-            else
-            {
-                MessageBox.Show("Invalid Input, could not save.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
-                gridViewCustomers.RefreshData();
-            }
+            MessageBox.Show("Invalid Input, could not save.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
+            gridViewCustomers.RefreshData();
+
         }
+
         private void InitialView()
         {
             gridViewCustomers.FocusedRowChanged += OnRowFocusChange;
@@ -178,44 +177,18 @@ namespace Session_11
             ctrlFullname.ReadOnly = true;
             ctrlFullname.BackColor = System.Drawing.SystemColors.Window;
         }
-        private void DummyCustomers()
-        {
-            //initialization
-
-            Customer K = new Customer("Kyriakos", "Mousias", "0123456789", "123456789");
-            Customer G = new Customer("Giannis", "Eskioglou", "2345678901", "234567891");
-            Customer A = new Customer("Axilleas", "Mplekos", "3456789012", "345678912");
-            Customer D = new Customer("Dimitris", "Mantikidis", "4567890123", "456789123");
-
-            CustomerList = new List<Customer>();
-
-            CustomerList.Add(K);
-            CustomerList.Add(G);
-            CustomerList.Add(A);
-            CustomerList.Add(D);
-            //petShop.Customers = CustomerList;
-
-            //SOS
-            //need to put_petshop public
-
-            //_petshopManager._petShop.Customers = CustomerList;
-            //end initialization
-        }
 
         private void SetDataBindings()
         {
             BindingSource bsCustomers = new BindingSource();
             bsCustomers.DataSource = CustomerList;
             gridCustomerList.DataSource = bsCustomers.DataSource;
-
-
-
         }
 
         private void OnRowFocusChange(object sender, EventArgs e)
         {
             var row = gridViewCustomers.GetRow(gridViewCustomers.RowCount - 1) as Customer;
-            if (row.Tin == "Insert TIN" && allowChange)
+            if (row != null && row.Tin == "Insert TIN" && allowChange)
             {
                 gridViewCustomers.DeleteRow(gridViewCustomers.RowCount - 1);
                 allowChange = true;
@@ -266,15 +239,12 @@ namespace Session_11
         }
         private void SaveCustomer()
         {
-
             _petshopManager.Save();
-
-
         }
 
         private void RemoveEmptyCustomer()
         {
-            if (CustomerList[^1].Tin == "Insert TIN")
+            if (CustomerList != null && (CustomerList.Count > 0) && CustomerList[^1].Tin == "Insert TIN" )
             {
                 CustomerList.RemoveAt(CustomerList.Count - 1);
 
@@ -284,7 +254,7 @@ namespace Session_11
         {
             _customer = gridViewCustomers.GetFocusedRow() as Customer;
 
-            if (
+            if (_customer != null &&
            _customer.Name == ctrlName.EditValue &&
            _customer.Surname == ctrlSurname.EditValue &&
            _customer.PhoneNumber == ctrlPhoneNumber.EditValue &&
@@ -318,17 +288,14 @@ namespace Session_11
         }
         private bool NewlastCustomernew()
         {
-            return (CustomerList[^1].Tin == "Insert TIN");
+
+            return (CustomerList != null) && (CustomerList.Count>0) && (CustomerList[^1].Tin == "Insert TIN");
         }
         private void LoadToCustomerList()
         {
             CustomerList = _petshopManager.GetCustomers();
 
         }
-
-
-
-
 
     }
 }
