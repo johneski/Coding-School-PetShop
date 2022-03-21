@@ -158,6 +158,7 @@
             this.gridColumn2.FieldName = "Surname";
             this.gridColumn2.MinWidth = 23;
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 86;
@@ -168,6 +169,7 @@
             this.gridColumn3.FieldName = "Type";
             this.gridColumn3.MinWidth = 23;
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 86;
@@ -180,6 +182,7 @@
             this.gridColumn4.FieldName = "Salary";
             this.gridColumn4.MinWidth = 23;
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 86;

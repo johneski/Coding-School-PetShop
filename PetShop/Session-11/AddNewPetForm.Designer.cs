@@ -47,42 +47,47 @@
             // 
             // ctrlAnimalType
             // 
-            this.ctrlAnimalType.Location = new System.Drawing.Point(12, 32);
+            this.ctrlAnimalType.Location = new System.Drawing.Point(14, 43);
+            this.ctrlAnimalType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlAnimalType.Name = "ctrlAnimalType";
-            this.ctrlAnimalType.Size = new System.Drawing.Size(55, 13);
+            this.ctrlAnimalType.Size = new System.Drawing.Size(67, 16);
             this.ctrlAnimalType.TabIndex = 6;
             this.ctrlAnimalType.Text = "AnimalType";
             // 
             // ctrlBreed
             // 
-            this.ctrlBreed.Location = new System.Drawing.Point(12, 67);
+            this.ctrlBreed.Location = new System.Drawing.Point(14, 89);
+            this.ctrlBreed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlBreed.Name = "ctrlBreed";
-            this.ctrlBreed.Size = new System.Drawing.Size(28, 13);
+            this.ctrlBreed.Size = new System.Drawing.Size(33, 16);
             this.ctrlBreed.TabIndex = 7;
             this.ctrlBreed.Text = "Breed";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 107);
+            this.labelControl3.Location = new System.Drawing.Point(14, 143);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(31, 13);
+            this.labelControl3.Size = new System.Drawing.Size(36, 16);
             this.labelControl3.TabIndex = 8;
             this.labelControl3.Text = "Status";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(607, 415);
+            this.btnSave.Location = new System.Drawing.Point(47, 298);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(86, 31);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(688, 415);
+            this.btnCancel.Location = new System.Drawing.Point(170, 298);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(86, 31);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -90,61 +95,69 @@
             // cmbAnimalType
             // 
             this.cmbAnimalType.FormattingEnabled = true;
-            this.cmbAnimalType.Location = new System.Drawing.Point(94, 28);
+            this.cmbAnimalType.Location = new System.Drawing.Point(107, 37);
+            this.cmbAnimalType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbAnimalType.Name = "cmbAnimalType";
-            this.cmbAnimalType.Size = new System.Drawing.Size(142, 23);
+            this.cmbAnimalType.Size = new System.Drawing.Size(162, 28);
             this.cmbAnimalType.TabIndex = 12;
             // 
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(94, 97);
+            this.cmbStatus.Location = new System.Drawing.Point(107, 129);
+            this.cmbStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(142, 23);
+            this.cmbStatus.Size = new System.Drawing.Size(162, 28);
             this.cmbStatus.TabIndex = 13;
             // 
             // txtBreed
             // 
-            this.txtBreed.Location = new System.Drawing.Point(94, 60);
+            this.txtBreed.Location = new System.Drawing.Point(107, 80);
+            this.txtBreed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBreed.Name = "txtBreed";
-            this.txtBreed.Size = new System.Drawing.Size(142, 20);
+            this.txtBreed.Size = new System.Drawing.Size(162, 22);
             this.txtBreed.TabIndex = 15;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 148);
+            this.labelControl1.Location = new System.Drawing.Point(14, 197);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(23, 13);
+            this.labelControl1.Size = new System.Drawing.Size(28, 16);
             this.labelControl1.TabIndex = 16;
             this.labelControl1.Text = "Price";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 184);
+            this.labelControl2.Location = new System.Drawing.Point(14, 245);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(22, 13);
+            this.labelControl2.Size = new System.Drawing.Size(25, 16);
             this.labelControl2.TabIndex = 17;
             this.labelControl2.Text = "Cost";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(94, 141);
+            this.txtPrice.Location = new System.Drawing.Point(107, 188);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(142, 20);
+            this.txtPrice.Size = new System.Drawing.Size(162, 22);
             this.txtPrice.TabIndex = 18;
             // 
             // txtCost
             // 
-            this.txtCost.Location = new System.Drawing.Point(94, 177);
+            this.txtCost.Location = new System.Drawing.Point(107, 236);
+            this.txtCost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(142, 20);
+            this.txtCost.Size = new System.Drawing.Size(162, 22);
             this.txtCost.TabIndex = 19;
             // 
             // AddNewPetForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(322, 379);
+            this.ControlBox = false;
             this.Controls.Add(this.txtCost);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.labelControl2);
@@ -157,6 +170,10 @@
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.ctrlBreed);
             this.Controls.Add(this.ctrlAnimalType);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddNewPetForm";
             this.Text = "New Pet";
             this.Load += new System.EventHandler(this.AddNewPetForm_Load);
