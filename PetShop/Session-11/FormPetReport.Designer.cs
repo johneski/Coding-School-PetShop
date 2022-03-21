@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraLayout.LayoutControlItem ctrlAnimalType;
+            this.comboBoxAnimalType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnter = new DevExpress.XtraEditors.SimpleButton();
@@ -53,8 +54,9 @@
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.comboBoxAnimalType = new DevExpress.XtraEditors.ComboBoxEdit();
             ctrlAnimalType = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(ctrlAnimalType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxAnimalType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxMonth.Properties)).BeginInit();
@@ -76,9 +78,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxAnimalType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(ctrlAnimalType)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ctrlAnimalType
+            // 
+            ctrlAnimalType.Control = this.comboBoxAnimalType;
+            ctrlAnimalType.CustomizationFormText = "ctrlAnimalType";
+            ctrlAnimalType.Location = new System.Drawing.Point(0, 55);
+            ctrlAnimalType.Name = "ctrlAnimalType";
+            ctrlAnimalType.Size = new System.Drawing.Size(186, 26);
+            ctrlAnimalType.Text = "Animal Type";
+            ctrlAnimalType.TextSize = new System.Drawing.Size(71, 16);
+            // 
+            // comboBoxAnimalType
+            // 
+            this.comboBoxAnimalType.Location = new System.Drawing.Point(95, 67);
+            this.comboBoxAnimalType.Name = "comboBoxAnimalType";
+            this.comboBoxAnimalType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxAnimalType.Properties.Items.AddRange(new object[] {
+            "Bird",
+            "Cat",
+            "Dog",
+            "Snake",
+            "Fish",
+            "Turtle"});
+            this.comboBoxAnimalType.Size = new System.Drawing.Size(99, 22);
+            this.comboBoxAnimalType.StyleController = this.layoutControl1;
+            this.comboBoxAnimalType.TabIndex = 7;
             // 
             // layoutControl1
             // 
@@ -268,9 +295,9 @@
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(229, 55);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(186, 55);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(161, 26);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(204, 26);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem9
@@ -323,31 +350,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // comboBoxAnimalType
-            // 
-            this.comboBoxAnimalType.Location = new System.Drawing.Point(95, 67);
-            this.comboBoxAnimalType.Name = "comboBoxAnimalType";
-            this.comboBoxAnimalType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxAnimalType.Properties.Items.AddRange(new object[] {
-            "Bird",
-            "Reptilian",
-            "Mammal",
-            "Fish"});
-            this.comboBoxAnimalType.Size = new System.Drawing.Size(142, 22);
-            this.comboBoxAnimalType.StyleController = this.layoutControl1;
-            this.comboBoxAnimalType.TabIndex = 7;
-            // 
-            // ctrlAnimalType
-            // 
-            ctrlAnimalType.Control = this.comboBoxAnimalType;
-            ctrlAnimalType.CustomizationFormText = "ctrlAnimalType";
-            ctrlAnimalType.Location = new System.Drawing.Point(0, 55);
-            ctrlAnimalType.Name = "ctrlAnimalType";
-            ctrlAnimalType.Size = new System.Drawing.Size(229, 26);
-            ctrlAnimalType.Text = "Animal Type";
-            ctrlAnimalType.TextSize = new System.Drawing.Size(71, 16);
-            // 
             // FormPetReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -357,6 +359,8 @@
             this.Name = "FormPetReport";
             this.Text = "FormPetReport";
             this.Load += new System.EventHandler(this.FormPetReport_Load);
+            ((System.ComponentModel.ISupportInitialize)(ctrlAnimalType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxAnimalType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxMonth.Properties)).EndInit();
@@ -378,8 +382,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxAnimalType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(ctrlAnimalType)).EndInit();
             this.ResumeLayout(false);
 
         }

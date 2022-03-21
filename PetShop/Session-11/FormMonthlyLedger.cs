@@ -46,13 +46,13 @@ namespace Session_11
 
 
 
-
+/*
             var t1 = new Transaction();
             var t2 = new Transaction();
             var t3 = new Transaction();
             _listOfTransactions.Add(t1);
             _listOfTransactions.Add(t2);
-            _listOfTransactions.Add(t3);
+            _listOfTransactions.Add(t3);*/
 
 
 
