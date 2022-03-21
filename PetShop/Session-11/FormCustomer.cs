@@ -72,7 +72,7 @@ namespace Session_11
 
             FillControlsWithGrid(_customer);
 
-            
+
 
 
 
@@ -81,10 +81,10 @@ namespace Session_11
         private void btnSave_Click_1(object sender, EventArgs e)
         {
 
-           /* if (!(CustomerList.Count == 1 && CustomerList[0].Tin == "Insert TIN"))
-            {
-                RemoveEmptyCustomer();
-            }*/
+            /* if (!(CustomerList.Count == 1 && CustomerList[0].Tin == "Insert TIN"))
+             {
+                 RemoveEmptyCustomer();
+             }*/
 
 
 
@@ -104,8 +104,8 @@ namespace Session_11
                 gridViewCustomers.RefreshData();
 
             }
-              
-            
+
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -133,9 +133,9 @@ namespace Session_11
 
         private void FormCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
-         
-             KeepChanges(_customerpolicies);
-           
+
+            KeepChanges(_customerpolicies);
+
         }
 
 
@@ -168,9 +168,9 @@ namespace Session_11
             catch (Exception)
             {
 
-               
-            }       
-            
+
+            }
+
 
         }
         private void SaveCustomerToGrid(CustomerPolicies _customerpolicies)
@@ -189,14 +189,14 @@ namespace Session_11
             }
             else
             {
-                MessageBox.Show("Invalid Input, could not save last input.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
+                MessageBox.Show("Could not save last input.", "Save-Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.RightAlign);
                 gridViewCustomers.RefreshData();
             }
         }
         private void InitialView()
         {
             gridViewCustomers.FocusedRowChanged += OnRowFocusChange;
-          /*  gridViewCustomers.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");*/
+            /*  gridViewCustomers.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");*/
 
             gridViewCustomers.OptionsBehavior.Editable = false;
 
@@ -269,11 +269,11 @@ namespace Session_11
         private void DeleteCustomer()
         {
 
-            if (!(CustomerList.Count==1 && CustomerList[0].Tin=="Insert TIN"))
+            if (!(CustomerList.Count == 1 && CustomerList[0].Tin == "Insert TIN"))
             {
-                
+
                 var index = gridViewCustomers.FocusedRowHandle;
-                if(CustomerList[index].Tin != "Insert TIN")
+                if (CustomerList[index].Tin != "Insert TIN")
                 {
                     var msg = string.Format("  Are you sure you want to delete {0} ", CustomerList[index].Fullname);
 
@@ -300,11 +300,11 @@ namespace Session_11
                         MessageBox.Show(msg2);
                     }
                 }
-                
-                
+
+
 
             }
-            
+
 
         }
         private void SaveCustomer()
@@ -328,9 +328,9 @@ namespace Session_11
             catch (Exception)
             {
 
-                
+
             }
-            
+
         }
         private void KeepChanges(CustomerPolicies _customerpolicies)
         {
@@ -350,7 +350,7 @@ namespace Session_11
             if (result == DialogResult.Yes)
             {
                 SaveCustomerToGrid(_customerpolicies);
-                if (CustomerList[^1].Tin=="Insert TIN")
+                if (CustomerList[^1].Tin == "Insert TIN")
                 {
                     RemoveEmptyCustomer();
                     SaveCustomer();
@@ -387,7 +387,7 @@ namespace Session_11
         }
         private void LoadToCustomerList()
         {
-           
+
             CustomerList = _petshopManager.GetCustomers();
             if (CustomerList.Count == 0)
             {
