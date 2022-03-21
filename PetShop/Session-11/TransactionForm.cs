@@ -40,7 +40,7 @@ namespace Session_11
             grvTransaction.OptionsBehavior.Editable = false;
             spinPetFoodQty.Properties.MinValue = 0;
 
-            _currentEmployee = _petShop.GetEmployees().FirstOrDefault();
+            _currentEmployee = _petShop.GetEmployees().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
             txtUser.EditValue = _currentEmployee.Name;
             int index = 0;
             foreach(Pet pet in pets)
