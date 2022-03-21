@@ -17,7 +17,7 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         
         private List<Pet> _listOfPet;
-        public PetShopManager petShopManager=new PetShopManager();
+        public PetShopManager petShopManager;
         private AnimalType _animalType;
         private int _month;
         private int _year;
@@ -36,8 +36,12 @@ namespace Session_11
             GetInitial();
 
             DisplayQualities();
+            
 
-            comboBoxAnimalType.Properties.Items.AddRange(Enum.GetValues(typeof(AnimalType)));
+
+
+
+
 
         }
         private void btnEnter_Click(object sender, EventArgs e)
@@ -74,7 +78,9 @@ namespace Session_11
             ctrlTotalSold.ReadOnly = true;
                         
             ctrlTotalSold.BackColor = System.Drawing.SystemColors.Window;
-            
+            comboBoxAnimalType.Properties.Items.AddRange(Enum.GetValues(typeof(AnimalType)));
+            gridView1.OptionsBehavior.Editable = false;
+
         }
 
         private int GetMonth()
@@ -101,7 +107,7 @@ namespace Session_11
 
                 if (_year > DateTime.Now.Year || (_year == DateTime.Now.Year && month > DateTime.Now.Month))
                 {
-                    MessageBox.Show("We can not predict your future income yet, please enter a valid date");
+                    MessageBox.Show("We can not predict your future  yet, please enter a valid date");
                     return false;
 
                 }
@@ -172,13 +178,30 @@ namespace Session_11
                     _totalSold++;
                    
                 }
+               
 
 
             }
-            
+
+            //Defined an object and bind it to the grid. We can just show the results it to the text boxes but I think it was asked to be done like this.
+            Enum.TryParse(comboBoxAnimalType.Text,out AnimalType type);
+
+
+            ctrlTotalSold.Text = (_totalSold).ToString();
+            PetReport petReport = new PetReport()
+            {
+                Year = Convert.ToInt32(ctrlYear.Text),
+                Month = comboBoxMonth.SelectedIndex + 1,
+                Type = type,
+                TotalSold =Convert.ToInt32(_totalSold)
+            };
+            BindingSource bsPetReport = new BindingSource();
+            bsPetReport.DataSource = petReport;
+            gridPetReport.DataSource = bsPetReport;
+            gridPetReport.Refresh();
 
             
-            ctrlTotalSold.Text = (_totalSold).ToString();
+
 
         }
 

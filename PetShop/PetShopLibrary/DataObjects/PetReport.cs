@@ -32,5 +32,9 @@ namespace PetShopLibrary
             Year = year;
             Month = month;
         }
+        public PetReport()
+        {
+
+        }
     }
 }

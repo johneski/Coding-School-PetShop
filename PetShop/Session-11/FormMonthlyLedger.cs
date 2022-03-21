@@ -20,7 +20,7 @@ namespace Session_11
         private List<Transaction> _listOfTransactions;
         private List<PetFood> _listPetFoods;
         private List<Pet> _listOfPet;
-        public PetShopManager _petShopManager =new PetShopManager();
+        public PetShopManager _petShopManager;
         private int _month;
         private int _year;
 
@@ -43,20 +43,6 @@ namespace Session_11
 
             DisplayQualities();
 
-
-
-
-
-            //var t1 = new Transaction();
-            //var t2 = new Transaction();
-            //var t3 = new Transaction();
-            //_listOfTransactions.Add(t1);
-            //_listOfTransactions.Add(t2);
-            //_listOfTransactions.Add(t3);
-
-
-
-            
 
         }
 
@@ -113,6 +99,21 @@ namespace Session_11
             ctrlIncome.Text = _income.ToString();
             ctrlTotal.Text = (_income - _expenses).ToString();
 
+
+            //Defined an object and bind it to the grid. We can just show the results it to the text boxes but I think it was asked to be done like this.
+            MonthlyLedger ledger = new MonthlyLedger()
+            {
+                Year = Convert.ToInt32(ctrlYear.Text),
+                Month = comboBoxMonth.SelectedIndex + 1,
+                Income = _income,
+                Expences = (decimal)_expenses,
+                Total= (decimal)(_income - _expenses)
+            };
+            BindingSource bsLedger = new BindingSource();
+            bsLedger.DataSource = ledger;
+            gridLedger.DataSource = bsLedger;
+            gridLedger.Refresh();
+
         }
         private void DisplayQualities()
         {
@@ -124,6 +125,7 @@ namespace Session_11
             ctrlExpenses.BackColor = System.Drawing.SystemColors.Window;
             ctrlIncome.BackColor = System.Drawing.SystemColors.Window;
             ctrlTotal.BackColor = System.Drawing.SystemColors.Window;
+            gridView1.OptionsBehavior.Editable = false;
         }
 
         private void GetInitial()
