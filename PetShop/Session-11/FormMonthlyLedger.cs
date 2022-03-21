@@ -50,7 +50,7 @@ namespace Session_11
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            ClearResult();
+            
             _month =GetMonth();
             
 
@@ -95,10 +95,6 @@ namespace Session_11
             }
             _expenses += RENT;
 
-            ctrlExpenses.Text = _expenses.ToString();
-            ctrlIncome.Text = _income.ToString();
-            ctrlTotal.Text = (_income - _expenses).ToString();
-
 
             //Defined an object and bind it to the grid. We can just show the results it to the text boxes but I think it was asked to be done like this.
             MonthlyLedger ledger = new MonthlyLedger()
@@ -118,13 +114,6 @@ namespace Session_11
         private void DisplayQualities()
         {
             comboBoxMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            ctrlExpenses.ReadOnly = true;
-            ctrlIncome.ReadOnly = true;
-            ctrlTotal.ReadOnly = true;
-
-            ctrlExpenses.BackColor = System.Drawing.SystemColors.Window;
-            ctrlIncome.BackColor = System.Drawing.SystemColors.Window;
-            ctrlTotal.BackColor = System.Drawing.SystemColors.Window;
             gridView1.OptionsBehavior.Editable = false;
         }
 
@@ -194,13 +183,6 @@ namespace Session_11
                 return (ValidDate(year,month));
             }
             return false;
-        }
-
-        private void ClearResult()
-        {
-            ctrlExpenses.Text = string.Empty;
-            ctrlIncome.Text = string.Empty;
-            ctrlTotal.Text = string.Empty;
         }
 
     }

@@ -46,7 +46,7 @@ namespace Session_11
         }
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            ClearResult();
+            
             _month = GetMonth();
 
 
@@ -75,9 +75,6 @@ namespace Session_11
             comboBoxMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             comboBoxAnimalType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
 
-            ctrlTotalSold.ReadOnly = true;
-                        
-            ctrlTotalSold.BackColor = System.Drawing.SystemColors.Window;
             comboBoxAnimalType.Properties.Items.AddRange(Enum.GetValues(typeof(AnimalType)));
             gridView1.OptionsBehavior.Editable = false;
 
@@ -147,11 +144,7 @@ namespace Session_11
             }
             return !(animalType == -1); 
         }
-        private void ClearResult()
-        {
-            ctrlTotalSold.Text = string.Empty;
-            
-        }
+        
 
         public void IncomeExpensesTotal(int month, string year)
         {
@@ -187,7 +180,6 @@ namespace Session_11
             Enum.TryParse(comboBoxAnimalType.Text,out AnimalType type);
 
 
-            ctrlTotalSold.Text = (_totalSold).ToString();
             PetReport petReport = new PetReport()
             {
                 Year = Convert.ToInt32(ctrlYear.Text),
