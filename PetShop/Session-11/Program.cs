@@ -23,7 +23,7 @@ namespace Session_11
                     Surname = "",
                     ObjectStatus = PetShopLibrary.DataObjects.Status.Active,
                     Salary = 0,
-                    Type = EmployeeType.Manager
+                    EmpType = EmployeeType.Manager
                 });
             }
             

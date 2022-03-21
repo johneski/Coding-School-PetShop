@@ -44,8 +44,8 @@ namespace Session_11
                 {
                     Name = name,
                     Surname = surname,
-                    Salary = Convert.ToDecimal(salary),
-                    Type = type
+                    Salary = Convert.ToDecimal(salary.Split()[0]),
+                    EmpType = type
                 };
                 
                 _petShopManager.Add(emp);

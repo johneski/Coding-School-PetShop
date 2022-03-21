@@ -49,6 +49,7 @@ namespace Session_11
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Employee employee = grvEmployees.GetFocusedRow() as Employee;
+            if (employee == null) return;
             petShopManager.Delete(employee);
             petShopManager.Save();
             grvEmployees.RefreshData();
