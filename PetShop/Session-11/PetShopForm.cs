@@ -59,20 +59,21 @@ namespace Session_11
             loginform.ShowDialog();
         }
 
-        private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMonthlyLedger form = new FormMonthlyLedger() { _petShopManager = _petShop};
-            form.ShowDialog();
-        }
-
-        private void petReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormPetReport form = new FormPetReport() { petShopManager = _petShop};
-            form.ShowDialog();
-
-        }
-
+      
       
 
+        private void petReportToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FormPetReport form = new FormPetReport() { petShopManager = _petShop };
+            form.ShowDialog();
+
+        }
+
+        private void monthlyLedgerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            FormMonthlyLedger form = new FormMonthlyLedger() { _petShopManager = _petShop };
+            form.ShowDialog();
+        }
     }
 }
