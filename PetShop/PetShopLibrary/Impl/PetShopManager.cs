@@ -63,6 +63,17 @@ namespace PetShopLibrary
             petFood.ObjectStatus = DataObjects.Status.Inactive;
         }
 
+        public void DeletePetFoodRange(string brand, int qty)
+        {
+            if(qty == 0) return;
+
+            List<PetFood> petFoods = GetPetFoods().FindAll(x => x.Brand.Equals(brand) && x.ObjectStatus.Equals(Status.Active)).Take(qty).ToList();
+            foreach(PetFood food in petFoods)
+            {
+                Delete(food);
+            }
+        }
+
 
         public List<Customer> GetCustomers()
         {

@@ -14,20 +14,19 @@ namespace Session_11
 {
     public partial class FormCustomer : Form
     {
-        //LOad from jsonfile
-        //Petshop petshop=load(json)
-        //PetShop petShop = new PetShop();
+       
         private Customer _customer = new Customer();
         CustomerPolicies _customerpolicies = new CustomerPolicies();
         private List<Customer> CustomerList;
         private PetShopManager _petshopManager;
         private bool allowChange = false;
-        private bool _lastactionsave = true;
+        
 
 
         public FormCustomer(PetShopManager petshopManager)
         {
             InitializeComponent();
+            this.CenterToScreen();
             _petshopManager = petshopManager;
         }
 
@@ -40,9 +39,7 @@ namespace Session_11
 
             LoadToCustomerList();
 
-            //sbisto
-            //ummyCustomers();
-
+            
             SetDataBindings();
         }
         private void bindingPetShopCustomers_CurrentChanged(object sender, EventArgs e)
@@ -81,16 +78,13 @@ namespace Session_11
         private void btnSave_Click_1(object sender, EventArgs e)
         {
 
-            /* if (!(CustomerList.Count == 1 && CustomerList[0].Tin == "Insert TIN"))
-             {
-                 RemoveEmptyCustomer();
-             }*/
+           
 
 
 
             SaveCustomerToGrid(_customerpolicies);
 
-            if (CustomerList[0].Tin != "Insert TIN")
+            if (CustomerList[0].Tin != "Insert TIN")// == happens only when the list is empty
             {
                 RemoveEmptyCustomer();
                 SaveCustomer();
@@ -116,7 +110,7 @@ namespace Session_11
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            //RemoveEmptyCustomer();
+            
             Close();
         }
 
@@ -135,6 +129,11 @@ namespace Session_11
         {
 
             KeepChanges(_customerpolicies);
+
+        }
+        private void OnRowFocusChange(object sender, EventArgs e)
+        {
+            OutOfFocusDeleteNewCustomer();
 
         }
 
@@ -174,7 +173,7 @@ namespace Session_11
 
         }
         private void SaveCustomerToGrid(CustomerPolicies _customerpolicies)
-        {//mou lipe to jsonsave mono
+        {
             if (_customerpolicies.CheckValidSave(ctrlPhoneNumber.Text, ctrlTIN.Text))
             {
 
@@ -196,7 +195,7 @@ namespace Session_11
         private void InitialView()
         {
             gridViewCustomers.FocusedRowChanged += OnRowFocusChange;
-            /*  gridViewCustomers.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active'");*/
+            
 
             gridViewCustomers.OptionsBehavior.Editable = false;
 
@@ -231,22 +230,13 @@ namespace Session_11
         {
             BindingSource bsCustomers = new BindingSource();
             bsCustomers.DataSource = CustomerList;
-            gridCustomerList.DataSource = bsCustomers.DataSource;
+            gridCustomerList.DataSource = bsCustomers;
 
 
 
         }
 
-        private void OnRowFocusChange(object sender, EventArgs e)
-        {
-            var row = gridViewCustomers.GetRow(gridViewCustomers.RowCount - 1) as Customer;
-            if (row.Tin == "Insert TIN" && allowChange)
-            {
-                gridViewCustomers.DeleteRow(gridViewCustomers.RowCount - 1);
-                allowChange = true;
-            }
-
-        }
+       
 
         private void NewCustomer()
         {
@@ -336,13 +326,7 @@ namespace Session_11
         {
             _customer = gridViewCustomers.GetFocusedRow() as Customer;
 
-            /*if (
-           _customer.Name == ctrlName.EditValue &&
-           _customer.Surname == ctrlSurname.EditValue &&
-           _customer.PhoneNumber == ctrlPhoneNumber.EditValue &&
-           _customer.Tin == ctrlTIN.EditValue)
-            {
-            }*/
+            
 
             var msg2 = "Do you want to save the changes?";
             MessageBoxButtons buttons1 = MessageBoxButtons.YesNo;
@@ -381,10 +365,7 @@ namespace Session_11
 
 
         }
-        private bool NewlastCustomernew()
-        {
-            return (CustomerList[^1].Tin == "Insert TIN");
-        }
+        
         private void LoadToCustomerList()
         {
 
@@ -396,6 +377,16 @@ namespace Session_11
 
             }
 
+        }
+
+        private void OutOfFocusDeleteNewCustomer()
+        {
+            var row = gridViewCustomers.GetRow(gridViewCustomers.RowCount - 1) as Customer;
+            if (row.Tin == "Insert TIN" && allowChange)
+            {
+                gridViewCustomers.DeleteRow(gridViewCustomers.RowCount - 1);
+                allowChange = true;
+            }
         }
 
 

@@ -17,8 +17,9 @@ namespace Session_11
         private List<Employee> _employees;
         public PetShopManager petShopManager;
         //private Employee _employee;
-        public EmployeesForm()
+        public EmployeesForm(PetShopManager petShop)
         {
+            petShopManager = petShop;
             InitializeComponent();
             this.CenterToScreen();
         }
@@ -49,7 +50,7 @@ namespace Session_11
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Employee employee = grvEmployees.GetFocusedRow() as Employee;
-            if (employee == null) return;
+            if (employee == null || employee.EmpType.Equals(EmployeeType.Manager) || employee.EmpType.Equals(EmployeeType.CEO)) return;
             petShopManager.Delete(employee);
             petShopManager.Save();
             grvEmployees.RefreshData();

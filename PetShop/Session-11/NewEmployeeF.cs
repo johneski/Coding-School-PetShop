@@ -40,6 +40,11 @@ namespace Session_11
             {
 
                 EmployeeType type = (EmployeeType)cmbIndex;
+                if (type.Equals(EmployeeType.Manager))
+                {
+                    MessageBox.Show("There is already a Manager!");
+                    return;
+                }
                 Employee emp = new Employee()
                 {
                     Name = name,

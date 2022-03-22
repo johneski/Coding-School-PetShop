@@ -15,12 +15,25 @@ namespace Session_11
     public partial class FormMonthlyLedger : Form
     {
         decimal RENT = 2000;
-
+        private List<string> _months = new List<string> {
+                                                        "January",
+                                                        "February",
+                                                        "March",
+                                                        "April",
+                                                        "May",
+                                                        "June",
+                                                        "July",
+                                                        "August",
+                                                        "September",
+                                                        "October",
+                                                        "November",
+                                                        "December"
+                                                                };
 
         private List<Transaction> _listOfTransactions;
         private List<PetFood> _listPetFoods;
         private List<Pet> _listOfPet;
-        public PetShopManager petShopManager;
+        public PetShopManager _petShopManager;
         private int _month;
         private int _year;
 
@@ -31,6 +44,7 @@ namespace Session_11
         public FormMonthlyLedger()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         #region FormCustomer_UI
@@ -44,27 +58,13 @@ namespace Session_11
             DisplayQualities();
 
 
-
-
-
-            //var t1 = new Transaction();
-            //var t2 = new Transaction();
-            //var t3 = new Transaction();
-            //_listOfTransactions.Add(t1);
-            //_listOfTransactions.Add(t2);
-            //_listOfTransactions.Add(t3);
-
-
-
-            
-
         }
 
         
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            ClearResult();
+            
             _month =GetMonth();
             
 
@@ -87,7 +87,7 @@ namespace Session_11
             decimal? _expenses = 0;
 
 
-            var _listOfMonthYearTransactions = petShopManager.GetTransactions().Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
+            var _listOfMonthYearTransactions = _petShopManager.GetTransactions().Where(x => (x.Date.Month == month) && x.Date.Year == Int32.Parse(year));
 
             foreach (Transaction transaction in _listOfMonthYearTransactions)
             {
@@ -109,30 +109,35 @@ namespace Session_11
             }
             _expenses += RENT;
 
-            ctrlExpenses.Text = _expenses.ToString();
-            ctrlIncome.Text = _income.ToString();
-            ctrlTotal.Text = (_income - _expenses).ToString();
+
+            //Defined an object and bind it to the grid. We can just show the results it to the text boxes but I think it was asked to be done like this.
+            MonthlyLedger ledger = new MonthlyLedger()
+            {
+                Year = Convert.ToInt32(ctrlYear.Text),
+                Month = _months[comboBoxMonth.SelectedIndex],
+                Income = _income,
+                Expences = (decimal)_expenses,
+                Total= (decimal)(_income - _expenses)
+            };
+            BindingSource bsLedger = new BindingSource();
+            bsLedger.DataSource = ledger;
+            gridLedger.DataSource = bsLedger;
+            gridLedger.Refresh();
 
         }
         private void DisplayQualities()
         {
             comboBoxMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            ctrlExpenses.ReadOnly = true;
-            ctrlIncome.ReadOnly = true;
-            ctrlTotal.ReadOnly = true;
-
-            ctrlExpenses.BackColor = System.Drawing.SystemColors.Window;
-            ctrlIncome.BackColor = System.Drawing.SystemColors.Window;
-            ctrlTotal.BackColor = System.Drawing.SystemColors.Window;
+            gridView1.OptionsBehavior.Editable = false;
         }
 
         private void GetInitial()
         {
            
 
-            _listOfTransactions = petShopManager.GetTransactions();
-            _listPetFoods = petShopManager.GetPetFoods();
-            _listOfPet = petShopManager.GetPets();
+            _listOfTransactions = _petShopManager.GetTransactions();
+            _listPetFoods = _petShopManager.GetPetFoods();
+            _listOfPet = _petShopManager.GetPets();
 
 
             
@@ -192,13 +197,6 @@ namespace Session_11
                 return (ValidDate(year,month));
             }
             return false;
-        }
-
-        private void ClearResult()
-        {
-            ctrlExpenses.Text = string.Empty;
-            ctrlIncome.Text = string.Empty;
-            ctrlTotal.Text = string.Empty;
         }
 
     }

@@ -39,11 +39,25 @@ namespace Session_11
             grvTransaction.FocusedRowChanged += OnFocusRowChange;
             grvTransaction.OptionsBehavior.Editable = false;
             spinPetFoodQty.Properties.MinValue = 0;
-
-            _currentEmployee = _petShop.GetEmployees().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
-            txtUser.EditValue = _currentEmployee.Name;
             int index = 0;
-            foreach(Pet pet in pets)
+            _currentEmployee = _petShop.GetEmployees().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
+            if(_currentEmployee != null)
+            {
+                txtUser.EditValue = _currentEmployee.Name;
+            }
+
+            index = 0;
+            _currentPet = _petShop.GetPets().FirstOrDefault(x => x.ObjectStatus.Equals(Status.Active));
+            if(_currentPet != null)
+            {
+                index = _petShop.GetPets().IndexOf(_currentPet);
+                grvTransaction.FocusedRowHandle = index;
+            }
+            
+            
+            grvTransaction.FocusedRowHandle = index;
+
+            foreach (Pet pet in pets)
             {
                 if(pet.ObjectStatus == Status.Active)
                 {
@@ -58,6 +72,7 @@ namespace Session_11
             grvTransaction.Columns["ObjectStatus"].FilterInfo = new ColumnFilterInfo("ObjectStatus == 'Active' and HealthStatus != 'Unhealthy'");
             grvTransaction.Columns["ID"].Visible = false;
             grvTransaction.Columns["ObjectStatus"].Visible = false;
+            grvTransaction.Columns["FoodType"].Visible = false;
         }
 
         private void OnFocusRowChange(object sender, FocusedRowChangedEventArgs e)
@@ -67,6 +82,7 @@ namespace Session_11
 
             
             var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);
+            grvTransaction.RefreshData();
 
             if (availableBrands.Count > 0)
             {
@@ -110,11 +126,15 @@ namespace Session_11
         private void CalcTotalPrice()
         {
             _total = _petShop.GetTotalPrice(_currentPet, int.Parse(spinPetFoodQty.Value.ToString()));
-            txtTotal.EditValue = _total;
+            txtTotal.EditValue = _total;            
         }
 
         private void txtTIN_KeyPress(object sender, KeyPressEventArgs e)
         {
+            txtName.EditValue = String.Empty;
+            txtSurName.EditValue = String.Empty;
+            txtPhoneNumber.EditValue = String.Empty;
+
             if (e.KeyChar != 13) return;
 
             string TIN = (string)txtTIN.EditValue;
@@ -149,7 +169,12 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (_currentCustomer == null || _currentPet == null) return;
+            if (_currentCustomer == null || _currentPet == null)
+            {
+                MessageBox.Show("Please fill all the fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
             Guid user = _currentEmployee.ID;
             Guid petId = (Guid)_currentPet.ID;
@@ -162,8 +187,20 @@ namespace Session_11
             TransactionView transView = new TransactionView(_petShop);
             Transaction transaction = transView.CreateView(user, custId, petId, petPrice, foodId, qty, foodPrice, _total);
             _petShop.Add(transaction);
+            _petShop.Delete(_currentPet);
+            _petShop.DeletePetFoodRange(_currentPet.FoodType.Brand, qty);
             _petShop.Save();
-            MessageBox.Show("Saved");
+
+            grvTransaction.RefreshData();
+            MessageBox.Show("Transaction successfully Completed!");
+        }
+
+        private void cmbFoodBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = cmbFoodBrand.SelectedIndex;
+            var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);
+            _currentPet.FoodType.Brand = availableBrands[index];
+            txtFoodPrice.EditValue = _petShop.GetFoodPrice(_currentPet);
         }
     }
 }

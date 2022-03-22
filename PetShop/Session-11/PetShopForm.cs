@@ -42,7 +42,7 @@ namespace Session_11
 
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmployeesForm employeesForm = new EmployeesForm() { petShopManager = _petShop};
+            EmployeesForm employeesForm = new EmployeesForm(_petShop);
             employeesForm.ShowDialog();
         }
 
@@ -59,30 +59,21 @@ namespace Session_11
             loginform.ShowDialog();
         }
 
-        private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormMonthlyLedger form = new FormMonthlyLedger() { petShopManager = _petShop};
-            form.ShowDialog();
-        }
+      
+      
 
-        private void petReportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void petReportToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FormPetReport form = new FormPetReport() { petShopManager = _petShop};
+            FormPetReport form = new FormPetReport() { petShopManager = _petShop };
             form.ShowDialog();
 
         }
 
-        private void petReportStripMenuItem_Click(object sender, EventArgs e)
+        private void monthlyLedgerToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Form formpetreport = new FormPetReport() { petShopManager = _petShop};
-            formpetreport.ShowDialog();
-        }
 
-        private void monthlyLedgerStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form formpetreport = new FormMonthlyLedger() { petShopManager = _petShop };
-            formpetreport.ShowDialog();
-
+            FormMonthlyLedger form = new FormMonthlyLedger() { _petShopManager = _petShop };
+            form.ShowDialog();
         }
     }
 }
