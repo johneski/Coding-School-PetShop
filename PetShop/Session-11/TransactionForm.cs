@@ -191,5 +191,13 @@ namespace Session_11
             _petShop.DeletePetFoodRange(_currentPet.FoodType.Brand, qty);
             _petShop.Save();
         }
+
+        private void cmbFoodBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = cmbFoodBrand.SelectedIndex;
+            var availableBrands = _petShop.GetAvailableFoodBrands(_currentPet.AnimalType);
+            _currentPet.FoodType.Brand = availableBrands[index];
+            txtFoodPrice.EditValue = _petShop.GetFoodPrice(_currentPet);
+        }
     }
 }
